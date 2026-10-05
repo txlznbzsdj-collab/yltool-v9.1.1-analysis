@@ -1,0 +1,2807 @@
+"use strict";
+(self.rspackChunkcom_foxdebug_acode = self.rspackChunkcom_foxdebug_acode || []).push([
+  [1156], {
+    71607: function(e, t, s) {
+      s.r(t), t.default = function() {
+        s.e(9607).then(s.bind(s, 7968)).then(e => {
+          e.default()
+        })
+      }
+    },
+    11726: function(e, t, s) {
+      s.r(t), t.default = function(e) {
+        Promise.all([s.e(7536), s.e(4234), s.e(3514)]).then(s.bind(s, 9296)).then(t => {
+          (0, t.default)(e)
+        })
+      }
+    },
+    49020: function(e, t, s) {
+      var n = s(40490),
+        i = s(39037);
+
+      function r() {
+        let e = strings.settings,
+          t = i.default.value.fileBrowser,
+          s = [{
+            key: "sortByName",
+            text: strings["sort by name"],
+            checkbox: t.sortByName
+          }, {
+            key: "showHiddenFiles",
+            text: strings["show hidden files"],
+            checkbox: t.showHiddenFiles,
+            info: strings["info-showHiddenFiles"]
+          }, {
+            key: "listFiles",
+            text: strings["title-listfiles"],
+            checkbox: !1 !== t.listFiles,
+            info: strings["info-listFiles"] || "List all files in opened folders for quick search"
+          }];
+        return (0, n.A)(e, s, function(e, t) {
+          i.default.value.fileBrowser[e] = t, i.default.update()
+        }, void 0, {
+          preserveOrder: !0,
+          pageClassName: "detail-settings-page",
+          listClassName: "detail-settings-list",
+          groupByDefault: !0
+        })
+      }
+      s.d(t, {
+        A: function() {
+          return r
+        }
+      })
+    },
+    17901: function(e, t, s) {
+      s.r(t);
+      var n = s(4859),
+        i = s(40490),
+        r = s(39037);
+
+      function o(e) {
+        let t = strings.formatter,
+          s = r.default.value,
+          {
+            formatters: o
+          } = acode,
+          l = strings.languages || "Languages",
+          a = (0, n.LP)().slice().sort((e, t) => String(e.caption || e.name).localeCompare(String(t.caption || t.name))).map(e => {
+            let {
+              name: t,
+              caption: n,
+              extensions: i
+            } = e, r = s.formatter[t] || null, a = String(i).split("|").filter(e => e && !e.startsWith("^")), u = acode.getFormatterFor(a), c = a[0] || t;
+            return {
+              key: t,
+              text: n,
+              fileIcon: {
+                name: `sample.${c}`
+              },
+              value: r,
+              valueText: e => {
+                let t = o.find(({
+                  id: t
+                }) => t === e);
+                return t ? t.name : strings.none
+              },
+              select: u,
+              chevron: !0,
+              category: l
+            }
+          });
+        a.unshift({
+          note: strings["settings-note-formatter-settings"]
+        }), (0, i.A)(t, a, function(e, t) {
+          null === t ? delete s.formatter[e] : s.formatter[e] = t, r.default.update()
+        }, "separate", {
+          preserveOrder: !0,
+          pageClassName: "detail-settings-page formatter-settings-page",
+          listClassName: "detail-settings-list formatter-settings-list",
+          notePosition: "top"
+        }).show(e)
+      }
+      s.d(t, {
+        default: function() {
+          return o
+        }
+      })
+    },
+    3319: function(e, t, s) {
+      let n;
+      s.r(t), s.d(t, {
+        default: function() {
+          return eV
+        }
+      });
+      var i = s(40490),
+        r = s(85384),
+        o = s(48180);
+      let l = [{
+        id: "default",
+        label: "Default",
+        image: "icons/ic_acode_default.svg"
+      }, {
+        id: "pro",
+        label: "游龙编程 Pro",
+        image: "icons/ic_acode_pro.svg",
+        requiresPro: !0
+      }, {
+        id: "midnight_circuit",
+        label: "Midnight Circuit",
+        image: "icons/ic_acode_midnight_circuit.svg"
+      }, {
+        id: "aurora_pulse",
+        label: "Aurora Pulse",
+        image: "icons/ic_acode_aurora_pulse.svg"
+      }, {
+        id: "terminal_glow",
+        label: "Terminal Glow",
+        image: "icons/ic_acode_terminal_glow.svg"
+      }, {
+        id: "solar_flare",
+        label: "Solar Flare",
+        image: "icons/ic_acode_solar_flare.svg"
+      }, {
+        id: "blueprint",
+        label: "Blueprint",
+        image: "icons/ic_acode_blueprint.svg"
+      }, {
+        id: "pixel_party",
+        label: "Pixel Party",
+        image: "icons/ic_acode_pixel_party.svg"
+      }, {
+        id: "prism",
+        label: "Prism",
+        image: "icons/ic_acode_prism.svg"
+      }, {
+        id: "porcelain",
+        label: "Porcelain",
+        image: "icons/ic_acode_porcelain.svg"
+      }, {
+        id: "tangerine",
+        label: "Tangerine",
+        image: "icons/ic_acode_tangerine.svg"
+      }, {
+        id: "tidal",
+        label: "Tidal",
+        image: "icons/ic_acode_tidal.svg"
+      }, {
+        id: "lilac",
+        label: "Lilac",
+        image: "icons/ic_acode_lilac.svg"
+      }, {
+        id: "volt",
+        label: "Volt",
+        image: "icons/ic_acode_volt.svg"
+      }, {
+        id: "cobalt",
+        label: "Cobalt",
+        image: "icons/ic_acode_cobalt.svg"
+      }, {
+        id: "glacier",
+        label: "Glacier",
+        image: "icons/ic_acode_glacier.svg"
+      }];
+      l.map(e => e.id);
+      var a = s(77224),
+        u = s(39037),
+        c = s(14765),
+        g = s.n(c),
+        d = s(35025),
+        p = s(33059),
+        f = s(29715);
+
+      function m(e, t, s, n, i, r, o) {
+        try {
+          var l = e[r](o),
+            a = l.value
+        } catch (e) {
+          s(e);
+          return
+        }
+        l.done ? t(a) : Promise.resolve(a).then(n, i)
+      }
+      let v = !1;
+      var y = s(80295);
+      let h = 0;
+
+      function b(e, t, s, n, i, r, o) {
+        try {
+          var l = e[r](o),
+            a = l.value
+        } catch (e) {
+          s(e);
+          return
+        }
+        l.done ? t(a) : Promise.resolve(a).then(n, i)
+      }
+      let k = new Map;
+
+      function x() {
+        return Promise.allSettled(l.map(({
+          image: e
+        }) => (function(e) {
+          if (k.has(e)) return k.get(e);
+          let t = new Image,
+            s = new Promise((s, n) => {
+              t.onload = s, t.onerror = n, t.src = e
+            }).then(() => {
+              var e;
+              return (e = function*() {
+                return "function" == typeof t.decode && (yield t.decode().catch(() => {})), t
+              }, function() {
+                var t = this,
+                  s = arguments;
+                return new Promise(function(n, i) {
+                  var r = e.apply(t, s);
+
+                  function o(e) {
+                    b(r, n, i, o, l, "next", e)
+                  }
+
+                  function l(e) {
+                    b(r, n, i, o, l, "throw", e)
+                  }
+                  o(void 0)
+                })
+              })()
+            }).catch(t => {
+              throw k.delete(e), t
+            }).finally(() => {
+              t.onload = null, t.onerror = null
+            });
+          return k.set(e, s), s
+        })(e)))
+      }
+      var w = s(72192),
+        S = s(82117),
+        A = s(45584),
+        O = s.n(A),
+        _ = s(75064),
+        E = s(5052),
+        P = s(27721),
+        T = s.n(P);
+
+      function C(e, t, s, n, i, r, o) {
+        try {
+          var l = e[r](o),
+            a = l.value
+        } catch (e) {
+          s(e);
+          return
+        }
+        l.done ? t(a) : Promise.resolve(a).then(n, i)
+      }
+      var $ = s(11726),
+        I = s(71607),
+        j = s(57508),
+        N = s(12530),
+        L = s(43028),
+        F = s(76202),
+        D = s(62711),
+        z = s(58588),
+        B = s(25157),
+        M = s(10404);
+
+      function q(e, t, s, n, i, r, o) {
+        try {
+          var l = e[r](o),
+            a = l.value
+        } catch (e) {
+          s(e);
+          return
+        }
+        l.done ? t(a) : Promise.resolve(a).then(n, i)
+      }
+      var R = s(21054),
+        U = s(38709);
+
+      function G(e, t, s, n, i, r, o) {
+        try {
+          var l = e[r](o),
+            a = l.value
+        } catch (e) {
+          s(e);
+          return
+        }
+        l.done ? t(a) : Promise.resolve(a).then(n, i)
+      }
+
+      function W() {
+        let e = u.default.value,
+          t = strings["app settings"].capitalize(),
+          n = strings["app font"] || "App font",
+          r = strings["settings-info-app-font-family"] || "Choose the font used across the app interface.",
+          l = strings.default || "Default",
+          c = {
+            interface: strings["settings-category-interface"],
+            fonts: strings["settings-category-fonts"],
+            filesSessions: strings["settings-category-files-sessions"],
+            advanced: strings["settings-category-advanced"],
+            quickTools: strings["quick tools"]
+          },
+          g = [{
+            key: "lang",
+            text: strings["change language"],
+            value: e.lang,
+            select: M.Ay.list,
+            valueText: e => M.Ay.getName(e),
+            info: strings["settings-info-app-language"],
+            category: c.interface
+          }, {
+            key: "animation",
+            text: strings.animation,
+            value: e.animation,
+            valueText: e => strings[e],
+            select: [
+              ["no", strings.no],
+              ["yes", strings.yes],
+              ["system", strings.system]
+            ],
+            info: strings["settings-info-app-animation"],
+            category: c.interface
+          }, {
+            key: "fullscreen",
+            text: strings.fullscreen.capitalize(),
+            checkbox: e.fullscreen,
+            info: strings["settings-info-app-fullscreen"],
+            category: c.interface
+          }, {
+            key: "uiZoom",
+            text: strings["ui zoom"] || "UI zoom",
+            value: e.uiZoom,
+            valueText: e => `${e}%`,
+            prompt: strings["ui zoom"] || "UI zoom",
+            promptType: "number",
+            promptOptions: {
+              test(e) {
+                if (!/^\d+$/.test(String(e).trim())) return !1;
+                let t = Number(e);
+                return t >= 70 && t <= 160
+              }
+            },
+            info: strings["settings-info-app-ui-zoom"] || "Scale text across the 游龙编程 interface.",
+            category: c.interface
+          }, {
+            key: "keyboardMode",
+            text: strings["keyboard mode"],
+            value: e.keyboardMode,
+            valueText: e => strings[e.replace(/_/g, " ").toLocaleLowerCase()],
+            select: [
+              [u.default.KEYBOARD_MODE_NORMAL, strings.normal],
+              [u.default.KEYBOARD_MODE_NO_SUGGESTIONS, strings["no suggestions"]],
+              [u.default.KEYBOARD_MODE_NO_SUGGESTIONS_AGGRESSIVE, strings["no suggestions aggressive"]]
+            ],
+            info: strings["settings-info-app-keyboard-mode"],
+            category: c.interface
+          }, {
+            key: "vibrateOnTap",
+            text: strings["vibrate on tap"],
+            checkbox: e.vibrateOnTap,
+            info: strings["settings-info-app-vibrate-on-tap"],
+            category: c.interface
+          }, {
+            key: "showSideButtons",
+            text: strings["show side buttons"],
+            checkbox: e.showSideButtons,
+            info: strings["settings-info-app-side-buttons"],
+            category: c.interface
+          }, {
+            key: "openFileListPos",
+            text: strings["active files"],
+            value: e.openFileListPos,
+            valueText: e => strings[e],
+            select: [
+              [u.default.OPEN_FILE_LIST_POS_SIDEBAR, strings.sidebar],
+              [u.default.OPEN_FILE_LIST_POS_HEADER, strings.header],
+              [u.default.OPEN_FILE_LIST_POS_BOTTOM, strings.bottom]
+            ],
+            info: strings["settings-info-app-open-file-list-position"],
+            category: c.interface
+          }, {
+            key: "touchMoveThreshold",
+            text: strings["touch move threshold"],
+            value: e.touchMoveThreshold,
+            prompt: strings["touch move threshold"],
+            promptType: "number",
+            promptOptions: {
+              test: e => e >= 0
+            },
+            info: strings["settings-info-app-touch-move-threshold"],
+            category: c.interface
+          }, {
+            key: "floatingButton",
+            text: strings["quick tools toggler"],
+            checkbox: e.floatingButton,
+            info: strings["settings-info-app-floating-button"],
+            category: c.quickTools
+          }, {
+            key: "quickTools",
+            text: strings["quick tools height"],
+            value: e.quickTools,
+            valueText: e => {
+              let t = Number(e) || 0;
+              return 0 === t ? strings.off : 1 === t ? strings.compact : strings.full
+            },
+            select: [
+              [0, strings.off],
+              [1, strings.compact],
+              [2, strings.full]
+            ],
+            info: strings["info-quickTools"],
+            category: c.quickTools
+          }, {
+            key: "quickToolsTriggerMode",
+            text: strings["quicktools trigger mode"],
+            value: e.quickToolsTriggerMode,
+            valueText: e => {
+              var t;
+              return null != (t = ({
+                [u.default.QUICKTOOLS_TRIGGER_MODE_CLICK]: strings["quicktools-trigger:click"],
+                [u.default.QUICKTOOLS_TRIGGER_MODE_TOUCH]: strings["quicktools-trigger:touch"]
+              })[e]) ? t : null != e ? e.capitalize() : e
+            },
+            select: [
+              [u.default.QUICKTOOLS_TRIGGER_MODE_CLICK, strings["quicktools-trigger:click"]],
+              [u.default.QUICKTOOLS_TRIGGER_MODE_TOUCH, strings["quicktools-trigger:touch"]]
+            ],
+            info: strings["settings-info-app-quick-tools-trigger-mode"],
+            category: c.quickTools
+          }, {
+            key: "quickToolsSettings",
+            text: strings["shortcut buttons"],
+            info: strings["settings-info-app-quick-tools-settings"],
+            category: c.quickTools,
+            chevron: !0
+          }, {
+            key: "appFont",
+            text: n,
+            value: e.appFont || "",
+            valueText: e => e || l,
+            get select() {
+              return [
+                ["", l], ...B.A.getNames()
+              ]
+            },
+            info: r,
+            category: c.fonts
+          }, {
+            key: "fontManager",
+            text: strings.fonts,
+            info: strings["settings-info-app-font-manager"],
+            category: c.fonts,
+            chevron: !0
+          }, {
+            key: "iconTheme",
+            text: strings["icon pack"],
+            value: e.iconTheme || "builtin",
+            get select() {
+              return z.Ay.list().map(e => [e.id, !1 === e.available ? `${e.name} (${strings.unavailable||"unavailable"})` : e.name])
+            },
+            valueText: e => {
+              let t = z.Ay.list().find(t => t.id === e);
+              return (null == t ? void 0 : t.name) || e || "Builtin"
+            },
+            info: strings["settings-info-icon-pack"],
+            category: c.interface
+          }, {
+            key: "rememberFiles",
+            text: strings["remember opened files"],
+            checkbox: e.rememberFiles,
+            info: strings["settings-info-app-remember-files"],
+            category: c.filesSessions
+          }, {
+            key: "rememberFolders",
+            text: strings["remember opened folders"],
+            checkbox: e.rememberFolders,
+            info: strings["settings-info-app-remember-folders"],
+            category: c.filesSessions
+          }, {
+            key: "retryRemoteFsAfterFail",
+            text: strings["retry ftp/sftp when fail"],
+            checkbox: e.retryRemoteFsAfterFail,
+            info: strings["settings-info-app-retry-remote-fs"],
+            category: c.filesSessions
+          }, {
+            key: "excludeFolders",
+            text: strings["exclude files"],
+            value: e.excludeFolders.join("\n"),
+            prompt: strings["exclude files"],
+            promptType: "textarea",
+            promptOptions: {
+              test: e => !e.trim() || e.split("\n").every(e => e.trim().length > 0)
+            },
+            info: strings["settings-info-app-exclude-folders"],
+            category: c.filesSessions
+          }, {
+            key: "useFileOperationExclusions",
+            text: strings["apply exclusions when copying"] || "Apply exclusions when copying",
+            checkbox: e.useFileOperationExclusions,
+            info: strings["settings-info-app-use-file-operation-exclusions"] || "Skip files and folders matching the exclusion patterns during copy and paste operations.",
+            category: c.filesSessions
+          }, {
+            key: "defaultFileEncoding",
+            text: strings["default file encoding"],
+            value: e.defaultFileEncoding,
+            valueText: e => "auto" === e ? strings.auto || "Auto" : (0, R._1)(e).label,
+            select: [
+              ["auto", strings.auto || "Auto"], ...Object.keys(R.Ay).map(e => {
+                let t = R.Ay[e];
+                return [e, t.label]
+              })
+            ],
+            info: strings["settings-info-app-default-file-encoding"],
+            category: c.filesSessions
+          }, {
+            key: "keybindings",
+            text: strings["key bindings"],
+            info: strings["settings-info-app-keybindings"],
+            category: c.advanced,
+            chevron: !0
+          }, {
+            key: "confirmOnExit",
+            text: strings["confirm on exit"],
+            checkbox: e.confirmOnExit,
+            info: strings["settings-info-app-confirm-on-exit"],
+            category: c.advanced
+          }, {
+            key: "checkFiles",
+            text: strings["check file changes"],
+            checkbox: e.checkFiles,
+            info: strings["settings-info-app-check-files"],
+            category: c.advanced
+          }, {
+            key: "console",
+            text: strings.console,
+            value: e.console,
+            valueText: e => {
+              var t;
+              return null != (t = ({
+                [u.default.CONSOLE_LEGACY]: "Legacy",
+                [u.default.CONSOLE_ERUDA]: "Eruda"
+              })[e]) ? t : null != e ? e.capitalize() : e
+            },
+            select: [
+              [u.default.CONSOLE_LEGACY, "Legacy"],
+              [u.default.CONSOLE_ERUDA, "Eruda"]
+            ],
+            info: strings["settings-info-app-console"],
+            category: c.advanced
+          }, {
+            key: "developerMode",
+            text: strings["developer mode"],
+            checkbox: e.developerMode,
+            info: strings["info-developermode"],
+            category: c.advanced
+          }, {
+            key: "cleanInstallState",
+            text: strings["clean install state"],
+            info: strings["settings-info-app-clean-install-state"],
+            category: c.advanced,
+            chevron: !0
+          }];
+        return (0, i.A)(t, g, function(e, t) {
+          var n;
+          return (n = function*() {
+            var n, i;
+            switch (e) {
+              case "keybindings":
+                if (!(t = yield(0, F.default)(strings["key bindings"], [
+                    ["edit", strings.edit],
+                    ["reset", strings.reset]
+                  ]))) return;
+                "edit" === t ? (o.A.pop(2), (0, a.A)(KEYBINDING_FILE)) : (0, N.vb)();
+                return;
+              case "quickToolsSettings":
+                (n = function*() {
+                  let {
+                    default: e
+                  } = yield s.e(9865).then(s.bind(s, 60512));
+                  e()
+                }, function() {
+                  var e = this,
+                    t = arguments;
+                  return new Promise(function(s, i) {
+                    var r = n.apply(e, t);
+
+                    function o(e) {
+                      q(r, s, i, o, l, "next", e)
+                    }
+
+                    function l(e) {
+                      q(r, s, i, o, l, "throw", e)
+                    }
+                    o(void 0)
+                  })
+                })();
+                return;
+              case "fontManager":
+                ! function(...e) {
+                  s.e(9134).then(s.bind(s, 79710)).then(t => {
+                    t.default(...e)
+                  })
+                }();
+                return;
+              case "appFont":
+                yield B.A.setAppFont(t);
+                break;
+              case "console": {
+                if ("eruda" !== t) break;
+                let e = (0, j.default)(U.A.join(DATA_STORAGE, "eruda.js"));
+                if (yield e.exists()) break;
+                f.A.error("Eruda console is unavailable: eruda.js was not found in the app data directory.");
+                break
+              }
+              case "developerMode":
+                if (t) {
+                  let e = (yield s.e(8175).then(s.bind(s, 31746))).default;
+                  try {
+                    yield e.init(!0), toast(strings["developer mode enabled"] || "Developer mode enabled. Use command palette to toggle inspector.")
+                  } catch (e) {
+                    f.A.error(e), t = !1
+                  }
+                } else(yield s.e(8175).then(s.bind(s, 31746))).default.destroy(), toast(strings["developer mode disabled"] || "Developer mode disabled");
+                break;
+              case "cleanInstallState": {
+                let e = U.A.join(DATA_STORAGE, ".install-state"),
+                  t = (0, j.default)(e);
+                if (!(yield t.exists())) {
+                  toast(strings["no such file or directory"]);
+                  break
+                }
+                d.A.create("loading...");
+                try {
+                  yield t.delete(), d.A.destroy(), toast(strings.success)
+                } catch (e) {
+                  f.A.error(e), d.A.destroy()
+                }
+              }
+              case "rememberFiles":
+                t || delete localStorage.files;
+                break;
+              case "rememberFolders":
+                t || delete localStorage.folders;
+                break;
+              case "floatingButton":
+                !t || (null == (i = editorManager.activeFile) ? void 0 : i.hideQuickTools) ? (clearTimeout(L.A.$toggler._hideTimeout), L.A.$toggler.classList.add("hide"), L.A.$toggler._hideTimeout = setTimeout(() => {
+                  L.A.$toggler.remove(), L.A.$toggler._hideTimeout = null
+                }, 300)) : (clearTimeout(L.A.$toggler._hideTimeout), L.A.$toggler._hideTimeout = null, L.A.$toggler.classList.remove("hide"), L.A.$toggler.isConnected || root.appendOuter(L.A.$toggler));
+                break;
+              case "keyboardMode":
+                system.setInputType(t);
+                break;
+              case "uiZoom":
+                if (!Number.isInteger(t = Number(t))) return;
+                t = Math.min(160, Math.max(70, t));
+                break;
+              case "fullscreen":
+                t ? acode.exec("enable-fullscreen") : acode.exec("disable-fullscreen");
+                break;
+              case "quickTools":
+                t = Number(t) || 0, (0, D.Ay)("set-height", {
+                  height: t,
+                  save: !1
+                });
+                break;
+              case "excludeFolders":
+                t = t.split("\n").map(e => e.trim()).filter(e => e.length > 0)
+            }
+            yield u.default.update({
+              [e]: t
+            })
+          }, function() {
+            var e = this,
+              t = arguments;
+            return new Promise(function(s, i) {
+              var r = n.apply(e, t);
+
+              function o(e) {
+                G(r, s, i, o, l, "next", e)
+              }
+
+              function l(e) {
+                G(r, s, i, o, l, "throw", e)
+              }
+              o(void 0)
+            })
+          })()
+        }, void 0, {
+          preserveOrder: !0,
+          pageClassName: "detail-settings-page",
+          listClassName: "detail-settings-list",
+          infoAsDescription: !0,
+          valueInTail: !0
+        })
+      }
+      var H = s(24686),
+        K = s(69710),
+        J = s(72612),
+        V = s(36426);
+
+      function Y(e, t, s, n, i, r, o) {
+        try {
+          var l = e[r](o),
+            a = l.value
+        } catch (e) {
+          s(e);
+          return
+        }
+        l.done ? t(a) : Promise.resolve(a).then(n, i)
+      }
+
+      function Q(e) {
+        return function() {
+          var t = this,
+            s = arguments;
+          return new Promise(function(n, i) {
+            var r = e.apply(t, s);
+
+            function o(e) {
+              Y(r, n, i, o, l, "next", e)
+            }
+
+            function l(e) {
+              Y(r, n, i, o, l, "throw", e)
+            }
+            o(void 0)
+          })
+        }
+      }
+      let Z = (() => {
+        let e = new Uint32Array(256);
+        for (let t = 0; t < 256; t++) {
+          let s = t;
+          for (let e = 0; e < 8; e++) s = 1 & s ? 0xedb88320 ^ s >>> 1 : s >>> 1;
+          e[t] = s >>> 0
+        }
+        return e
+      })();
+
+      function X(e) {
+        let t = 0xffffffff;
+        for (let s = 0; s < e.length; s++) t = Z[(t ^ 255 & e.charCodeAt(s)) & 255] ^ t >>> 8;
+        return ((0xffffffff ^ t) >>> 0).toString(16).padStart(8, "0")
+      }
+
+      function ee() {
+        let e = strings.backup.capitalize() + "/" + strings.restore.capitalize(),
+          t = [{
+            key: "backup",
+            text: strings.backup.capitalize(),
+            icon: "file_downloadget_app",
+            chevron: !0
+          }, {
+            key: "restore",
+            text: strings.restore.capitalize(),
+            icon: "historyrestore",
+            chevron: !0
+          }, {
+            note: strings["backup/restore note"]
+          }];
+        return (0, i.A)(e, t, function(e) {
+          switch (e) {
+            case "backup":
+              Q(function*() {
+                let e = d.A.create(strings.backup.capitalize(), strings["preparing backup"]);
+                try {
+                  var t, s;
+                  let n, i, r, o, l;
+                  e.show(), e.setMessage(strings["collecting settings"]);
+                  let a = u.default.value;
+                  e.setMessage(strings["collecting key bindings"]);
+                  let c = null;
+                  try {
+                    let e = (0, j.default)(KEYBINDING_FILE);
+                    (yield e.exists()) && (c = yield e.readFile("json"))
+                  } catch (e) {
+                    console.warn("Could not read keybindings:", e)
+                  }
+                  e.setMessage(strings["collecting plugins"]);
+                  let g = [],
+                    d = [];
+                  try {
+                    let e = (0, j.default)(window.PLUGIN_DIR);
+                    if (yield e.exists())
+                      for (let t of yield e.lsDir()) try {
+                        let e = U.A.join(window.PLUGIN_DIR, t.name, "plugin.json"),
+                          s = yield(0, j.default)(e).readFile("json"), n = {
+                            id: s.id || t.name,
+                            name: s.name || t.name,
+                            version: s.version || "unknown",
+                            source: s.source || null
+                          };
+                        d.push(n), s.source ? g.push(s.source) : g.push(s.id || t.name)
+                      } catch (e) {
+                        g.push(t.name), d.push({
+                          id: t.name,
+                          name: t.name,
+                          version: "unknown",
+                          source: null
+                        })
+                      }
+                  } catch (e) {
+                    console.warn("Could not read plugins directory:", e)
+                  }
+                  e.hide();
+                  let {
+                    url: p
+                  } = yield(0, J.default)("folder", strings["select folder"]);
+                  e.show(), e.setMessage(strings["creating backup"] || "Creating backup file...");
+                  let f = (n = (s = new Date).getFullYear(), i = String(s.getMonth() + 1).padStart(2, "0"), r = String(s.getDate()).padStart(2, "0"), o = String(s.getHours()).padStart(2, "0"), l = String(s.getMinutes()).padStart(2, "0"), `${n}${i}${r}_${o}${l}`),
+                    m = `Acode_backup_${f}.backup`,
+                    v = "Backup",
+                    y = U.A.join(p, v),
+                    h = U.A.join(y, m),
+                    b = (0, j.default)(p),
+                    k = (0, j.default)(y),
+                    x = (0, j.default)(h);
+                  (yield k.exists()) || (yield b.createDirectory(v)), (yield x.exists()) || (yield k.createFile(m));
+                  let w = {
+                      settings: a,
+                      keyBindings: c,
+                      installedPlugins: g
+                    },
+                    S = X(JSON.stringify(w)),
+                    A = {
+                      version: 2,
+                      metadata: {
+                        createdAt: new Date().toISOString(),
+                        appVersion: (null == (t = BuildInfo) ? void 0 : t.version) || "unknown",
+                        pluginCount: g.length,
+                        hasSettings: !!a,
+                        hasKeyBindings: !!c
+                      },
+                      checksum: S,
+                      settings: a,
+                      keyBindings: c,
+                      installedPlugins: g,
+                      pluginDetails: d
+                    },
+                    O = JSON.stringify(A, null, 2);
+                  yield x.writeFile(O), e.destroy();
+                  let _ = [strings["backup successful"], `<br><small>${V.A.getVirtualAddress(h)}</small><br>`, `<strong>${strings.settings||"Settings"}:</strong> ✓`, `<strong>${strings["key bindings"]||"Key Bindings"}:</strong> ${c?"✓":"-"}`, `<strong>${strings.plugins||"Plugins"}:</strong> ${g.length}`].join("<br>");
+                  (0, H.default)(strings.success.toUpperCase(), _)
+                } catch (t) {
+                  e.destroy(), console.error("Backup error:", t), (0, H.default)(strings.error.toUpperCase(), `${strings["error details"]||"Error"}: ${t.message||t}`)
+                }
+              })();
+              return;
+            case "restore":
+              sdcard.openDocumentFile(e => {
+                ee.restore(e.uri)
+              }, e => {
+                console.error("File picker error:", e), (0, p.A)(strings.error || "Error selecting file")
+              }, "application/octet-stream");
+              return
+          }
+        }, void 0, {
+          preserveOrder: !0,
+          pageClassName: "detail-settings-page",
+          listClassName: "detail-settings-list",
+          groupByDefault: !0
+        })
+      }
+
+      function et() {
+        var e, t;
+        let s = u.default.value,
+          n = strings["scroll settings"],
+          r = [{
+            key: "scrollbarSize",
+            text: strings["scrollbar size"],
+            value: s.scrollbarSize,
+            valueText: e => `${e}px`,
+            select: [5, 10, 15, 20]
+          }, {
+            key: "scrollbarHeight",
+            text: strings["scrollbar height"] || "Scrollbar height",
+            value: s.scrollbarHeight,
+            valueText: e => `${e}px`,
+            select: [20, 30, 40, 50, 60]
+          }, {
+            key: "scrollPastEnd",
+            text: strings["scroll past end"],
+            value: null != (e = s.scrollPastEnd) ? e : "medium",
+            info: strings["settings-info-scroll-past-end"],
+            valueText: e => {
+              switch (e) {
+                case "none":
+                  return strings.none;
+                case "small":
+                  return strings.small;
+                case "medium":
+                  return strings.medium;
+                default:
+                  return strings.full
+              }
+            },
+            select: [
+              ["none", strings.none],
+              ["small", strings.small],
+              ["medium", strings.medium],
+              ["full", strings.full]
+            ]
+          }, {
+            key: "leftMargin",
+            text: strings["horizontal scroll margin"],
+            value: null != (t = s.leftMargin) ? t : 50,
+            valueText: e => `${e}px`,
+            prompt: strings["horizontal scroll margin"],
+            promptType: "number",
+            promptOptions: {
+              required: !0,
+              test(e) {
+                if (!/^\d+$/.test(String(e).trim())) return !1;
+                let t = Number(e);
+                return Number.isSafeInteger(t) && t >= 0
+              }
+            },
+            info: strings["settings-info-horizontal-scroll-margin"]
+          }];
+        return (0, i.A)(n, r, function(e, t) {
+          u.default.update({
+            [e]: "leftMargin" === e ? Number(t) : t
+          })
+        }, void 0, {
+          preserveOrder: !0,
+          pageClassName: "detail-settings-page",
+          listClassName: "detail-settings-list",
+          infoAsDescription: !0,
+          valueInTail: !0,
+          groupByDefault: !0
+        })
+      }
+
+      function es() {
+        var e, t, s, n, r, o, l, a;
+        let c = strings["editor settings"],
+          g = u.default.value,
+          d = [
+            ["none", strings.none],
+            ["same", strings["wrap-indent-same"]],
+            ["indent", strings["wrap-indent-indent"]],
+            ["deepIndent", strings["wrap-indent-deep"]]
+          ],
+          p = {
+            scrolling: strings["settings-category-scrolling"],
+            textLayout: strings["settings-category-text-layout"],
+            editing: strings["settings-category-editing"],
+            assistance: strings["settings-category-assistance"],
+            guidesIndicators: strings["settings-category-guides-indicators"],
+            cursorSelection: strings["settings-category-cursor-selection"]
+          },
+          f = [{
+            key: "scroll-settings",
+            text: strings["scroll settings"],
+            info: strings["settings-info-editor-scroll-settings"],
+            category: p.scrolling,
+            chevron: !0
+          }, {
+            key: "editorFont",
+            text: strings["editor font"],
+            value: g.editorFont,
+            get select() {
+              return B.A.getNames()
+            },
+            info: strings["settings-info-editor-font-family"],
+            category: p.textLayout
+          }, {
+            key: "fontSize",
+            text: strings["font size"],
+            value: g.fontSize,
+            prompt: strings["font size"],
+            promptOptions: {
+              required: !0,
+              match: K.A.FONT_SIZE
+            },
+            info: strings["settings-info-editor-font-size"],
+            category: p.textLayout
+          }, {
+            key: "lineHeight",
+            text: strings["line height"],
+            value: g.lineHeight,
+            prompt: strings["line height"],
+            promptType: "number",
+            promptOptions: {
+              test: e => (e = Number.parseFloat(e)) >= 1 && e <= 2
+            },
+            info: strings["settings-info-editor-line-height"],
+            category: p.textLayout
+          }, {
+            key: "textWrap",
+            text: strings["text wrap"],
+            checkbox: g.textWrap,
+            info: strings["settings-info-editor-text-wrap"],
+            category: p.textLayout
+          }, {
+            key: "wrappingIndent",
+            text: strings["wrapped line indent"],
+            value: null != (e = g.wrappingIndent) ? e : "same",
+            valueText: e => {
+              var t, s;
+              return null != (t = null == (s = d.find(([t]) => t === e)) ? void 0 : s[1]) ? t : d[1][1]
+            },
+            select: d,
+            info: strings["settings-info-editor-wrapping-indent"],
+            category: p.textLayout
+          }, {
+            key: "autosave",
+            text: strings.autosave,
+            value: g.autosave,
+            valueText: e => e || strings.no,
+            prompt: strings.delay + " (>=1000 || 0)",
+            promptType: "number",
+            promptOptions: {
+              test: e => (e = Number.parseInt(e)) >= 1e3 || 0 === e
+            },
+            info: strings["settings-info-editor-autosave"],
+            category: p.editing
+          }, {
+            key: "softTab",
+            text: strings["soft tab"],
+            checkbox: g.softTab,
+            info: strings["settings-info-editor-soft-tab"],
+            category: p.editing
+          }, {
+            key: "tabSize",
+            text: strings["tab size"],
+            value: g.tabSize,
+            prompt: strings["tab size"],
+            promptType: "number",
+            promptOptions: {
+              test: e => (e = Number.parseInt(e)) >= 1 && e <= 8
+            },
+            info: strings["settings-info-editor-tab-size"],
+            category: p.editing
+          }, {
+            key: "formatOnSave",
+            text: strings["format on save"],
+            checkbox: g.formatOnSave,
+            info: strings["settings-info-editor-format-on-save"],
+            category: p.editing
+          }, {
+            key: "liveAutoCompletion",
+            text: strings["live autocompletion"],
+            checkbox: g.liveAutoCompletion,
+            info: strings["settings-info-editor-live-autocomplete"],
+            category: p.assistance
+          }, {
+            key: "localWordCompletion",
+            text: strings["local word completion"],
+            checkbox: g.localWordCompletion,
+            info: strings["settings-info-editor-local-word-completion"],
+            category: p.assistance
+          }, {
+            key: "languageCompletion",
+            text: strings["language package completion"],
+            checkbox: null == (t = g.languageCompletion) || t,
+            info: strings["settings-info-editor-language-completion"],
+            category: p.assistance
+          }, {
+            key: "recommendExtensions",
+            text: strings["recommend extensions"],
+            checkbox: null == (s = g.recommendExtensions) || s,
+            info: strings["settings-info-editor-recommend-extensions"],
+            category: p.assistance
+          }, {
+            key: "autoCloseTags",
+            text: strings["auto close tags"],
+            checkbox: g.autoCloseTags,
+            info: strings["settings-info-editor-auto-close-tags"],
+            category: p.assistance
+          }, {
+            key: "autoRenameTags",
+            text: strings["auto rename tags"],
+            checkbox: null == (n = g.autoRenameTags) || n,
+            info: strings["settings-info-editor-auto-rename-tags"],
+            category: p.assistance
+          }, {
+            key: "colorPreview",
+            text: strings["color preview"],
+            checkbox: g.colorPreview,
+            info: strings["settings-info-editor-color-preview"],
+            category: p.assistance
+          }, {
+            key: "linenumbers",
+            text: strings["show line numbers"],
+            checkbox: g.linenumbers,
+            info: strings["settings-info-editor-line-numbers"],
+            category: p.guidesIndicators
+          }, {
+            key: "relativeLineNumbers",
+            text: strings["relative line numbers"],
+            checkbox: g.relativeLineNumbers,
+            info: strings["settings-info-editor-relative-line-numbers"],
+            category: p.guidesIndicators
+          }, {
+            key: "lintGutter",
+            text: strings["lint gutter"] || "Show lint gutter",
+            checkbox: null == (r = g.lintGutter) || r,
+            info: strings["settings-info-editor-lint-gutter"],
+            category: p.guidesIndicators
+          }, {
+            key: "showSpaces",
+            text: strings["show spaces"],
+            checkbox: g.showSpaces,
+            info: strings["settings-info-editor-show-spaces"],
+            category: p.guidesIndicators
+          }, {
+            key: "indentGuides",
+            text: strings["indent guides"] || "Indent guides",
+            checkbox: null != (o = g.indentGuides) && o,
+            info: strings["settings-info-editor-indent-guides"],
+            category: p.guidesIndicators
+          }, {
+            key: "rainbowBrackets",
+            text: strings["rainbow brackets"] || "Rainbow brackets",
+            checkbox: null == (l = g.rainbowBrackets) || l,
+            info: strings["settings-info-editor-rainbow-brackets"],
+            category: p.guidesIndicators
+          }, {
+            key: "fadeFoldWidgets",
+            text: strings["fade fold widgets"],
+            checkbox: g.fadeFoldWidgets,
+            info: strings["settings-info-editor-fade-fold-widgets"],
+            category: p.guidesIndicators
+          }, {
+            key: "showShareButton",
+            text: strings["show share button"],
+            checkbox: null == (a = g.showShareButton) || a,
+            info: strings["settings-info-editor-show-share-button"],
+            category: p.cursorSelection
+          }, {
+            key: "shiftClickSelection",
+            text: strings["shift click selection"],
+            checkbox: !1 !== g.shiftClickSelection,
+            info: strings["settings-info-editor-shift-click-selection"],
+            category: p.cursorSelection
+          }, {
+            key: "rtlText",
+            text: strings["line based rtl switching"],
+            checkbox: g.rtlText,
+            info: strings["settings-info-editor-rtl-text"],
+            category: p.cursorSelection
+          }];
+        return (0, i.A)(c, f, function(e, t) {
+          switch (e) {
+            case "scroll-settings":
+              u.default.uiSettings[e].show();
+              return;
+            case "editorFont":
+              B.A.setFont(t);
+            default:
+              u.default.update({
+                [e]: t
+              })
+          }
+        }, void 0, {
+          preserveOrder: !0,
+          pageClassName: "detail-settings-page",
+          listClassName: "detail-settings-list",
+          infoAsDescription: !0,
+          valueInTail: !0
+        })
+      }
+      ee.restore = function(e) {
+        return Q(function*() {
+          let t = d.A.create(strings.restore.capitalize(), strings["please wait..."]),
+            n = {
+              attempted: !1,
+              success: !1,
+              error: null
+            },
+            i = {
+              attempted: !1,
+              success: !1,
+              error: null
+            },
+            o = {
+              attempted: !1,
+              success: [],
+              failed: [],
+              skipped: []
+            };
+          try {
+            var l, a, c, g;
+            let d, p;
+            t.show();
+            let f = (0, j.default)(e);
+            try {
+              d = yield f.readFile("utf8")
+            } catch (e) {
+              throw Error(`Could not read backup file: ${e.message}`)
+            }
+            try {
+              p = JSON.parse(d)
+            } catch (e) {
+              t.destroy(), (0, H.default)(strings.error.toUpperCase(), strings["invalid backup file"]);
+              return
+            }
+            t.setMessage(strings["validating backup"]);
+            let m = function(e) {
+              let t = [],
+                s = [];
+              if (!e || "object" != typeof e) return t.push(strings["backup not valid object"]), {
+                valid: !1,
+                errors: t,
+                warnings: s,
+                isLegacy: !1
+              };
+              let n = !e.version;
+              if (n) e.settings || e.keyBindings || e.installedPlugins || t.push(strings["backup no data"]), s.push(strings["backup legacy warning"]);
+              else if (e.version >= 2 && (e.metadata || s.push(strings["backup missing metadata"]), e.checksum)) try {
+                let t = JSON.stringify({
+                    settings: e.settings,
+                    keyBindings: e.keyBindings,
+                    installedPlugins: e.installedPlugins
+                  }),
+                  n = X(t);
+                e.checksum !== n && s.push(strings["backup checksum mismatch"])
+              } catch (e) {
+                s.push(strings["backup checksum verify failed"])
+              }
+              return void 0 !== e.settings && "object" != typeof e.settings && t.push(strings["backup invalid settings"]), void 0 !== e.keyBindings && "object" != typeof e.keyBindings && t.push(strings["backup invalid keybindings"]), void 0 === e.installedPlugins || Array.isArray(e.installedPlugins) || t.push(strings["backup invalid plugins"]), {
+                valid: 0 === t.length,
+                errors: t,
+                warnings: s,
+                isLegacy: n
+              }
+            }(p);
+            if (!m.valid) {
+              t.destroy();
+              let e = [strings["invalid backup file"], "", `${strings["issues found"]}:`, ...m.errors.map(e => `• ${e}`)].join("\n");
+              (0, H.default)(strings.error.toUpperCase(), e);
+              return
+            }
+            t.hide();
+            let v = p.metadata || {},
+              y = [`<strong>${strings["restore will include"]}</strong><br><br>`, `${strings.settings}: ${p.settings?strings.yes:strings.no}<br>`, `${strings["key bindings"]}: ${p.keyBindings?strings.yes:strings.no}<br>`, `${strings.plugins}: ${(null==(l=p.installedPlugins)?void 0:l.length)||0}<br>`];
+            if (v.createdAt && y.push(`<br><small>${strings["last modified"]}: ${new Date(v.createdAt).toLocaleString()}</small><br>`), m.warnings && m.warnings.length > 0)
+              for (let e of (y.push(`<br><strong>${strings.warning}:</strong><br>`), m.warnings)) y.push(`- ${e}<br>`);
+            if (y.push(`<br><strong>${strings["restore warning"]}</strong>`), !(yield(0, r.A)(strings.restore.capitalize(), y.join(""), !0))) return;
+            let h = [];
+            if (p.settings && h.push("settings"), p.keyBindings && h.push("keyBindings"), (null == (a = p.installedPlugins) ? void 0 : a.length) && h.push("plugins"), t.show(), h.includes("keyBindings") && p.keyBindings) {
+              i.attempted = !0, t.setMessage(strings["restoring key bindings"]);
+              try {
+                let e = (0, j.default)(window.KEYBINDING_FILE);
+                if (!(yield e.exists())) {
+                  let e = (0, j.default)(DATA_STORAGE);
+                  yield e.createFile(".key-bindings.json")
+                }
+                let t = JSON.stringify(p.keyBindings, void 0, 2);
+                yield e.writeFile(t), i.success = !0
+              } catch (e) {
+                console.error("Error restoring key bindings:", e), i.error = e.message
+              }
+            }
+            if (h.includes("plugins") && Array.isArray(p.installedPlugins) && p.installedPlugins.length > 0) {
+              o.attempted = !0;
+              let {
+                default: e
+              } = yield Promise.all([s.e(7536), s.e(3509)]).then(s.bind(s, 92434)), n = p.installedPlugins.length, i = 0;
+              for (let s of p.installedPlugins) {
+                if (i++, !s) {
+                  o.skipped.push({
+                    id: "(empty)",
+                    reason: "Empty plugin ID"
+                  });
+                  continue
+                }
+                let r = (null == (g = p.pluginDetails) || null == (c = g.find(e => e.id === s || e.source === s)) ? void 0 : c.name) || s;
+                t.setMessage(`${strings["restoring plugins"]} (${i}/${n}): ${r}`);
+                try {
+                  if (s.startsWith("content://") || s.startsWith("file://") || s.includes("/")) try {
+                    let t = (0, j.default)(s);
+                    if (!(yield t.exists())) {
+                      o.skipped.push({
+                        id: r,
+                        reason: strings["source not found"]
+                      });
+                      continue
+                    }
+                    yield e(s), o.success.push(r)
+                  } catch (e) {
+                    o.failed.push({
+                      id: r,
+                      reason: e.message
+                    })
+                  } else {
+                    let t = U.A.join(K.A.API_BASE, `plugin/${s}`),
+                      n = null;
+                    try {
+                      n = yield(0, j.default)(t).readFile("json")
+                    } catch (e) {
+                      o.failed.push({
+                        id: r,
+                        reason: strings["plugin not found"]
+                      });
+                      continue
+                    }
+                    if (n) {
+                      if (Number.parseFloat(n.price) > 0) {
+                        o.skipped.push({
+                          id: r,
+                          reason: strings["paid plugin skipped"]
+                        });
+                        continue
+                      }
+                      try {
+                        yield e(s, n.name), o.success.push(r)
+                      } catch (e) {
+                        o.failed.push({
+                          id: r,
+                          reason: e.message
+                        })
+                      }
+                    }
+                  }
+                } catch (e) {
+                  console.error(`Error restoring plugin ${s}:`, e), o.failed.push({
+                    id: r,
+                    reason: e.message
+                  })
+                }
+              }
+            }
+            if (h.includes("settings") && p.settings) {
+              n.attempted = !0, t.setMessage(strings["restoring settings"]);
+              try {
+                let e = u.default.value,
+                  t = p.settings,
+                  s = {};
+                for (let n of Object.keys(e)) n in t && typeof t[n] == typeof e[n] && (s[n] = t[n]);
+                yield u.default.update(s, !1), n.success = !0
+              } catch (e) {
+                console.error("Error restoring settings:", e), n.error = e.message
+              }
+            }
+            t.destroy();
+            let b = [`<strong>${strings["restore completed"]}</strong><br><br>`];
+            if (n.attempted) {
+              let e = n.success ? `✓ ${strings.restored}` : `✗ ${strings.failed}`;
+              b.push(`${strings.settings}: ${e}<br>`)
+            }
+            if (i.attempted) {
+              let e = i.success ? `✓ ${strings.restored}` : `✗ ${strings.failed}`;
+              b.push(`${strings["key bindings"]}: ${e}<br>`)
+            }
+            if (o.attempted) {
+              if (b.push(`<br><strong>${strings.plugins}</strong><br>`), o.success.length > 0 && b.push(`✓ ${strings.restored}: ${o.success.length}<br>`), o.failed.length > 0) {
+                for (let e of (b.push(`✗ ${strings.failed}: ${o.failed.length}<br>`), o.failed.slice(0, 3))) b.push(`<small>- ${e.id}: ${e.reason}</small><br>`);
+                o.failed.length > 3 && b.push(`<small>...${strings.more||"and"} ${o.failed.length-3} ${strings.more||"more"}</small><br>`)
+              }
+              if (o.skipped.length > 0) {
+                for (let e of (b.push(`${strings.skipped}: ${o.skipped.length}<br>`), o.skipped.slice(0, 3))) b.push(`<small>- ${e.id}: ${e.reason}</small><br>`);
+                o.skipped.length > 3 && b.push(`<small>...${strings.more} ${o.skipped.length-3} ${strings.more}</small><br>`)
+              }
+            }
+            b.push(`<br>${strings["reload to apply"]}`), (yield(0, r.A)(strings["restore completed"], b.join(""), !0)) && location.reload()
+          } catch (e) {
+            t.destroy(), console.error("Restore error:", e), (0, H.default)(strings.error.toUpperCase(), `${strings["error details"]}: ${e.message||e}`)
+          }
+        })()
+      };
+      var en = s(49020),
+        ei = s(17901),
+        er = s(84289),
+        eo = s(23252),
+        el = s(45926),
+        ea = s(55692),
+        eu = s(30090);
+
+      function ec(e, t, s, n, i, r, o) {
+        try {
+          var l = e[r](o),
+            a = l.value
+        } catch (e) {
+          s(e);
+          return
+        }
+        l.done ? t(a) : Promise.resolve(a).then(n, i)
+      }
+
+      function eg(e) {
+        return function() {
+          var t = this,
+            s = arguments;
+          return new Promise(function(n, i) {
+            var r = e.apply(t, s);
+
+            function o(e) {
+              ec(r, n, i, o, l, "next", e)
+            }
+
+            function l(e) {
+              ec(r, n, i, o, l, "throw", e)
+            }
+            o(void 0)
+          })
+        }
+      }
+
+      function ed(e) {
+        for (var t = 1; t < arguments.length; t++) {
+          var s = null != arguments[t] ? arguments[t] : {},
+            n = Object.keys(s);
+          "function" == typeof Object.getOwnPropertySymbols && (n = n.concat(Object.getOwnPropertySymbols(s).filter(function(e) {
+            return Object.getOwnPropertyDescriptor(s, e).enumerable
+          }))), n.forEach(function(t) {
+            var n;
+            n = s[t], t in e ? Object.defineProperty(e, t, {
+              value: n,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0
+            }) : e[t] = n
+          })
+        }
+        return e
+      }
+
+      function ep() {
+        var e;
+        return JSON.parse(JSON.stringify((null == (e = u.default.value) ? void 0 : e.lsp) || {}))
+      }
+
+      function ef(e) {
+        return String(e || "").trim().toLowerCase()
+      }
+
+      function em(e) {
+        return Array.isArray(e) ? e.map(e => String(e || "").trim().toLowerCase()).filter(Boolean) : String(e || "").split(",").map(e => e.trim().toLowerCase()).filter(Boolean)
+      }
+
+      function ev(e) {
+        var t, s, n;
+        return (null == (n = u.default.value) || null == (s = n.lsp) || null == (t = s.servers) ? void 0 : t[ef(e)]) || {}
+      }
+
+      function ey(e) {
+        return !0 === ev(e).custom
+      }
+
+      function eh(e, t) {
+        return eg(function*() {
+          let s = ef(e);
+          if (!s) throw Error("Server id is required");
+          let n = ep();
+          n.servers = n.servers || {};
+          let i = ed({}, n.servers[s] || {});
+          Object.entries(t || {}).forEach(([e, t]) => {
+            void 0 === t ? delete i[e] : i[e] = t
+          }), Object.keys(i).length ? n.servers[s] = i : delete n.servers[s], yield u.default.update({
+            lsp: n
+          }, !1)
+        })()
+      }
+      var eb = s(68656),
+        ek = s(13243),
+        ex = s(88426);
+
+      function ew(e, t, s, n, i, r, o) {
+        try {
+          var l = e[r](o),
+            a = l.value
+        } catch (e) {
+          s(e);
+          return
+        }
+        l.done ? t(a) : Promise.resolve(a).then(n, i)
+      }
+
+      function eS(e) {
+        return function() {
+          var t = this,
+            s = arguments;
+          return new Promise(function(n, i) {
+            var r = e.apply(t, s);
+
+            function o(e) {
+              ew(r, n, i, o, l, "next", e)
+            }
+
+            function l(e) {
+              ew(r, n, i, o, l, "throw", e)
+            }
+            o(void 0)
+          })
+        }
+      }
+
+      function eA(e) {
+        for (var t = 1; t < arguments.length; t++) {
+          var s = null != arguments[t] ? arguments[t] : {},
+            n = Object.keys(s);
+          "function" == typeof Object.getOwnPropertySymbols && (n = n.concat(Object.getOwnPropertySymbols(s).filter(function(e) {
+            return Object.getOwnPropertyDescriptor(s, e).enumerable
+          }))), n.forEach(function(t) {
+            var n;
+            n = s[t], t in e ? Object.defineProperty(e, t, {
+              value: n,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0
+            }) : e[t] = n
+          })
+        }
+        return e
+      }
+
+      function eO(e, t) {
+        return t = null != t ? t : {}, Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : (function(e) {
+          var t = Object.keys(e);
+          if (Object.getOwnPropertySymbols) {
+            var s = Object.getOwnPropertySymbols(e);
+            t.push.apply(t, s)
+          }
+          return t
+        })(Object(t)).forEach(function(s) {
+          Object.defineProperty(e, s, Object.getOwnPropertyDescriptor(t, s))
+        }), e
+      }
+
+      function e_() {
+        return [
+          ["ext_hover", "hover", strings["lsp-feature-hover"], strings["lsp-feature-hover-info"]],
+          ["ext_completion", "completion", strings["lsp-feature-completion"], strings["lsp-feature-completion-info"]],
+          ["ext_signature", "signature", strings["lsp-feature-signature"], strings["lsp-feature-signature-info"]],
+          ["ext_diagnostics", "diagnostics", strings["lsp-feature-diagnostics"], strings["lsp-feature-diagnostics-info"]],
+          ["ext_inlayHints", "inlayHints", strings["lsp-feature-inlay-hints"], strings["lsp-feature-inlay-hints-info"]],
+          ["ext_formatting", "formatting", strings["lsp-feature-formatting"], strings["lsp-feature-formatting-info"]]
+        ]
+      }
+
+      function eE(e, t) {
+        return Object.entries(t).reduce((e, [t, s]) => e.replaceAll(`{${t}}`, String(s)), String(e || ""))
+      }
+
+      function eP(e) {
+        var t, s;
+        return (null == e || null == (t = e.transport) ? void 0 : t.kind) === "websocket" && !(null == e || null == (s = e.launcher) ? void 0 : s.bridge)
+      }
+
+      function eT(e) {
+        var t, s, n, i;
+        let r = ev(e.id);
+        return eO(eA({}, e), {
+          enabled: null != (t = r.enabled) ? t : e.enabled,
+          startupTimeout: null != (s = r.startupTimeout) ? s : e.startupTimeout,
+          initializationOptions: eA({}, e.initializationOptions || {}, r.initializationOptions || {}),
+          clientConfig: eO(eA({}, e.clientConfig || {}, r.clientConfig || {}), {
+            builtinExtensions: eA({}, (null == (n = e.clientConfig) ? void 0 : n.builtinExtensions) || {}, (null == (i = r.clientConfig) ? void 0 : i.builtinExtensions) || {})
+          }),
+          launcher: function(e, t) {
+            if (e || t) return eO(eA({}, e || {}, t || {}), {
+              bridge: eA({}, (null == e ? void 0 : e.bridge) || {}, (null == t ? void 0 : t.bridge) || {}),
+              install: eA({}, (null == e ? void 0 : e.install) || {}, (null == t ? void 0 : t.install) || {})
+            })
+          }(e.launcher, r.launcher),
+          runtimes: r.runtimes || e.runtimes
+        })
+      }
+
+      function eC(e) {
+        switch (null == e ? void 0 : e.status) {
+          case "present":
+            return strings["lsp-status-installed"];
+          case "missing":
+            return strings["lsp-status-not-installed"];
+          case "failed":
+            return strings["lsp-status-check-failed"];
+          default:
+            return strings["lsp-status-unknown"]
+        }
+      }
+
+      function e$(e) {
+        return "number" == typeof e ? eE(strings["lsp-timeout-ms"], {
+          timeout: e
+        }) : strings["lsp-default"]
+      }
+      let eI = /can'?t sanitize binding "\/proc\/self\/fd(?:\/[012])?"/i;
+
+      function ej(e) {
+        let t = String((null == e ? void 0 : e.message) || "").split("\n").map(e => e.trim()).filter(Boolean).filter(e => !eI.test(e)).join(" ");
+        switch (null == e ? void 0 : e.status) {
+          case "present":
+            return e.version ? eE(strings["lsp-install-info-version-available"], {
+              version: e.version
+            }) : strings["lsp-install-info-ready"];
+          case "missing":
+            return strings["lsp-install-info-missing"];
+          case "failed":
+            return t || strings["lsp-install-info-check-failed"];
+          default:
+            return t || strings["lsp-install-info-unknown"]
+        }
+      }
+
+      function eN(e) {
+        if (null == e || "" === e) return "";
+        let t = String(e);
+        return t.includes("\n") && ([t] = t.split("\n")), t.length > 47 && (t = `${t.slice(0,47)}...`), t
+      }
+
+      function eL(e, t, s, n, i = {}) {
+        var r;
+        let o = t.get(s);
+        if (!o) return;
+        "value" in i ? o.value = i.value : void 0 !== n && (o.value = n), "info" in i && (o.info = i.info), "checkbox" in i && (o.checkbox = i.checkbox), "text" in i && (o.text = i.text);
+        let l = null == e || null == (r = e.querySelector) ? void 0 : r.call(e, `[data-key="${s}"]`);
+        if (!l) return;
+        if (void 0 !== i.text) {
+          let e = l.querySelector(".text");
+          e && (e.textContent = i.text)
+        }
+        let a = l.querySelector(".value");
+        a && (a.textContent = a.classList.contains("setting-info") ? String(o.info || "") : eN(o.value));
+        let u = l.querySelector(".setting-trailing-value");
+        u && (u.textContent = eN(o.value));
+        let c = l.querySelector(".input-checkbox");
+        c && "boolean" == typeof o.checkbox && (c.checked = o.checkbox)
+      }
+
+      function eF(e) {
+        return eS(function*() {
+          var t;
+          let s = eu.Ay.servers.get(e);
+          if (!s) return null;
+          let n = eT(s),
+            i = ev(e),
+            r = eP(n),
+            o = yield(0, ek.Sf)(n).catch(e => ({
+              status: "failed",
+              version: null,
+              canInstall: !0,
+              canUpdate: !0,
+              message: e instanceof Error ? e.message : String(e)
+            }));
+          return {
+            liveServer: s,
+            merged: n,
+            override: i,
+            directWebSocket: r,
+            isCustom: ey(e),
+            installResult: o,
+            builtinExts: (null == (t = n.clientConfig) ? void 0 : t.builtinExtensions) || {},
+            installCommand: yield(0, ek.nd)(n, "install"),
+            updateCommand: yield(0, ek.nd)(n, "update"),
+            uninstallCommand: yield(0, ek.E0)(n)
+          }
+        })()
+      }
+
+      function eD(e, t, s) {
+        return eS(function*() {
+          var n, i;
+          if (!e) return;
+          let r = yield eF(s);
+          if (!r) return;
+          eL(e, t, "enabled", void 0, {
+            checkbox: !1 !== r.merged.enabled
+          }), eL(e, t, "install_status", void 0, {
+            info: ej(r.installResult),
+            text: eC(r.installResult)
+          }), eL(e, t, "install_server", ""), eL(e, t, "update_server", ""), eL(e, t, "uninstall_server", "");
+          let o = e.querySelector('[data-key="install_server"]');
+          o && (o.style.display = r.installCommand || (null == (n = r.installResult) ? void 0 : n.canInstall) ? "" : "none");
+          let l = e.querySelector('[data-key="update_server"]');
+          l && (l.style.display = r.updateCommand || (null == (i = r.installResult) ? void 0 : i.canUpdate) ? "" : "none");
+          let a = e.querySelector('[data-key="uninstall_server"]');
+          a && (a.style.display = r.uninstallCommand ? "" : "none"), eL(e, t, "startup_timeout", e$(r.merged.startupTimeout)), eL(e, t, "edit_init_options", Object.keys(r.override.initializationOptions || {}).length ? strings["lsp-configured"] : strings["lsp-empty"]), e_().forEach(([s, n]) => {
+            eL(e, t, s, void 0, {
+              checkbox: ez(r.builtinExts, n)
+            })
+          })
+        })()
+      }
+
+      function ez(e, t) {
+        return "inlayHints" === t ? (null == e ? void 0 : e[t]) === !0 : (null == e ? void 0 : e[t]) !== !1
+      }
+
+      function eB(e) {
+        var t, s, n, o;
+        let l, a, c, g, f = eu.Ay.servers.get(e);
+        if (!f) return (0, p.A)(strings["lsp-server-not-found"]), null;
+        let m = eP(eT(f)),
+          v = (s = {
+            liveServer: f,
+            merged: eT(f),
+            override: ev(e),
+            directWebSocket: m,
+            isCustom: ey(e),
+            installResult: {
+              status: "unknown",
+              version: null,
+              canInstall: !m,
+              canUpdate: !m,
+              message: strings["lsp-checking-installation-status"]
+            },
+            builtinExts: (null == (t = eT(f).clientConfig) ? void 0 : t.builtinExtensions) || {},
+            installCommand: null,
+            updateCommand: null,
+            uninstallCommand: null
+          }, l = e_(), a = {
+            general: strings["settings-category-general"],
+            installation: strings["settings-category-installation"],
+            advanced: strings["settings-category-advanced"],
+            features: strings["settings-category-features"]
+          }, c = [{
+            key: "enabled",
+            text: strings["lsp-enabled"],
+            checkbox: !1 !== s.merged.enabled,
+            info: strings["settings-info-lsp-server-enabled"],
+            category: a.general
+          }, ...s.isCustom ? [{
+            key: "remove_custom_server",
+            text: strings["lsp-remove-custom-server"],
+            info: strings["settings-info-lsp-remove-custom-server"],
+            category: a.general,
+            chevron: !0
+          }] : [], {
+            key: "startup_timeout",
+            text: strings["lsp-startup-timeout"],
+            value: e$(s.merged.startupTimeout),
+            info: strings["settings-info-lsp-startup-timeout"],
+            category: a.advanced,
+            chevron: !0
+          }, {
+            key: "edit_init_options",
+            text: strings["lsp-edit-initialization-options"],
+            value: Object.keys(s.override.initializationOptions || {}).length ? strings["lsp-configured"] : strings["lsp-empty"],
+            info: strings["settings-info-lsp-edit-init-options"],
+            category: a.advanced,
+            chevron: !0
+          }, {
+            key: "view_init_options",
+            text: strings["lsp-view-initialization-options"],
+            info: strings["settings-info-lsp-view-init-options"],
+            category: a.advanced,
+            chevron: !0
+          }], g = [{
+            key: "install_status",
+            text: eC(s.installResult),
+            info: ej(s.installResult),
+            category: a.installation,
+            chevron: !0
+          }], (s.installCommand || (null == (n = s.installResult) ? void 0 : n.canInstall) || !s.directWebSocket) && g.push({
+            key: "install_server",
+            text: strings["lsp-install-repair"],
+            info: strings["settings-info-lsp-install-server"],
+            category: a.installation,
+            chevron: !0
+          }), (s.updateCommand || (null == (o = s.installResult) ? void 0 : o.canUpdate) || !s.directWebSocket) && g.push({
+            key: "update_server",
+            text: strings["lsp-update-server"],
+            info: strings["settings-info-lsp-update-server"],
+            category: a.installation,
+            chevron: !0
+          }), (s.uninstallCommand || !s.directWebSocket) && g.push({
+            key: "uninstall_server",
+            text: strings["lsp-uninstall-server"],
+            info: strings["settings-info-lsp-uninstall-server"],
+            category: a.installation,
+            chevron: !0
+          }), c.splice(2, 0, ...g), l.forEach(([e, t, n, i]) => {
+            c.push({
+              key: e,
+              text: n,
+              checkbox: ez(s.builtinExts, t),
+              info: i,
+              category: a.features
+            })
+          }), c),
+          y = new Map(v.map(e => [e.key, e])),
+          h = (0, i.A)(f.label || f.id, v, function(t, s) {
+            return eS(function*() {
+              let n = "enabled" === t || ["ext_hover", "ext_completion", "ext_signature", "ext_diagnostics", "ext_inlayHints", "ext_formatting"].includes(t) ? null : d.A.create("LSP", strings["loading..."]);
+              try {
+                var i, o, l, a, c, g;
+                let d = yield eF(e);
+                if (!d) return void(0, p.A)(strings["lsp-server-not-found"]);
+                switch (t) {
+                  case "enabled":
+                    yield eS(function*() {
+                      yield eh(e, {
+                        enabled: s
+                      }), eu.Ay.servers.update(e, e => eO(eA({}, e), {
+                        enabled: s
+                      }))
+                    })(), s || (yield eb.Ay.disposeServer(e), (0, ex.stopManagedServer)(e)), (0, p.A)(s ? strings["lsp-server-enabled-toast"] : strings["lsp-server-disabled-toast"]);
+                    break;
+                  case "remove_custom_server":
+                    if (null == n || n.hide(), !(yield(0, r.A)(strings["lsp-remove-custom-server"], eE(strings["lsp-remove-custom-server-confirm"], {
+                        server: d.liveServer.label || e
+                      })))) break;
+                    null == n || n.show(), yield eb.Ay.disposeServer(e), (0, ex.stopManagedServer)(e), yield eg(function*() {
+                      let t = ef(e),
+                        s = ep();
+                      s.servers = s.servers || {}, delete s.servers[t], yield u.default.update({
+                        lsp: s
+                      }, !1), eu.Ay.servers.unregister(t)
+                    })(), (0, p.A)(strings["lsp-custom-server-removed"]), h.hide(), null == (i = u.default.uiSettings["lsp-settings"]) || i.show();
+                    return;
+                  case "install_status": {
+                    let e = yield(0, ek.Sf)(d.merged);
+                    null == n || n.hide();
+                    let t = [eE(strings["lsp-status-line"], {
+                      status: function(e) {
+                        switch (null == e ? void 0 : e.status) {
+                          case "present":
+                            return e.version ? eE(strings["lsp-status-installed-version"], {
+                              version: e.version
+                            }) : strings["lsp-status-installed"];
+                          case "missing":
+                            return strings["lsp-status-not-installed"];
+                          case "failed":
+                            return strings["lsp-status-check-failed"];
+                          default:
+                            return strings["lsp-status-unknown"]
+                        }
+                      }(e)
+                    }), e.version ? eE(strings["lsp-version-line"], {
+                      version: e.version
+                    }) : null, eE(strings["lsp-details-line"], {
+                      details: ej(e)
+                    })].filter(Boolean);
+                    (0, H.default)(strings["lsp-installation-status"], t.join("<br>"));
+                    break
+                  }
+                  case "install_server":
+                    if (!d.installCommand) {
+                      (0, p.A)(strings["lsp-install-command-unavailable"]);
+                      break
+                    }
+                    yield(0, ek.FP)(d.merged, "install");
+                    break;
+                  case "update_server":
+                    if (!d.updateCommand) {
+                      (0, p.A)(strings["lsp-update-command-unavailable"]);
+                      break
+                    }
+                    yield(0, ek.FP)(d.merged, "update");
+                    break;
+                  case "uninstall_server":
+                    if (!d.uninstallCommand) {
+                      (0, p.A)(strings["lsp-uninstall-command-unavailable"]);
+                      break
+                    }
+                    if (null == n || n.hide(), !(yield(0, r.A)(strings["lsp-uninstall-server"], eE(strings["lsp-remove-installed-files"], {
+                        server: d.liveServer.label || e
+                      })))) break;
+                    null == n || n.show(), yield(0, ek.iw)(d.merged), (0, p.A)(strings["lsp-server-uninstalled"]);
+                    break;
+                  case "startup_timeout": {
+                    let t = null != (o = null != (l = d.override.startupTimeout) ? l : d.liveServer.startupTimeout) ? o : 5e3;
+                    null == n || n.hide();
+                    let s = yield(0, ea.A)(strings["lsp-startup-timeout-ms"], String(t), "number", {
+                      test: e => {
+                        let t = Number.parseInt(String(e), 10);
+                        return Number.isFinite(t) && t >= 1e3
+                      }
+                    });
+                    if (null === s) break;
+                    let i = Number.parseInt(String(s), 10);
+                    if (!Number.isFinite(i) || i < 1e3) {
+                      (0, p.A)(strings["lsp-invalid-timeout"]);
+                      break
+                    }
+                    null == n || n.show(), yield eS(function*() {
+                      yield eh(e, {
+                        startupTimeout: i
+                      }), eu.Ay.servers.update(e, e => eO(eA({}, e), {
+                        startupTimeout: i
+                      }))
+                    })(), (0, p.A)(eE(strings["lsp-startup-timeout-set"], {
+                      timeout: i
+                    }));
+                    break
+                  }
+                  case "edit_init_options": {
+                    let t = JSON.stringify(d.override.initializationOptions || {}, null, 2);
+                    null == n || n.hide();
+                    let s = yield(0, ea.A)(strings["lsp-initialization-options-json"], t || "{}", "textarea", {
+                      test: e => {
+                        try {
+                          return JSON.parse(e), !0
+                        } catch (e) {
+                          return !1
+                        }
+                      }
+                    });
+                    if (null === s) break;
+                    null == n || n.show(), yield(a = JSON.parse(s), eS(function*() {
+                      yield eh(e, {
+                        initializationOptions: a
+                      }), eu.Ay.servers.update(e, e => eO(eA({}, e), {
+                        initializationOptions: a
+                      }))
+                    })()), (0, p.A)(strings["lsp-initialization-options-updated"]);
+                    break
+                  }
+                  case "view_init_options": {
+                    let e, t = JSON.stringify(d.merged.initializationOptions || {}, null, 2);
+                    null == n || n.hide(), (0, H.default)(strings["lsp-initialization-options"], `<pre style="overflow: auto; max-height: 60vh; font-size: 12px;">${((e=document.createElement("div")).textContent=String(t||""),e.innerHTML)}</pre>`);
+                    break
+                  }
+                  case "ext_hover":
+                  case "ext_completion":
+                  case "ext_signature":
+                  case "ext_diagnostics":
+                  case "ext_inlayHints":
+                  case "ext_formatting": {
+                    let n = t.replace("ext_", ""),
+                      i = (c = d.override.clientConfig || {}, "object" != typeof c) ? c : JSON.parse(JSON.stringify(c)),
+                      r = i.builtinExtensions || {};
+                    yield(g = eO(eA({}, i), {
+                      builtinExtensions: eO(eA({}, r), {
+                        [n]: s
+                      })
+                    }), eS(function*() {
+                      yield eh(e, {
+                        clientConfig: g
+                      }), eu.Ay.servers.update(e, e => {
+                        var t;
+                        return eO(eA({}, e), {
+                          clientConfig: eO(eA({}, e.clientConfig || {}, g), {
+                            builtinExtensions: eA({}, (null == (t = e.clientConfig) ? void 0 : t.builtinExtensions) || {}, g.builtinExtensions || {})
+                          })
+                        })
+                      })
+                    })())
+                  }
+                }
+                let f = (null == b ? void 0 : b.isConnected) ? b : Array.from(document.querySelectorAll(".detail-settings-list[data-lsp-server-id]")).find(t => t.isConnected && t.dataset.lspServerId === String(e));
+                f && (yield eD(f, y, e))
+              } finally {
+                null == n || n.destroy()
+              }
+            })()
+          }, void 0, {
+            preserveOrder: !0,
+            pageClassName: "detail-settings-page",
+            listClassName: "detail-settings-list",
+            valueInTail: !0
+          }),
+          b = h.getListElement();
+        b.dataset.lspServerId = String(e);
+        let k = h.show.bind(h);
+        return eO(eA({}, h), {
+          show(t) {
+            k(t), eD(b, y, e).catch(console.error)
+          }
+        })
+      }
+
+      function eM(e, t, s, n, i, r, o) {
+        try {
+          var l = e[r](o),
+            a = l.value
+        } catch (e) {
+          s(e);
+          return
+        }
+        l.done ? t(a) : Promise.resolve(a).then(n, i)
+      }
+
+      function eq(e) {
+        return function() {
+          var t = this,
+            s = arguments;
+          return new Promise(function(n, i) {
+            var r = e.apply(t, s);
+
+            function o(e) {
+              eM(r, n, i, o, l, "next", e)
+            }
+
+            function l(e) {
+              eM(r, n, i, o, l, "throw", e)
+            }
+            o(void 0)
+          })
+        }
+      }
+
+      function eR(e) {
+        let t = String(e || "").trim();
+        if (!t) return [];
+        let s = JSON.parse(t);
+        if (!Array.isArray(s)) throw Error(strings["lsp-error-args-must-be-array"]);
+        return s.map(e => String(e))
+      }
+
+      function eU(e) {
+        let t = String(e || "").trim();
+        if (!t) throw Error(strings["lsp-error-websocket-url-required"] || "WebSocket URL is required");
+        if (!/^wss?:\/\//i.test(t)) throw Error(strings["lsp-error-websocket-url-invalid"] || "WebSocket URL must start with ws:// or wss://");
+        return t
+      }
+
+      function eG() {
+        var e;
+        let t = (null == (e = strings) ? void 0 : e.lsp_settings) || strings["language servers"] || "Language Servers",
+          s = {
+            customServers: strings["settings-category-custom-servers"],
+            behavior: strings["settings-category-behavior"] || "Behavior",
+            builtinServers: strings["settings-category-builtin-servers"] || "Built-in servers",
+            pluginServers: strings["settings-category-plugin-servers"] || "Plugin servers"
+          },
+          n = r();
+        return {
+          show(e) {
+            (n = r()).show(e)
+          },
+          hide() {
+            n.hide()
+          },
+          search: e => (n = r()).search(e),
+          restoreList() {
+            n.restoreList()
+          },
+          setTitle(e) {
+            n.setTitle(e)
+          }
+        };
+
+        function r() {
+          var e, n, r;
+          let l = eo.Ay.listServers().sort((e, t) => {
+              var s, n;
+              let i = null != (s = ev(e.id).enabled) ? s : e.enabled,
+                r = null != (n = ev(t.id).enabled) ? n : t.enabled;
+              return i !== r ? r ? 1 : -1 : e.label.localeCompare(t.label)
+            }),
+            a = [],
+            c = [],
+            g = [];
+          for (let e of l) {
+            let t = (null == (r = e.launcher) || null == (n = r.install) ? void 0 : n.source) ? ` • ${e.launcher.install.source}` : "",
+              i = Array.isArray(e.languages) && e.languages.length ? `${e.languages.join(", ")}${t}` : t.slice(3),
+              o = {
+                key: `server:${e.id}`,
+                text: e.label,
+                info: i || void 0,
+                chevron: !0
+              };
+            el.M.some(t => t.id === e.id) ? (o.category = s.builtinServers, a.push(o)) : ey(e.id) ? (o.category = s.customServers, g.push(o)) : (o.category = s.pluginServers, c.push(o))
+          }
+          let d = [{
+            key: "allow_non_terminal_workspace",
+            text: strings["lsp-allow-non-terminal-workspace"],
+            checkbox: (null == (e = u.default.value.lsp) ? void 0 : e.allowNonTerminalWorkspace) === !0,
+            info: strings["settings-info-lsp-allow-non-terminal-workspace"],
+            category: s.behavior
+          }, ...a, ...c, {
+            key: "add_custom_server",
+            text: strings["lsp-add-custom-server"],
+            info: strings["settings-info-lsp-add-custom-server"],
+            category: s.customServers,
+            chevron: !0
+          }, ...g];
+          return d.push({
+            note: strings["settings-note-lsp-settings"]
+          }), (0, i.A)(t, d, o, void 0, {
+            preserveOrder: !0,
+            pageClassName: "detail-settings-page",
+            listClassName: "detail-settings-list",
+            groupByDefault: !0
+          })
+        }
+
+        function o(e, t) {
+          return eq(function*() {
+            var s, i, o;
+            if ("allow_non_terminal_workspace" === e) return void(yield u.default.update({
+              lsp: (s = function(e) {
+                for (var t = 1; t < arguments.length; t++) {
+                  var s = null != arguments[t] ? arguments[t] : {},
+                    n = Object.keys(s);
+                  "function" == typeof Object.getOwnPropertySymbols && (n = n.concat(Object.getOwnPropertySymbols(s).filter(function(e) {
+                    return Object.getOwnPropertyDescriptor(s, e).enumerable
+                  }))), n.forEach(function(t) {
+                    var n;
+                    n = s[t], t in e ? Object.defineProperty(e, t, {
+                      value: n,
+                      enumerable: !0,
+                      configurable: !0,
+                      writable: !0
+                    }) : e[t] = n
+                  })
+                }
+                return e
+              }({}, u.default.value.lsp || {}), i = i = {
+                allowNonTerminalWorkspace: !0 === t
+              }, Object.getOwnPropertyDescriptors ? Object.defineProperties(s, Object.getOwnPropertyDescriptors(i)) : (function(e) {
+                var t = Object.keys(e);
+                if (Object.getOwnPropertySymbols) {
+                  var s = Object.getOwnPropertySymbols(e);
+                  t.push.apply(t, s)
+                }
+                return t
+              })(Object(i)).forEach(function(e) {
+                Object.defineProperty(s, e, Object.getOwnPropertyDescriptor(i, e))
+              }), s)
+            }));
+            if ("add_custom_server" === e) {
+              try {
+                let e, t, s = yield(0, ea.A)(strings["lsp-server-id"], "", "text");
+                if (null === s) return;
+                let i = ef(s);
+                if (!i) return void(0, p.A)(strings["lsp-error-server-id-required"]);
+                let l = yield(0, ea.A)(strings["lsp-server-label"], i, "text");
+                if (null === l) return;
+                let a = yield(0, ea.A)(strings["lsp-language-ids"], "", "text");
+                if (null === a) return;
+                let c = em(a);
+                if (!c.length) return void(0, p.A)(strings["lsp-error-language-id-required"]);
+                let g = yield(0, F.default)(strings.type || "Type", [{
+                  value: "stdio",
+                  text: strings["lsp-transport-method-stdio"] || "STDIO (launch a binary command)"
+                }, {
+                  value: "websocket",
+                  text: strings["lsp-transport-method-websocket"] || "WebSocket (connect to a ws/wss URL)"
+                }]);
+                if (!g) return;
+                if ("websocket" === g) {
+                  let t = yield(0, ea.A)(strings["lsp-websocket-url"] || "WebSocket URL", "ws://127.0.0.1:3000/", "text", {
+                    test: e => {
+                      try {
+                        return eU(e), !0
+                      } catch (e) {
+                        return !1
+                      }
+                    }
+                  });
+                  if (null === t) return;
+                  e = {
+                    kind: "websocket",
+                    url: eU(t)
+                  }
+                } else {
+                  let s, n = yield(0, ea.A)(strings["lsp-binary-command"], "", "text");
+                  if (null === n) return;
+                  if (!String(n).trim()) return void(0, p.A)(strings["lsp-error-binary-command-required"]);
+                  let i = yield(0, ea.A)(strings["lsp-binary-args"], "[]", "textarea", {
+                    test: e => {
+                      try {
+                        return eR(e), !0
+                      } catch (e) {
+                        return !1
+                      }
+                    }
+                  });
+                  if (null === i) return;
+                  let r = eR(i),
+                    o = yield eq(function*() {
+                      let e = yield(0, F.default)(strings["lsp-install-method-title"], [{
+                        value: "manual",
+                        text: strings["lsp-install-method-manual"]
+                      }, {
+                        value: "apk",
+                        text: strings["lsp-install-method-apk"]
+                      }, {
+                        value: "npm",
+                        text: strings["lsp-install-method-npm"]
+                      }, {
+                        value: "pip",
+                        text: strings["lsp-install-method-pip"]
+                      }, {
+                        value: "cargo",
+                        text: strings["lsp-install-method-cargo"]
+                      }, {
+                        value: "shell",
+                        text: strings["lsp-install-method-shell"]
+                      }]);
+                      if (!e) return null;
+                      switch (e) {
+                        case "manual": {
+                          let e = yield(0, ea.A)(strings["lsp-binary-path-optional"], String(n || "").includes("/") ? String(n) : "", "text");
+                          if (null === e) return null;
+                          return {
+                            kind: "manual",
+                            source: "manual",
+                            executable: String(n || "").trim() || void 0,
+                            binaryPath: String(e || "").trim() || void 0
+                          }
+                        }
+                        case "apk":
+                        case "npm":
+                        case "pip":
+                        case "cargo": {
+                          let t = yield(0, ea.A)(strings["lsp-packages-prompt"].replace("{method}", e.toUpperCase()), "", "text");
+                          if (null === t) return null;
+                          let s = String(t || "").split(",").map(e => e.trim()).filter(Boolean);
+                          if (!s.length) throw Error(strings["lsp-error-package-required"]);
+                          return {
+                            kind: e,
+                            source: e,
+                            executable: String(n || "").trim() || void 0,
+                            packages: s
+                          }
+                        }
+                        case "shell": {
+                          let e = yield(0, ea.A)(strings["lsp-install-command"], "", "textarea");
+                          if (null === e) return null;
+                          let t = yield(0, ea.A)(strings["lsp-update-command-optional"], String(e || ""), "textarea");
+                          if (null === t) return null;
+                          return {
+                            kind: "shell",
+                            source: "custom",
+                            executable: String(n || "").trim() || void 0,
+                            command: String(e || "").trim() || void 0,
+                            updateCommand: String(t || "").trim() || void 0
+                          }
+                        }
+                        default:
+                          return null
+                      }
+                    })();
+                  if (null === o) return;
+                  let l = (s = String((null == o ? void 0 : o.binaryPath) || (null == o ? void 0 : o.executable) || n || "").trim()) ? (null == o ? void 0 : o.kind) === "manual" && (null == o ? void 0 : o.binaryPath) ? `test -x ${(0,er.X1)(o.binaryPath)}` : s.includes("/") ? `test -x ${(0,er.X1)(s)}` : `which ${(0,er.X1)(s)}` : "",
+                    a = yield(0, ea.A)(strings["lsp-check-command-optional"], l, "text", {
+                      placeholder: l || "which my-language-server"
+                    });
+                  if (null === a) return;
+                  e = {
+                    kind: "stdio",
+                    command: String(n).trim(),
+                    args: r
+                  }, t = {
+                    bridge: {
+                      kind: "axs",
+                      command: String(n).trim(),
+                      args: r
+                    },
+                    checkCommand: String(a || "").trim() || void 0,
+                    install: o
+                  }
+                }
+                yield(o = {
+                  label: String(l || "").trim() || i,
+                  languages: c,
+                  transport: e,
+                  launcher: t,
+                  enabled: !0
+                }, eg(function*() {
+                  var e, t, s, n;
+                  let r = ef(i);
+                  if (!r) throw Error("Server id is required");
+                  if (eu.Ay.servers.get(r) && !0 !== ev(r).custom) throw Error("A built-in server already uses this id");
+                  let l = em(o.languages);
+                  if (!l.length) throw Error("At least one language id is required");
+                  let a = ep();
+                  a.servers = a.servers || {};
+                  let c = a.servers[r] || {},
+                    g = Object.prototype.hasOwnProperty.call(o, "transport"),
+                    d = Object.prototype.hasOwnProperty.call(o, "launcher"),
+                    p = (s = ed({}, c, o), n = n = {
+                      custom: !0,
+                      label: o.label || c.label || r,
+                      languages: l,
+                      transport: g ? o.transport : c.transport || {
+                        kind: "websocket"
+                      },
+                      launcher: d ? o.launcher : c.launcher,
+                      runtimes: o.runtimes || c.runtimes,
+                      enabled: !1 !== o.enabled
+                    }, Object.getOwnPropertyDescriptors ? Object.defineProperties(s, Object.getOwnPropertyDescriptors(n)) : (function(e) {
+                      var t = Object.keys(e);
+                      if (Object.getOwnPropertySymbols) {
+                        var s = Object.getOwnPropertySymbols(e);
+                        t.push.apply(t, s)
+                      }
+                      return t
+                    })(Object(n)).forEach(function(e) {
+                      Object.defineProperty(s, e, Object.getOwnPropertyDescriptor(n, e))
+                    }), s),
+                    f = null == (t = p.launcher) || null == (e = t.install) ? void 0 : e.kind;
+                  if (f && "shell" !== f && !(p.launcher.install.binaryPath || p.launcher.install.executable)) throw Error("Managed installers must declare the executable path or command they provide");
+                  a.servers[r] = p, yield u.default.update({
+                    lsp: a
+                  }, !1);
+                  let m = {
+                    id: r,
+                    label: p.label,
+                    languages: l,
+                    transport: p.transport,
+                    launcher: p.launcher,
+                    runtimes: p.runtimes,
+                    clientConfig: p.clientConfig,
+                    initializationOptions: p.initializationOptions,
+                    startupTimeout: p.startupTimeout,
+                    enabled: !1 !== p.enabled
+                  };
+                  return eu.Ay.upsert(m), r
+                })()), (0, p.A)(strings["lsp-custom-server-added"]), n.hide(), (n = r()).show();
+                let d = eB(i);
+                null == d || d.show()
+              } catch (e) {
+                (0, p.A)(e instanceof Error ? e.message : strings["lsp-error-add-server-failed"])
+              }
+              return
+            }
+            if (e.startsWith("server:")) {
+              let t = eB(e.split(":")[1]);
+              t && t.show()
+            }
+          })()
+        }
+      }
+
+      function eW() {
+        let e = u.default.value,
+          t = strings["preview settings"],
+          s = {
+            server: strings["settings-category-server"],
+            preview: strings["settings-category-preview"]
+          },
+          n = /^([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/,
+          r = [{
+            key: "previewPort",
+            text: strings["preview port"],
+            value: e.previewPort,
+            prompt: strings["preview port"],
+            promptType: "number",
+            promptOptions: {
+              test: e => n.test(e)
+            },
+            info: strings["settings-info-preview-preview-port"],
+            category: s.server
+          }, {
+            key: "serverPort",
+            text: strings["server port"],
+            value: e.serverPort,
+            prompt: strings["server port"],
+            promptType: "number",
+            promptOptions: {
+              test: e => n.test(e)
+            },
+            info: strings["settings-info-preview-server-port"],
+            category: s.server
+          }, {
+            key: "previewMode",
+            text: strings["preview mode"],
+            value: e.previewMode,
+            valueText: e => {
+              var t;
+              return null != (t = ({
+                [u.default.PREVIEW_MODE_BROWSER]: strings.browser,
+                [u.default.PREVIEW_MODE_INAPP]: strings.inapp
+              })[e]) ? t : null != e ? e.capitalize() : e
+            },
+            select: [
+              [u.default.PREVIEW_MODE_BROWSER, strings.browser],
+              [u.default.PREVIEW_MODE_INAPP, strings.inapp]
+            ],
+            info: strings["settings-info-preview-mode"],
+            category: s.server
+          }, {
+            key: "host",
+            text: strings.host,
+            value: e.host,
+            prompt: strings.host,
+            promptType: "text",
+            promptOptions: {
+              test(t) {
+                try {
+                  return new URL(`http://${t}:${e.previewPort}`), !0
+                } catch (e) {
+                  return !1
+                }
+              }
+            },
+            info: strings["settings-info-preview-host"],
+            category: s.server
+          }, {
+            key: "disableCache",
+            text: strings["disable in-app-browser caching"],
+            checkbox: e.disableCache,
+            info: strings["settings-info-preview-disable-cache"],
+            category: s.preview
+          }, {
+            key: "useCurrentFileForPreview",
+            text: strings.should_use_current_file_for_preview,
+            checkbox: !!e.useCurrentFileForPreview,
+            info: strings["settings-info-preview-use-current-file"],
+            category: s.preview
+          }, {
+            key: "showConsoleToggler",
+            text: strings["show console toggler"],
+            checkbox: e.showConsoleToggler,
+            info: strings["settings-info-preview-show-console-toggler"],
+            category: s.preview
+          }, {
+            note: strings["preview settings note"]
+          }];
+        return (0, i.A)(t, r, function(e, t) {
+          u.default.update({
+            [e]: t
+          })
+        }, void 0, {
+          preserveOrder: !0,
+          pageClassName: "detail-settings-page",
+          listClassName: "detail-settings-list",
+          infoAsDescription: !0,
+          valueInTail: !0
+        })
+      }
+      var eH = s(2233),
+        eK = s(81581);
+
+      function eJ(e, t, s, n, i, r, o) {
+        try {
+          var l = e[r](o),
+            a = l.value
+        } catch (e) {
+          s(e);
+          return
+        }
+        l.done ? t(a) : Promise.resolve(a).then(n, i)
+      }
+
+      function eV() {
+        var e;
+        x();
+        let t = strings.settings.capitalize(),
+          c = {
+            core: strings["settings-category-core"],
+            customization: strings["settings-category-customization"] || "Customization",
+            tools: strings["settings-category-tools"] || "Tools",
+            maintenance: strings["settings-category-maintenance"],
+            aboutAcode: strings["settings-category-about-acode"]
+          },
+          b = [{
+            key: "app-settings",
+            text: strings["app settings"],
+            icon: "tune",
+            info: strings["settings-info-main-app-settings"],
+            category: c.core,
+            chevron: !0
+          }, {
+            key: "editor-settings",
+            text: strings["editor settings"],
+            icon: "text_format",
+            info: strings["settings-info-main-editor-settings"],
+            category: c.core,
+            chevron: !0
+          }, {
+            key: "terminal-settings",
+            text: `${strings["terminal settings"]}`,
+            icon: "terminal",
+            info: strings["settings-info-main-terminal-settings"],
+            category: c.core,
+            chevron: !0
+          }, {
+            key: "preview-settings",
+            text: strings["preview settings"],
+            icon: "public",
+            info: strings["settings-info-main-preview-settings"],
+            category: c.core,
+            chevron: !0
+          }, {
+            key: "theme",
+            text: strings.theme,
+            icon: "color_lenspalette",
+            info: strings["settings-info-main-theme"],
+            category: c.customization,
+            chevron: !0
+          }, {
+            key: "appIcon",
+            text: strings["app icon"] || "App icon",
+            image: eY(),
+            info: strings["settings-info-app-icon"] || "Choose the app icon displayed on your device.",
+            category: c.customization,
+            chevron: !0
+          }, {
+            key: "formatter",
+            text: strings.formatter,
+            icon: "spellcheck",
+            info: strings["settings-info-main-formatter"],
+            category: c.tools,
+            chevron: !0
+          }, {
+            key: "plugins",
+            text: strings.plugins,
+            icon: "extension",
+            info: strings["settings-info-main-plugins"],
+            category: c.tools,
+            chevron: !0
+          }, {
+            key: "lsp-settings",
+            text: (null == (e = strings) ? void 0 : e.lsp_settings) || strings["language servers"] || "Language servers",
+            icon: "zap",
+            info: strings["settings-info-main-lsp-settings"],
+            category: c.tools,
+            chevron: !0
+          }, {
+            key: "backup-restore",
+            text: `${strings.backup.capitalize()} & ${strings.restore.capitalize()}`,
+            icon: "cached",
+            info: strings["settings-info-main-backup-restore"],
+            category: c.maintenance,
+            chevron: !0
+          }, {
+            key: "editSettings",
+            text: `${strings.edit} settings.json`,
+            icon: "edit",
+            info: strings["settings-info-main-edit-settings"],
+            category: c.maintenance,
+            chevron: !0
+          }, {
+            key: "reset",
+            text: strings["restore default settings"],
+            icon: "historyrestore",
+            info: strings["settings-info-main-reset"],
+            category: c.maintenance,
+            chevron: !0
+          }, {
+            key: "about",
+            text: strings.about,
+            icon: "info",
+            info: `Version ${BuildInfo.version}`,
+            category: c.aboutAcode,
+            chevron: !0
+          }, {
+            key: "changeLog",
+            text: `${strings.changelog}`,
+            icon: "update",
+            info: strings["settings-info-main-changelog"],
+            category: c.aboutAcode,
+            chevron: !0
+          }],
+          k = (0, i.A)(t, b, function(e) {
+            var t;
+            return (t = function*() {
+              switch (e) {
+                case "app-settings":
+                case "backup-restore":
+                case "editor-settings":
+                case "preview-settings":
+                case "terminal-settings":
+                case "lsp-settings":
+                  u.default.uiSettings[e].show();
+                  break;
+                case "theme":
+                  ! function(...e) {
+                    Promise.all([s.e(1008), s.e(4919)]).then(s.bind(s, 93016)).then(t => {
+                      t.default(...e)
+                    })
+                  }();
+                  break;
+                case "appIcon":
+                  return function(...e) {
+                    return x(),
+                      function() {
+                        let e;
+                        if (n) return n;
+                        let t = `app-icon-${++h}`,
+                          s = document.activeElement,
+                          i = new AbortController,
+                          a = u.default.value.appIcon || "default",
+                          c = !1,
+                          b = new Promise(t => {
+                            e = t
+                          }),
+                          k = g()("div", "app-icon-list message scroll", null, [l.map(e => g()("button", `app-icon-item${e.id===a?" current":""}`, null, [g()("span", "app-icon-preview", null, [g()("img", {
+                            alt: "",
+                            src: e.image
+                          })])], {
+                            type: "button",
+                            attr: {
+                              "data-icon": e.id,
+                              "aria-label": e.label,
+                              "aria-pressed": String(e.id === a)
+                            }
+                          }))]),
+                          x = g()("button", [strings.close], {
+                            type: "button"
+                          }),
+                          w = g()("div", "prompt app-icon-dialog", null, [g()("strong", "title", `${t}-title`, [strings["app icon"] || "App icon"]), k, g()("div", "button-container", null, [x])], {
+                            role: "dialog",
+                            attr: {
+                              "aria-modal": "true",
+                              "aria-labelledby": `${t}-title`
+                            }
+                          }),
+                          S = g()("span", "mask", null),
+                          A = {
+                            signal: i.signal,
+                            onBusy(e) {
+                              for (let t of (k.setAttribute("aria-busy", String(e)), e && k.contains(document.activeElement) && x.focus(), k.querySelectorAll("button"))) t.disabled = e
+                            },
+                            onLoading(e) {
+                              c !== e && (c = e, w.inert = e, e ? d.A.create(strings["app icon"], strings["loading..."]) : d.A.destroy())
+                            },
+                            onChange: O
+                          };
+                        return n = b, k.addEventListener("click", _), x.addEventListener("click", O), S.addEventListener("click", O), w.addEventListener("keydown", E), o.A.push({
+                          id: t,
+                          action: O
+                        }), app.append(w, S), (0, y.A)(!0), (k.querySelector(".current") || x).focus(), b;
+
+                        function O() {
+                          i.signal.aborted || (i.abort(), c && d.A.destroy(), o.A.remove(t), k.removeEventListener("click", _), x.removeEventListener("click", O), S.removeEventListener("click", O), w.removeEventListener("keydown", E), w.classList.add("hide"), w.inert = !0, (0, y.A)(), setTimeout(() => {
+                            w.remove(), S.remove(), n = void 0, (null == s ? void 0 : s.isConnected) && s.focus(), e()
+                          }, 180 * !document.body.classList.contains("no-animation")))
+                        }
+
+                        function _(e) {
+                          let t = e.target.closest("[data-icon]");
+                          t && function(e, t) {
+                            var s;
+                            (s = function*(e, {
+                              signal: t,
+                              onBusy: s,
+                              onLoading: n,
+                              onChange: i
+                            }) {
+                              if (l.find(({
+                                  id: t
+                                }) => t === e) && !v && !t.aborted && e !== (u.default.value.appIcon || "default")) {
+                                v = !0, s(!0);
+                                try {
+                                  if (!(yield(0, r.A)(strings["app icon"], strings["app icon change warning"] || "The app will exit after the app icon is changed.", !1, {
+                                      signal: t
+                                    })) || t.aborted || (n(!0), t.aborted)) return;
+                                  yield f.A.promisify(system.setAppIcon, e), yield u.default.update({
+                                    appIcon: e
+                                  }, !1), t.aborted || (i(), (0, p.A)(strings["app icon changed"]))
+                                } catch (e) {
+                                  t.aborted || f.A.error(e)
+                                } finally {
+                                  v = !1, t.aborted || (n(!1), s(!1))
+                                }
+                              }
+                            }, function() {
+                              var e = this,
+                                t = arguments;
+                              return new Promise(function(n, i) {
+                                var r = s.apply(e, t);
+
+                                function o(e) {
+                                  m(r, n, i, o, l, "next", e)
+                                }
+
+                                function l(e) {
+                                  m(r, n, i, o, l, "throw", e)
+                                }
+                                o(void 0)
+                              })
+                            }).apply(this, arguments)
+                          }(t.dataset.icon, A)
+                        }
+
+                        function E(e) {
+                          if ("Escape" === e.key) e.preventDefault(), e.stopPropagation(), o.A.pop();
+                          else if ("Tab" === e.key) {
+                            let t = document.querySelectorAll(".prompt:not(.hide)");
+                            if (t[t.length - 1] !== w) return;
+                            let s = w.querySelectorAll("button:not(:disabled)"),
+                              n = s[0],
+                              i = s[s.length - 1];
+                            e.shiftKey && e.target === n ? (e.preventDefault(), i.focus()) : e.shiftKey || e.target !== i || (e.preventDefault(), n.focus())
+                          }
+                        }
+                      }(...e)
+                  }();
+                case "about":
+                  (0, I.default)();
+                  break;
+                case "plugins":
+                  (0, $.default)();
+                  break;
+                case "formatter":
+                  (0, ei.default)();
+                  break;
+                case "editSettings":
+                  o.A.pop(), (0, a.A)(u.default.settingsFile);
+                  break;
+                case "reset":
+                  (yield(0, r.A)(strings.warning, strings["restore default settings"])) && (yield u.default.reset(), location.reload());
+                  break;
+                case "changeLog":
+                  var t;
+                  (t = function*() {
+                    let e = (0, w.A)(strings.changelog),
+                      t = O()(),
+                      n = yield s.e(3920).then(s.t.bind(s, 11843, 17));
+                    e.body = g()("div", "md", "changelog", {
+                      ref: t
+                    }), app.append(e), e.onhide = function() {
+                      o.A.remove("changelog")
+                    }, o.A.push({
+                      id: "changelog",
+                      action: e.hide
+                    }), t.onref = () => {
+                      var e;
+                      let s, i;
+                      return e = n.default, (s = (0, _.A)({
+                        html: !0,
+                        linkify: !0
+                      })).use(T()), s.use(E.A), i = s.render(e), void(t.innerHTML = S.A.sanitize(i))
+                    }
+                  }, function() {
+                    var e = this,
+                      s = arguments;
+                    return new Promise(function(n, i) {
+                      var r = t.apply(e, s);
+
+                      function o(e) {
+                        C(r, n, i, o, l, "next", e)
+                      }
+
+                      function l(e) {
+                        C(r, n, i, o, l, "throw", e)
+                      }
+                      o(void 0)
+                    })
+                  })()
+              }
+            }, function() {
+              var e = this,
+                s = arguments;
+              return new Promise(function(n, i) {
+                var r = t.apply(e, s);
+
+                function o(e) {
+                  eJ(r, n, i, o, l, "next", e)
+                }
+
+                function l(e) {
+                  eJ(r, n, i, o, l, "throw", e)
+                }
+                o(void 0)
+              })
+            })()
+          }, void 0, {
+            preserveOrder: !0,
+            pageClassName: "main-settings-page",
+            listClassName: "main-settings-list"
+          }),
+          A = k.getListElement().querySelector('[data-key="appIcon"] > .icon img'),
+          P = () => {
+            A.src = eY()
+          };
+        u.default.on("update:appIcon", P), k.onClose(() => u.default.off("update:appIcon", P)), k.show(), u.default.uiSettings["main-settings"] = k;
+        let j = {
+            "app-settings": W,
+            "file-settings": en.A,
+            "backup-restore": ee,
+            "editor-settings": es,
+            "scroll-settings": et,
+            "search-settings": eH.A,
+            "preview-settings": eW,
+            "terminal-settings": eK.A,
+            "lsp-settings": eG
+          },
+          N = {};
+        for (let [e, t] of Object.entries(j)) delete u.default.uiSettings[e], Object.defineProperty(u.default.uiSettings, e, {
+          get: () => (e in N || (N[e] = t(), Object.defineProperty(u.default.uiSettings, e, {
+            value: N[e],
+            writable: !0,
+            configurable: !0,
+            enumerable: !0
+          })), N[e]),
+          set(t) {
+            N[e] = t, Object.defineProperty(u.default.uiSettings, e, {
+              value: t,
+              writable: !0,
+              configurable: !0,
+              enumerable: !0
+            })
+          },
+          configurable: !0,
+          enumerable: !1
+        })
+      }
+
+      function eY() {
+        return (l.find(({
+          id: e
+        }) => e === u.default.value.appIcon) || l["0"]).image
+      }
+    }
+  }
+]);

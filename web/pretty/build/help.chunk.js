@@ -1,0 +1,44 @@
+"use strict";
+(self.rspackChunkcom_foxdebug_acode = self.rspackChunkcom_foxdebug_acode || []).push([
+  [787], {
+    28668: function(e, n, o) {
+      o.r(n);
+      let i = 'Copyright 2020 Foxdebug(Ajit Kumar)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software\nand associated documentation files (the "Software"), to deal in the Software without \nrestriction, including without limitation the rights to use, copy, modify, merge, publish, \ndistribute, sublicense, and/or sell copies of the Software, and to permit persons to whom \nthe Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or \nsubstantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, \nINCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR \nPURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE \nFOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR \nOTHERWISE,ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER \nDEALINGS IN THE SOFTWARE.';
+      n.default = i, o.d(n, {}, {
+        ACODE_MIT_LICENSE: i
+      })
+    },
+    26810: function(e, n, o) {
+      var i = o(14765),
+        t = o.n(i),
+        l = o(72192),
+        s = o(48180),
+        T = o(24686),
+        a = o(28668);
+
+      function d() {
+        let e = (0, l.A)(strings.help || "帮助");
+        e.classList.add("help-page"), e.body = t()("main", "main scroll", "help-page", [t()("div", "help-block", null, [t()("h2", ["游龙编程"]), t()("p", ["基于开源项目 Acode 1.13.5 构建的离线代码编辑器。除「插件商店」的浏览与下载外，本应用不发起任何网络请求：没有账号、没有订阅与内购、没有广告、没有更新检查。"])]), t()("div", "help-block", null, [t()("h2", ["主要功能"]), t()("ul", [t()("li", ["编辑器：语法高亮、LSP 语言服务、代码格式化、查找与替换"]), t()("li", ["文件：本地目录与 SAF、文件树、全局搜索"]), t()("li", ["终端：内置 Alpine Linux（proot）"]), t()("li", ["远程：SFTP / FTP，编辑你自己服务器上的文件"]), t()("li", ["外观：主题与字体（Fira Code / Roboto Mono / MesloLGS NF）"]), t()("li", ["插件：免费插件商店，可浏览、搜索、安装、卸载"])])]), t()("div", "help-block", null, [t()("h2", ["开源许可"]), t()("p", ["本应用包含开源项目 Acode（Copyright 2020 Foxdebug(Ajit Kumar)，MIT License）。"]), t()("p", ["第三方组件许可清单随包分发在 ", t()("code", ["www/licenses/THIRD-PARTY-NOTICES.txt"]), "。"]), t()("div", "help-link", null, ["\n					查看 MIT 许可全文\n				"], {
+          onclick: () => (0, T.default)("MIT License", a.ACODE_MIT_LICENSE)
+        })])]), s.A.push({
+          id: "help",
+          action: e.hide
+        }), e.onhide = function() {
+          s.A.remove("help")
+        }, app.append(e)
+      }
+      o.d(n, {
+        default: function() {
+          return d
+        }
+      })
+    },
+    70069: function(e, n, o) {
+      o.r(n), n.default = function() {
+        o.e(787).then(o.bind(o, 26810)).then(e => {
+          e.default()
+        })
+      }
+    }
+  }
+]);

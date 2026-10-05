@@ -1,0 +1,268 @@
+(self.rspackChunkcom_foxdebug_acode = self.rspackChunkcom_foxdebug_acode || []).push([
+  [9607], {
+    64642: function(t) {
+      t.exports = function() {
+        "use strict";
+        var t = {
+            d: function(n, e) {
+              for (var o in e) t.o(e, o) && !t.o(n, o) && Object.defineProperty(n, o, {
+                enumerable: !0,
+                get: e[o]
+              })
+            },
+            o: function(t, n) {
+              return Object.prototype.hasOwnProperty.call(t, n)
+            }
+          },
+          n = {};
+
+        function e(t) {
+          return (e = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(t) {
+            return typeof t
+          } : function(t) {
+            return t && "function" == typeof Symbol && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t
+          })(t)
+        }
+
+        function o(t) {
+          var n = function(t) {
+            if ("object" != e(t) || !t) return t;
+            var n = t[Symbol.toPrimitive];
+            if (void 0 !== n) {
+              var o = n.call(t, "string");
+              if ("object" != e(o)) return o;
+              throw TypeError("@@toPrimitive must return a primitive value.")
+            }
+            return String(t)
+          }(t);
+          return "symbol" == e(n) ? n : n + ""
+        }
+
+        function r(t) {
+          return (r = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(t) {
+            return t.__proto__ || Object.getPrototypeOf(t)
+          })(t)
+        }
+
+        function i(t, n) {
+          return (i = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(t, n) {
+            return t.__proto__ = n, t
+          })(t, n)
+        }
+
+        function u() {
+          try {
+            var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {}))
+          } catch (t) {}
+          return (u = function() {
+            return !!t
+          })()
+        }
+
+        function c(t) {
+          var n = "function" == typeof Map ? new Map : void 0;
+          return (c = function(t) {
+            if (null === t || ! function(t) {
+                try {
+                  return -1 !== Function.toString.call(t).indexOf("[native code]")
+                } catch (n) {
+                  return "function" == typeof t
+                }
+              }(t)) return t;
+            if ("function" != typeof t) throw TypeError("Super expression must either be null or a function");
+            if (void 0 !== n) {
+              if (n.has(t)) return n.get(t);
+              n.set(t, e)
+            }
+
+            function e() {
+              return function(t, n, e) {
+                if (u()) return Reflect.construct.apply(null, arguments);
+                var o = [null];
+                o.push.apply(o, n);
+                var r = new(t.bind.apply(t, o));
+                return e && i(r, e.prototype), r
+              }(t, arguments, r(this).constructor)
+            }
+            return e.prototype = Object.create(t.prototype, {
+              constructor: {
+                value: e,
+                enumerable: !1,
+                writable: !0,
+                configurable: !0
+              }
+            }), i(e, t)
+          })(t)
+        }
+
+        function l() {
+          try {
+            var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {}))
+          } catch (t) {}
+          return (l = function() {
+            return !!t
+          })()
+        }
+
+        function a(t, n, e) {
+          if ("function" == typeof t ? t === n : t.has(n)) return arguments.length < 3 ? n : e;
+          throw TypeError("Private element is not present on this object")
+        }
+        t.d(n, {
+          default: function() {
+            return p
+          }
+        });
+        var f = new WeakMap,
+          s = function(t) {
+            var n;
+
+            function u() {
+              var t, n, i, c, a, s, p = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";
+              return function(t, n) {
+                  if (!(t instanceof n)) throw TypeError("Cannot call a class as a function")
+                }(this, u), s = [p], a = r(a = u), t = c = function(t, n) {
+                  if (n && ("object" == e(n) || "function" == typeof n)) return n;
+                  if (void 0 !== n) throw TypeError("Derived constructors may only return object or undefined");
+                  if (void 0 === t) throw ReferenceError("this hasn't been initialised - super() hasn't been called");
+                  return t
+                }(this, l() ? Reflect.construct(a, s || [], r(this).constructor) : a.apply(this, s)), (n = o(n = "onChange")) in t ? Object.defineProperty(t, n, {
+                  value: null,
+                  enumerable: !0,
+                  configurable: !0,
+                  writable: !0
+                }) : t[n] = null, i = void 0,
+                function(t, n) {
+                  if (n.has(t)) throw TypeError("Cannot initialize the same private elements twice on an object")
+                }(c, f), f.set(c, i), c.clones = [c], c.shouldClone = !1, c.value = p, c
+            }
+            return function(t, n) {
+                if ("function" != typeof n && null !== n) throw TypeError("Super expression must either be null or a function");
+                t.prototype = Object.create(n && n.prototype, {
+                  constructor: {
+                    value: t,
+                    writable: !0,
+                    configurable: !0
+                  }
+                }), Object.defineProperty(t, "prototype", {
+                  writable: !1
+                }), n && i(t, n)
+              }(u, t), n = [{
+                key: "value",
+                get: function() {
+                  return f.get(a(f, this))
+                },
+                set: function(t) {
+                  f.set(a(f, this), t), this.clones.forEach(function(n) {
+                    n.textContent = t
+                  }), "function" == typeof this.onChange && this.onChange.call(this, t)
+                }
+              }, {
+                key: "clone",
+                value: function() {
+                  var t = new p(this.value);
+                  return this.clones.push(t), t
+                }
+              }, {
+                key: "toString",
+                value: function() {
+                  return "".concat(f.get(a(f, this)))
+                }
+              }],
+              function(t, n) {
+                for (var e = 0; e < n.length; e++) {
+                  var r = n[e];
+                  r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(t, o(r.key), r)
+                }
+              }(u.prototype, n), Object.defineProperty(u, "prototype", {
+                writable: !1
+              }), u
+          }(c(Text));
+
+        function p(t) {
+          return new s(t)
+        }
+        return p.isReactive = function(t) {
+          return t instanceof s
+        }, n.default
+      }()
+    },
+    7968: function(t, n, e) {
+      "use strict";
+      e.d(n, {
+        default: function() {
+          return p
+        }
+      });
+      var o = e(14765),
+        r = e.n(o);
+
+      function i() {
+        return r()("div", "logo", null)
+      }
+      var u = e(72192),
+        c = e(64642),
+        l = e.n(c),
+        a = e(48180),
+        f = e(24686);
+
+      function s(t, n, e, o, r, i, u) {
+        try {
+          var c = t[i](u),
+            l = c.value
+        } catch (t) {
+          e(t);
+          return
+        }
+        c.done ? n(l) : Promise.resolve(l).then(o, r)
+      }
+
+      function p() {
+        let t = (0, u.A)(strings.about.capitalize()),
+          n = l()("N/A"),
+          o = l()("N/A");
+        t.classList.add("about-us"), t.body = r()("main", "main scroll", "about-page", [r()(i), r()("div", "version-info", null, [r()("h1", "version-title", null, ["游龙编程"]), r()("div", "version-number", null, ["\n					Version ", BuildInfo.version, " (", BuildInfo.versionCode, ")\n				"])]), r()("div", "info-section", null, [r()("div", "info-item", null, [r()("div", "info-item-icon", null, [r()("span", "icon info", null)]), r()("div", "info-item-text", null, ["\n						开源许可\n						", r()("div", "info-item-subtext", null, ["基于 Acode 开源项目 \xb7 MIT License"])])], {
+          onclick: () => {
+            var t;
+            return (t = function*() {
+              let {
+                ACODE_MIT_LICENSE: t
+              } = yield e.e(9629).then(e.bind(e, 28668));
+              (0, f.default)("开源许可 / Open source licenses", t)
+            }, function() {
+              var n = this,
+                e = arguments;
+              return new Promise(function(o, r) {
+                var i = t.apply(n, e);
+
+                function u(t) {
+                  s(i, o, r, u, c, "next", t)
+                }
+
+                function c(t) {
+                  s(i, o, r, u, c, "throw", t)
+                }
+                u(void 0)
+              })
+            })()
+          }
+        })])]), system.getWebviewInfo(t => {
+          o.value = (null == t ? void 0 : t.packageName) || "N/A", n.value = (null == t ? void 0 : t.versionName) || "N/A"
+        }), a.A.push({
+          id: "about",
+          action: t.hide
+        }), t.onhide = function() {
+          a.A.remove("about")
+        }, app.append(t)
+      }
+    },
+    71607: function(t, n, e) {
+      "use strict";
+      e.r(n), n.default = function() {
+        e.e(9607).then(e.bind(e, 7968)).then(t => {
+          t.default()
+        })
+      }
+    }
+  }
+]);

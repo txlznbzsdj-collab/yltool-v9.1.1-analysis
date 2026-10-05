@@ -1,0 +1,59 @@
+"use strict";
+(self.rspackChunkcom_foxdebug_acode = self.rspackChunkcom_foxdebug_acode || []).push([
+  [3137], {
+    17901: function(t, e, a) {
+      a.r(e);
+      var s = a(4859),
+        n = a(40490),
+        r = a(39037);
+
+      function o(t) {
+        let e = strings.formatter,
+          a = r.default.value,
+          {
+            formatters: o
+          } = acode,
+          i = strings.languages || "Languages",
+          l = (0, s.LP)().slice().sort((t, e) => String(t.caption || t.name).localeCompare(String(e.caption || e.name))).map(t => {
+            let {
+              name: e,
+              caption: s,
+              extensions: n
+            } = t, r = a.formatter[e] || null, l = String(n).split("|").filter(t => t && !t.startsWith("^")), u = acode.getFormatterFor(l), g = l[0] || e;
+            return {
+              key: e,
+              text: s,
+              fileIcon: {
+                name: `sample.${g}`
+              },
+              value: r,
+              valueText: t => {
+                let e = o.find(({
+                  id: e
+                }) => e === t);
+                return e ? e.name : strings.none
+              },
+              select: u,
+              chevron: !0,
+              category: i
+            }
+          });
+        l.unshift({
+          note: strings["settings-note-formatter-settings"]
+        }), (0, n.A)(e, l, function(t, e) {
+          null === e ? delete a.formatter[t] : a.formatter[t] = e, r.default.update()
+        }, "separate", {
+          preserveOrder: !0,
+          pageClassName: "detail-settings-page formatter-settings-page",
+          listClassName: "detail-settings-list formatter-settings-list",
+          notePosition: "top"
+        }).show(t)
+      }
+      a.d(e, {
+        default: function() {
+          return o
+        }
+      })
+    }
+  }
+]);

@@ -1,0 +1,281 @@
+THIRD-PARTY NOTICES - YouLongTool host application
+==================================================
+
+This file covers the part of the installed application that is NOT the Acode-
+derived editor. The package com.youlong.tool ("游龙工具") contains two bodies of
+third-party code, and they are documented in two separate files that travel
+together inside this APK:
+
+  assets/www/licenses-host/THIRD-PARTY-NOTICES.txt   this file - the host app
+  assets/www/licenses/THIRD-PARTY-NOTICES.txt    the Acode-derived 游龙编程
+                                                 editor module and its own
+                                                 JavaScript / Cordova / Maven
+                                                 dependencies
+
+The whole APK is one distributed work; the two files together are its complete
+attribution. Neither file alone is complete on its own.
+
+Why this file sits under `www/`: the host application encrypts its own
+`assets/` tree at build time (AES-256-GCM, key bound to the signing
+certificate; filenames are also rewritten). A notice stored there would reach
+the recipient only as ciphertext, which is not a notice. This location is
+outside that encrypted tree, so the text below is readable by anyone who
+opens the APK. That is deliberate, not an accident of layout.
+
+Provenance: the Maven coordinates below were taken from the Android Gradle
+Plugin's own SDK dependency report for the release build
+(`app/outputs/sdk-dependencies/release/sdkDependencies.txt`), which lists all
+135 Maven libraries present in this APK. The coordinates already documented in
+the Acode module's notices were subtracted, leaving the 101 listed here. For
+each remaining coordinate the license name was read from that exact artifact's
+own POM in the Gradle module cache, walking up the POM <parent> chain when the
+artifact POM declared no <licenses> element; no license was inferred from the
+group or artifact name. All 101 resolved.
+
+
+------------------------------------------------------------------
+1. THIRD-PARTY CODE VENDORED AS SOURCE
+------------------------------------------------------------------
+
+Kyant Backdrop (AndroidLiquidGlass)
+  Upstream:  https://github.com/Kyant0/AndroidLiquidGlass
+  Published as: io.github.kyant0:backdrop (checked at 1.0.0, 1.0.6 and 2.0.0 -
+             all three POMs declare "The Apache License, Version 2.0")
+  Author:    Kyant (Kyant0, https://github.com/Kyant0)
+  License:   Apache-2.0
+
+  This library is not consumed as a Maven dependency. Its Kotlin sources were
+  copied into the application source tree under
+    app/src/main/kotlin/com/kyant/backdrop/**
+    app/src/main/kotlin/com/kyant/shapes/**
+  and are compiled directly into the app. Those copied files carry no copyright
+  header of their own, which is precisely why this notice exists.
+  Full license text: www/licenses-host/Kyant-AndroidLiquidGlass-LICENSE.txt
+  (the upstream repository LICENSE file, reproduced verbatim, 10,750 bytes).
+
+
+------------------------------------------------------------------
+2. MAVEN / GRADLE DEPENDENCIES
+------------------------------------------------------------------
+
+Apache-2.0 - 97 coordinates
+  All are covered by the full license text bundled at www/licenses-host/Apache-2.0.txt.
+  Their POMs spell the license as "The Apache Software License, Version 2.0",
+  "The Apache License, Version 2.0" or "Apache 2.0"; all refer to the same text.
+  Copyright holders named in those POMs are The Android Open Source Project
+  (the androidx.* artifacts), Google LLC (Compose, Material Components,
+  error_prone_annotations) and JetBrains s.r.o. (the Kotlin and kotlinx
+  artifacts). Where a POM names no organization, none is asserted here.
+
+  androidx.activity:activity:1.9.0
+  androidx.activity:activity-compose:1.9.0
+  androidx.activity:activity-ktx:1.9.0
+  androidx.annotation:annotation:1.8.1
+  androidx.annotation:annotation-experimental:1.4.1
+  androidx.arch.core:core-common:2.2.0
+  androidx.arch.core:core-runtime:2.2.0
+  androidx.autofill:autofill:1.0.0
+  androidx.cardview:cardview:1.0.0
+  androidx.collection:collection:1.4.2
+  androidx.collection:collection-ktx:1.4.2
+  androidx.compose.animation:animation:1.7.0
+  androidx.compose.animation:animation-android:1.7.0
+  androidx.compose.animation:animation-core:1.7.0
+  androidx.compose.animation:animation-core-android:1.7.0
+  androidx.compose.foundation:foundation:1.7.0
+  androidx.compose.foundation:foundation-android:1.7.0
+  androidx.compose.foundation:foundation-layout:1.7.0
+  androidx.compose.foundation:foundation-layout-android:1.7.0
+  androidx.compose.material:material-icons-core:1.7.0
+  androidx.compose.material:material-icons-core-android:1.7.0
+  androidx.compose.material:material-icons-extended:1.7.0
+  androidx.compose.material:material-icons-extended-android:1.7.0
+  androidx.compose.material:material-ripple:1.7.0
+  androidx.compose.material:material-ripple-android:1.7.0
+  androidx.compose.material3:material3:1.3.0
+  androidx.compose.material3:material3-android:1.3.0
+  androidx.compose.runtime:runtime:1.7.0
+  androidx.compose.runtime:runtime-android:1.7.0
+  androidx.compose.runtime:runtime-saveable:1.7.0
+  androidx.compose.runtime:runtime-saveable-android:1.7.0
+  androidx.compose.ui:ui:1.7.0
+  androidx.compose.ui:ui-android:1.7.0
+  androidx.compose.ui:ui-geometry:1.7.0
+  androidx.compose.ui:ui-geometry-android:1.7.0
+  androidx.compose.ui:ui-graphics:1.7.0
+  androidx.compose.ui:ui-graphics-android:1.7.0
+  androidx.compose.ui:ui-text:1.7.0
+  androidx.compose.ui:ui-text-android:1.7.0
+  androidx.compose.ui:ui-tooling-preview:1.7.0
+  androidx.compose.ui:ui-tooling-preview-android:1.7.0
+  androidx.compose.ui:ui-unit:1.7.0
+  androidx.compose.ui:ui-unit-android:1.7.0
+  androidx.compose.ui:ui-util:1.7.0
+  androidx.compose.ui:ui-util-android:1.7.0
+  androidx.compose:compose-bom:2024.09.00
+  androidx.concurrent:concurrent-futures:1.1.0
+  androidx.constraintlayout:constraintlayout:2.1.4
+  androidx.constraintlayout:constraintlayout-core:1.0.4
+  androidx.coordinatorlayout:coordinatorlayout:1.1.0
+  androidx.core:core:1.13.1
+  androidx.core:core-ktx:1.13.1
+  androidx.customview:customview:1.1.0
+  androidx.customview:customview-poolingcontainer:1.0.0
+  androidx.drawerlayout:drawerlayout:1.1.1
+  androidx.dynamicanimation:dynamicanimation:1.0.0
+  androidx.emoji2:emoji2:1.3.0
+  androidx.emoji2:emoji2-views-helper:1.3.0
+  androidx.graphics:graphics-path:1.0.1
+  androidx.legacy:legacy-support-core-utils:1.0.0
+  androidx.lifecycle:lifecycle-common:2.8.3
+  androidx.lifecycle:lifecycle-common-java8:2.8.3
+  androidx.lifecycle:lifecycle-common-jvm:2.8.3
+  androidx.lifecycle:lifecycle-livedata:2.8.3
+  androidx.lifecycle:lifecycle-livedata-core:2.8.3
+  androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3
+  androidx.lifecycle:lifecycle-process:2.8.3
+  androidx.lifecycle:lifecycle-runtime:2.8.3
+  androidx.lifecycle:lifecycle-runtime-android:2.8.3
+  androidx.lifecycle:lifecycle-runtime-compose:2.8.3
+  androidx.lifecycle:lifecycle-runtime-compose-android:2.8.3
+  androidx.lifecycle:lifecycle-runtime-ktx:2.8.3
+  androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3
+  androidx.lifecycle:lifecycle-viewmodel:2.8.3
+  androidx.lifecycle:lifecycle-viewmodel-android:2.8.3
+  androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3
+  androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3
+  androidx.localbroadcastmanager:localbroadcastmanager:1.0.0
+  androidx.multidex:multidex:2.0.1
+  androidx.print:print:1.0.0
+  androidx.profileinstaller:profileinstaller:1.3.1
+  androidx.recyclerview:recyclerview:1.1.0
+  androidx.savedstate:savedstate:1.2.1
+  androidx.savedstate:savedstate-ktx:1.2.1
+  androidx.transition:transition:1.2.0
+  androidx.viewpager2:viewpager2:1.0.0
+  com.google.android.material:material:1.10.0
+  com.google.errorprone:error_prone_annotations:2.15.0
+  org.jetbrains.kotlin:kotlin-bom:1.8.22
+  org.jetbrains.kotlin:kotlin-stdlib:2.0.0
+  org.jetbrains.kotlin:kotlin-stdlib-common:2.0.0
+  org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10
+  org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3
+  org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.7.3
+  org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3
+  org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3
+  org.jetbrains:annotations:23.0.0
+
+MIT - 4 coordinates
+  dev.rikka.shizuku:aidl / :api / :provider / :shared, version 13.1.0
+  Author: RikkaApps (https://github.com/RikkaApps/Shizuku-API)
+  Copyright (c) 2017-2024 Rikka
+  Full license text: www/licenses-host/Shizuku-LICENSE.txt
+  (the upstream repository LICENSE file, reproduced verbatim, 1,062 bytes;
+   the artifact POMs independently declare "MIT License").
+
+  Note: Shizuku is an API for talking to a user-installed privileged helper.
+  It is not a copyleft license and imposes no source-disclosure obligation.
+
+
+------------------------------------------------------------------
+3. LICENSE TEXTS BUNDLED HERE
+------------------------------------------------------------------
+
+  Apache-2.0.txt                            Apache License 2.0, full text.
+  Kyant-AndroidLiquidGlass-LICENSE.txt      the upstream LICENSE of the
+                                            vendored Kyant code (Apache-2.0).
+  Shizuku-LICENSE.txt                       the upstream LICENSE of Shizuku
+                                            (MIT).
+  THIRD-PARTY-NOTICES.txt                   this file.
+
+  These files are bundled inside the application under assets/www/licenses-host/,
+  so the required notices travel with every copy of the app.
+
+
+==================================================================
+4. LICENSING SITUATION OF THE DISTRIBUTED APPLICATION
+==================================================================
+
+Strong copyleft: NONE.
+  The application contains no GNU GPL, GNU LGPL or AGPL component. The one
+  copyleft dependency the Acode-derived module previously carried - Maverick
+  Synergy, LGPL-3.0, linked by the SFTP Cordova plugin - was removed and
+  replaced with the BSD-3-Clause licensed JSch. The Acode module's notices
+  record that removal in full.
+
+Weak / file-level copyleft: one component, in the Acode-derived module.
+  okhttp (com.squareup.okhttp3:okhttp:4.12.0, Apache-2.0) ships a compiled
+  copy of the Public Suffix List as `okhttp3/internal/publicsuffix/
+  publicsuffixes.gz`. That data is subject to the Mozilla Public License,
+  v. 2.0, as okhttp's own `okhttp3/internal/publicsuffix/NOTICE` states.
+  MPL-2.0 is a file-level copyleft: it imposes obligations on the MPL-covered
+  files themselves, not on the rest of the application, and it requires no
+  action for unmodified files beyond carrying the notice and the license text.
+  The data was not modified. Both the NOTICE and the full MPL-2.0 text are
+  bundled (`licenses/components/okhttp-publicsuffix-NOTICE.txt` and
+  `licenses/components/MPL-2.0.txt`) and are described in the Acode module's
+  notices, which is where that component belongs.
+
+No component in this application requires the disclosure of the application's
+own source code.
+
+This application does not include Google Play services, Firebase, the Google
+Play Billing client, or any advertising SDK.
+
+
+==================================================================
+5. ADDENDUM - DEPENDENCIES ADDED AFTER THIS FILE WAS GENERATED
+==================================================================
+
+Two Maven dependencies were added to the host module (:app) after the analysis
+described in section 2 was carried out, by the change that replaced the
+bundled-plugin container assets/apk.zip with assets/apk.tar.xz (a solid-LZMA2
+compressed tar). They are recorded here so that the attribution keeps
+travelling with every copy of the APK. Both were verified against the
+artifacts themselves - not inferred from a group or artifact name - following
+the same rule section 2 states.
+
+org.apache.commons:commons-compress:1.26.0
+  Used for: reading the tar layer of the apk.tar.xz container, at runtime
+            (TarArchiveInputStream) and during build configuration.
+  License:  Apache-2.0
+  Evidence: this artifact's POM declares no <licenses> element, and neither
+            does its parent org.apache.commons:commons-parent:66, so walking
+            the parent chain - the method section 2 used - resolves nothing
+            here. The license was therefore read from the artifact itself:
+            commons-compress-1.26.0.jar contains META-INF/LICENSE.txt (the
+            Apache License, Version 2.0, full text, 11,357 bytes) and
+            META-INF/NOTICE.txt, which reads:
+              Apache Commons Compress
+              Copyright 2002-2024 The Apache Software Foundation
+              This product includes software developed at
+              The Apache Software Foundation (https://www.apache.org/).
+            Covered by the full Apache-2.0 text already bundled at
+            www/licenses-host/Apache-2.0.txt.
+
+org.tukaani:xz:1.9
+  Used for: reading the XZ (LZMA2) layer of the apk.tar.xz container, at
+            runtime (XZInputStream) and during build configuration.
+  License:  Public Domain
+  Evidence: this artifact's own POM declares it verbatim:
+              <license>
+                <name>Public Domain</name>
+                <comments>You can do whatever you want with this package.</comments>
+                <distribution>repo</distribution>
+              </license>
+            Authors named in that POM: Lasse Collin, and Igor Pavlov (7-Zip,
+            https://7-zip.org/).
+  Obligations: none. Public Domain is not a copyleft license and carries no
+            attribution or source-disclosure requirement. Recorded for
+            completeness.
+
+Effect on the statements in section 4: unchanged. Neither addition introduces
+GNU GPL, GNU LGPL or AGPL code, and neither is a copyleft dependency.
+
+Note on the counts: the figures in the introduction and in section 2 describe
+the build that was analysed at the time this file was written. That analysis
+has not been re-run, so those counts are not restated here. This addendum
+documents only the two coordinates the container change added to the host
+module and that no other bundled notice covered.
+
+

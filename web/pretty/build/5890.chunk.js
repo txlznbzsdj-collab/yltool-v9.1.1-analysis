@@ -1,0 +1,261 @@
+(self.rspackChunkcom_foxdebug_acode = self.rspackChunkcom_foxdebug_acode || []).push([
+  [5890], {
+    80363: function(e) {
+      function t(e) {
+        var t = Error("Cannot find module '" + e + "'");
+        throw t.code = "MODULE_NOT_FOUND", t
+      }
+      t.keys = function() {
+        return []
+      }, t.resolve = t, t.id = 80363, e.exports = t
+    },
+    92434: function(e, t, i) {
+      "use strict";
+      let n, r;
+      i.r(t);
+      var l = i(57508);
+      i(24686);
+      var s = i(85384),
+        o = i(35025),
+        d = i(74403),
+        a = i.n(d);
+      i(29715);
+      var u = i(38709),
+        f = i(95904),
+        c = i(69710),
+        y = i(40952),
+        p = i(44670);
+
+      function h(e, t, i, n, r, l, s) {
+        try {
+          var o = e[l](s),
+            d = o.value
+        } catch (e) {
+          i(e);
+          return
+        }
+        o.done ? t(d) : Promise.resolve(d).then(n, r)
+      }
+
+      function g(e) {
+        return function() {
+          var t = this,
+            i = arguments;
+          return new Promise(function(n, r) {
+            var l = e.apply(t, i);
+
+            function s(e) {
+              h(l, n, r, s, o, "next", e)
+            }
+
+            function o(e) {
+              h(l, n, r, s, o, "throw", e)
+            }
+            s(void 0)
+          })
+        }
+      }
+
+      function m(e, t, i) {
+        return g(function*() {
+          let n, r = !!i;
+          "string" == typeof t ? (t.endsWith("/") && (r = !0), n = (t = t.replace(/\\/g, "/")).split("/")) : n = t;
+          let s = (n = n.filter(e => e)).shift();
+          if (!s) return;
+          let o = u.A.join(e, s),
+            d = 0 !== n.length || r;
+          if (!(yield(0, l.default)(o).exists()))
+            if (d) try {
+              yield(0, l.default)(e).createDirectory(s)
+            } catch (e) {
+              if (!(yield(0, l.default)(o).exists())) throw e
+            } else try {
+              yield(0, l.default)(e).createFile(s)
+            } catch (e) {
+              if (!(yield(0, l.default)(o).exists())) throw e
+            }
+          n.length && (yield m(o, n, r))
+        })()
+      }
+      i.d(t, {
+        default: function() {
+          return function e(t, i, d) {
+            return g(function*() {
+              let h, v, A;
+              d || (n = o.A.create(i || "Plugin", strings.installing, {
+                timeout: 6e3
+              }), r = []);
+              try {
+                (yield(0, l.default)(PLUGIN_DIR).exists()) || (yield(0, l.default)(DATA_STORAGE).createDirectory("plugins"))
+              } catch (e) {
+                window.log("error", e)
+              }
+              /^(https?|file|content):/.test(t) ? v = t : (v = u.A.join(c.A.API_BASE, "plugin/download/", `${t}?device=${device.uuid}`) + `&package=${BuildInfo.packageName}` + `&version=${device.version}`, h = u.A.join(PLUGIN_DIR, t));
+              try {
+                let i;
+                if (d || n.show(), i = v.includes(c.A.API_BASE) || v.startsWith("file:") || v.startsWith("content:") ? yield(0, l.default)(v).readFile(void 0, (e, t) => {
+                    n.setMessage(`${strings.loading} ${(e/t*100).toFixed(2)}%`)
+                  }): yield new Promise((e, t) => {
+                    cordova.plugin.http.sendRequest(v, {
+                      method: "GET",
+                      responseType: "arraybuffer"
+                    }, t => {
+                      e(t.data), n.setMessage(`${strings.loading} 100%`)
+                    }, e => {
+                      t(e)
+                    })
+                  })) {
+                  var w, I;
+                  let o = new(a());
+                  if (yield o.loadAsync(i), !o.files["plugin.json"]) throw Error(strings["invalid plugin"]);
+                  let $ = JSON.parse((yield o.files["plugin.json"].async("text")));
+                  if (o.files[$.main] || ($.main = "main.js"), o.files[$.icon] || ($.icon = "icon.png"), o.files[$.readme] || ($.readme = "readme.md"), !o.files[$.main]) throw Error(strings["invalid plugin"]);
+                  if (!d && $.dependencies) {
+                    let t, i = yield function e(t) {
+                      return g(function*() {
+                        let i = [];
+                        for (let n of t) {
+                          let t = yield(0, l.default)(c.A.API_BASE, `plugin/${n}`).readFile("json").catch(() => null);
+                          if (!t) throw Error(`Unknown plugin dependency: ${n}`);
+                          let r = yield function(e) {
+                            return g(function*() {
+                              if (yield(0, l.default)(PLUGIN_DIR, e).exists()) return (yield(0, l.default)(PLUGIN_DIR, e, "plugin.json").readFile("json")).version
+                            })()
+                          }(t.id);
+                          if (!r || (0, f.pF)(null == t ? void 0 : t.version, r)) {
+                            if (t.dependencies) {
+                              let n = yield e(t.dependencies);
+                              i.push(n)
+                            }
+                            i.push(t)
+                          }
+                        }
+                        return i
+                      })()
+                    }($.dependencies);
+                    if (t = i.length > 1 ? "游龙编程 wants to install the following dependencies:" : "游龙编程 wants to install the following dependency:", !(yield(0, s.A)("Installer Notice", t + "<br /><br />" + i.map(e => e.name).join(", "), !0))) return;
+                    for (let t of i)
+                      if (yield function(t) {
+                          return g(function*() {
+                            n.setMessage(`${strings.installing.replace("...","")} ${t.name}...`), yield e(t.id, void 0, !0)
+                          })()
+                        }(t)) throw Error(strings.failed)
+                  }
+                  h || ($.source = v, t = $.id, h = u.A.join(PLUGIN_DIR, t)), A = yield y.A.new(t), (yield(0, l.default)(h).exists()) || (yield(0, l.default)(PLUGIN_DIR).createDirectory(t));
+                  let x = new Set,
+                    P = Object.keys(o.files);
+
+                  function j(e) {
+                    return g(function*() {
+                      try {
+                        let t = o.files[e],
+                          i = e.replace(/\\/g, "/"),
+                          n = t.dir || i.endsWith("/");
+                        if (function(e) {
+                            if (!e) return !1;
+                            let t = String(e);
+                            return !!(/^[A-Za-z]:[\\\/]/.test(t) || t.startsWith("//")) || !!t.startsWith("/") && (t.startsWith("/data") || t.startsWith("/system") || t.startsWith("/vendor") || t.startsWith("/storage") || t.startsWith("/sdcard") || t.startsWith("/root") || !0)
+                          }(e)) return void x.add(e);
+                        if (!(i = function(e, t) {
+                            if (!e) return "";
+                            let i = String(e),
+                              n = (i = (i = (i = (i = i.replace(/\\/g, "/")).replace(/^[a-zA-Z]+:\/\//, "")).replace(/^\/+/, "")).replace(/^[A-Za-z]:\//, "")).split("/"),
+                              r = [];
+                            for (let e of n)
+                              if (e && "." !== e) {
+                                if (".." === e) {
+                                  r.length && r.pop();
+                                  continue
+                                }
+                                r.push(e)
+                              } let l = r.join("/");
+                            return t && l && !l.endsWith("/") && (l += "/"), l
+                          }(i, n))) return;
+                        let r = u.A.join(h, i);
+                        if (n) return void(yield m(h, i, !0));
+                        let s = i.lastIndexOf("/");
+                        if (-1 !== s) {
+                          let e = i.slice(0, s + 1);
+                          yield m(h, e, !0)
+                        }
+                        A.exists(i) || (yield m(h, i, !1));
+                        let d = yield t.async("ArrayBuffer");
+                        if ("plugin.json" === e && (d = JSON.stringify($)), !(yield A.isUpdated(i, d))) return;
+                        yield(0, l.default)(r).writeFile(d)
+                      } catch (t) {
+                        console.error(`Error processing file ${e}:`, t)
+                      }
+                    })()
+                  }
+                  for (let e = 0; e < P.length; e += 2) {
+                    let t = P.slice(e, e + 2);
+                    yield Promise.allSettled(t.map(j)), yield new Promise(e => setTimeout(e, 0))
+                  }
+                  if (!d && x.size) {
+                    let e = Array.from(x).slice(0, 3).join(", ");
+                    n.setMessage(`Skipped ${x.size} unsafe archive entr${1===x.size?"y":"ies"} (e.g., ${e})`), console.warn("Plugin installer: skipped unsafe absolute paths in archive:", Array.from(x))
+                  }
+                  if (d) r.push(() => g(function*() {
+                    yield(0, p.Zo)(t, !0)
+                  })());
+                  else {
+                    for (let e of r) yield e();
+                    yield(0, p.Zo)(t, !0)
+                  }
+                  yield A.save(), w = h, I = A, g(function*() {
+                    let e = [];
+                    for (let t of (yield function e(t, i) {
+                        return g(function*() {
+                          for (let n of yield(0, l.default)(t).lsDir()) {
+                            let r = u.A.join(t, n.name);
+                            n.isDirectory ? yield e(r, i): i.push(r)
+                          }
+                        })()
+                      }(w, e), e)) I.exists(t.replace(`${w}/`, "")) || (0, l.default)(t).delete()
+                  })()
+                }
+              } catch (e) {
+                try {
+                  A && (yield A.clear()), h && (yield(0, l.default)(h).exists()) && (yield(0, l.default)(h).delete())
+                } catch (e) {
+                  console.error("Cleanup failed:", e)
+                }
+                throw e
+              } finally {
+                d || n.destroy()
+              }
+            })()
+          }
+        }
+      })
+    },
+    95904: function(e, t, i) {
+      "use strict";
+
+      function n(e) {
+        let t = String(e || "").trim().replace(/^v/i, "").split(".");
+        if (3 !== t.length) return null;
+        let i = t.map(e => /^\d+$/.test(e) ? Number(e) : 0 / 0);
+        return i.some(e => !Number.isSafeInteger(e)) ? null : i
+      }
+
+      function r(e, t) {
+        return function(e, t) {
+          let i = n(e),
+            r = n(t);
+          if (!i || !r) return 0;
+          for (let e = 0; e < i.length; e++) {
+            if (i[e] > r[e]) return 1;
+            if (i[e] < r[e]) return -1
+          }
+          return 0
+        }(e, t) > 0
+      }
+      i.d(t, {
+        pF: function() {
+          return r
+        }
+      })
+    }
+  }
+]);

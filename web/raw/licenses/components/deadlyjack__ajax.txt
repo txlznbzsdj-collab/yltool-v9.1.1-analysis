@@ -1,0 +1,10 @@
+@deadlyjack/ajax
+================
+
+package.json declares: "license": "MIT"
+author: Ajit Kumar <ajit@foxdebug.com> (https://foxdebug.com)
+
+The installed package ships NO license file, so its MIT text cannot be
+reproduced here. The copyright holder is the author listed above, who is also
+the copyright holder of the Acode project itself (see Acode-MIT.txt). This
+entry is recorded so the declaration is not silently dropped.

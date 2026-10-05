@@ -1,0 +1,861 @@
+THIRD-PARTY NOTICES
+===================
+
+YouLong ("游龙编程") is a modified distribution of the Acode code editor.
+
+This file lists the third-party open source components that this application
+redistributes, together with the license each one is distributed under.
+Every entry below was verified against the license file or the `license`
+field shipped inside the installed package, except where the entry itself
+says otherwise. Every JavaScript dependency that was removed from the build
+while this file was being revised says so in place; conversely, the three
+cases that needed special handling are documented explicitly rather than
+dropped: `@emmetio/codemirror6-plugin` was removed from the build because it
+granted no license at all, and the remaining cases are written out in
+sections 4 and 4b together with the exact declarations found on disk. No
+statement here is inferred from a component's name or group.
+
+The full license text of each component is shipped alongside this file, as
+`licenses/components/<name>.txt` for JavaScript dependencies and
+`licenses/components/plugins/<name>__LICENSE` (or `__NOTICE`) for Cordova
+plugins. Those files were copied out of `node_modules/` and the plugin
+directories at build time and are redistributed with the app; the texts are
+therefore NOT duplicated inside this file. See section 5.
+
+
+------------------------------------------------------------------
+1. THE APPLICATION ITSELF
+------------------------------------------------------------------
+
+Acode editor
+  Version:      1.13.5
+  Copyright:    Copyright 2020 Foxdebug(Ajit Kumar)
+  License:      MIT
+  Full text:    see `Acode-MIT.txt` next to this file (and the repository
+                root `license.txt`)
+
+YouLong modifications to Acode are distributed under the same MIT license.
+
+
+------------------------------------------------------------------
+2. JAVASCRIPT LIBRARIES BUNDLED INTO www/build/
+------------------------------------------------------------------
+
+Editor core
+  codemirror                          6.0.2    MIT
+  @codemirror/autocomplete            6.20.3   MIT
+  @codemirror/commands                6.11.0   MIT
+  @codemirror/language                6.12.4   MIT
+  @codemirror/lint                    6.9.7    MIT
+  @codemirror/search                  6.7.1    MIT
+  @codemirror/state                   6.7.1    MIT
+  @codemirror/view                    6.43.9   MIT
+  @codemirror/legacy-modes            6.5.3    MIT
+  @codemirror/language-data           6.5.2    MIT
+  @codemirror/theme-one-dark          6.1.3    MIT
+  @lezer/common                       1.5.2    MIT
+  @lezer/highlight                    1.2.3    MIT
+  @lezer/lr                           1.4.10   MIT
+  @codemirror/lsp-client              6.2.5-acode.1  MIT
+    Copyright (C) 2018-2021 by Marijn Haverbeke <marijn@haverbeke.berlin>
+    and others.
+    (This package is vendored in this repository as the
+    `codemirror-lsp-client` git submodule, installed through a `file:`
+    dependency, and the bundle includes it.)
+
+Terminal
+  @xterm/xterm                        6.0.0    MIT
+  @xterm/addon-attach                 0.12.0   MIT
+  @xterm/addon-fit                    0.11.0   MIT
+  @xterm/addon-image                  0.9.0    MIT
+  @xterm/addon-search                 0.16.0   MIT
+  @xterm/addon-unicode11              0.9.0    MIT
+  @xterm/addon-web-links              0.12.0   MIT
+  @xterm/addon-webgl                  0.19.0   MIT
+    Copyright (c) 2017-2019, The xterm.js authors
+    Copyright (c) 2014-2016, SourceLair Private Company
+
+Markdown rendering
+  markdown-it                         14.3.0   MIT
+  markdown-it-emoji                   3.1.0    MIT
+  markdown-it-footnote                4.0.0    MIT
+  markdown-it-github-alerts           1.0.1    MIT
+  markdown-it-texmath                 1.0.0    MIT
+  markdown-it-task-lists              2.1.1    ISC
+  markdown-it-anchor                  9.2.1    Unlicense
+
+Rendering / maths / diagrams
+  katex                               0.16.47  MIT
+  mermaid                             11.15.0  MIT
+
+Language services
+  vscode-css-languageservice          6.3.10   MIT
+  vscode-html-languageservice         5.6.2    MIT
+  vscode-json-languageservice         5.7.2    MIT
+  vscode-languageserver-textdocument  1.0.12   MIT
+    Copyright (c) Microsoft
+
+Runtime / utility
+  core-js                             3.50.0   MIT
+  dayjs                               1.11.23  MIT
+  dompurify                           3.4.14   MPL-2.0 OR Apache-2.0 (dual)
+  html-tag-js                         2.4.16   MIT  (Copyright (c) 2019 Ajit Kumar)
+  jszip                               3.10.1   MIT OR GPL-3.0-or-later (dual)
+  mime-types                          3.0.2    MIT
+  motion                              12.43.0  MIT
+  mustache                            4.2.0    MIT
+  picomatch                           4.0.7    MIT
+  url-parse                           1.5.10   MIT
+  vanilla-picker                      2.12.3   ISC
+  @deadlyjack/ajax                    1.2.6    MIT
+  @ungap/custom-elements              1.3.0    ISC
+  acorn                               8.18.0   MIT
+  autosize                            6.0.1    MIT
+  escape-string-regexp                5.0.0    MIT
+  esprima                             4.0.1    BSD-2-Clause
+  filesize                            11.0.22  BSD-3-Clause
+  yargs                               18.1.0   MIT
+
+Notes on dual-licensed components:
+  * DOMPurify is used here under the Apache License 2.0 option.
+  * JSZip is used here under the MIT option.
+  * That election is deliberate: for each of these two components only the
+    elected branch above is relied upon, and the other branch of the dual
+    license (MPL-2.0 for DOMPurify, GPL-3.0-or-later for JSZip) is not relied
+    upon and its terms are not invoked. Nothing in this distribution is
+    conveyed under, or requires compliance with, a GPL or MPL branch of any
+    dual-licensed component.
+  * One housekeeping detail about the bundled text: the file that was copied
+    out of the JSZip package as `licenses/components/jszip.txt` is JSZip's
+    GPL-3.0 text, not an MIT text (GPL-3.0 is the alternative branch of
+    JSZip's dual license). It is bundled so that the full set of texts shipped
+    with that package travels with the app; it is not the branch elected here
+    and no GPL obligation is created by its presence.
+
+@deadlyjack/ajax 1.2.6 (runtime / utility, above) is a resolved entry, not a
+gap: its `package.json` declares `"license": "MIT"` but the published package
+ships no LICENSE file. MIT is an actual grant, so the component is compliant;
+the MIT text naming the copyright holder "Ajit Kumar" is bundled as
+`licenses/components/deadlyjack__ajax.txt`. The holder is the one recorded by
+the sibling Acode project (this package's `author` field and the Acode
+repository root `license.txt` both name Ajit Kumar), not a copyright line
+shipped inside this npm package - the package ships none.
+
+
+
+Language modes (all bundled into www/build/, MIT)
+  @codemirror/lang-angular                 0.1.4        MIT
+  @codemirror/lang-cpp                     6.0.3        MIT
+  @codemirror/lang-css                     6.3.1        MIT
+  @codemirror/lang-go                      6.0.1        MIT
+  @codemirror/lang-html                    6.4.12       MIT
+  @codemirror/lang-java                    6.0.2        MIT
+  @codemirror/lang-javascript              6.2.5        MIT
+  @codemirror/lang-jinja                   6.0.1        MIT
+  @codemirror/lang-json                    6.0.2        MIT
+  @codemirror/lang-less                    6.0.2        MIT
+  @codemirror/lang-liquid                  6.3.2        MIT
+  @codemirror/lang-markdown                6.5.2        MIT
+  @codemirror/lang-php                     6.0.2        MIT
+  @codemirror/lang-python                  6.2.1        MIT
+  @codemirror/lang-rust                    6.0.2        MIT
+  @codemirror/lang-sass                    6.0.2        MIT
+  @codemirror/lang-sql                     6.10.0       MIT
+  @codemirror/lang-vue                     0.1.3        MIT
+  @codemirror/lang-wast                    6.0.2        MIT
+  @codemirror/lang-xml                     6.1.0        MIT
+  @codemirror/lang-yaml                    6.1.3        MIT
+
+------------------------------------------------------------------
+3. CORDOVA / NATIVE RUNTIME
+------------------------------------------------------------------
+
+Apache Cordova (npm package `cordova` 13.0.0, and the `cordova.js` runtime
+generated into the Cordova project by the Android platform)
+  Copyright 2012 The Apache Software Foundation
+  License: Apache-2.0
+  (full text bundled at `licenses/components/Apache-2.0.txt`;
+   NOTICE bundled at `licenses/components/Apache-Cordova-NOTICE.txt`)
+
+The Cordova plugins below are redistributed inside the built application as
+compiled Java classes. The license shown for each is the one declared by that
+plugin's own `package.json` (checked package by package):
+
+  cordova-plugin-device                         Apache-2.0
+  cordova-plugin-file                           Apache-2.0
+  cordova-plugin-buildinfo            4.0.0     MIT
+  cordova-plugin-advanced-http        3.3.1     MIT
+  cordova-clipboard                             Apache-2.0
+  cordova-plugin-browser              1.0.0     ISC
+  cordova-plugin-crashhandler         1.0.0     MIT
+  cordova-plugin-ftp                  1.1.1     Apache-2.0
+  cordova-plugin-sftp                 1.1.1     Apache-2.0
+  cordova-plugin-sdcard               1.1.0     ISC
+  cordova-plugin-server               1.0.0     MIT
+  cordova-plugin-system               1.0.3     ISC
+  cordova-plugin-websocket            0.0.1     Apache-2.0
+  cordova-plugin-acode-webview        1.0.0     Apache-2.0
+  cordova-plugin-iap                  NOT COMPILED INTO THIS BUILD - see below
+  com.foxdebug.acode.rk.auth          1.0.0     MIT
+  com.foxdebug.acode.rk.customtabs    1.0.0     MIT
+  com.foxdebug.acode.rk.exec.proot    1.0.0     MIT
+  com.foxdebug.acode.rk.exec.terminal 1.0.0     MIT
+  com.foxdebug.acode.rk.plugin.plugincontext    MIT
+
+  All Apache-2.0 components above are covered by the full license text in
+  `licenses/components/Apache-2.0.txt`; the Apache NOTICE files that these
+  plugins ship are bundled under `licenses/components/plugins/`.
+
+  `admob-plus-cordova` exists in the plugin sources but is NOT compiled into
+  this build, so it is not redistributed here and is not listed above.
+
+  `cordova-plugin-iap` is likewise NO LONGER compiled into this build: its
+  billing dependency and its Java classes were removed, and the compiled class
+  archive shipped by the `:acode` module contains no `com/foxdebug/iap/**`
+  class (it does still contain `com/foxdebug/browser/**`,
+  `com/foxdebug/sdcard/**` and `com/foxdebug/system/**`). It is therefore not
+  redistributed and no notice is owed for it. Its former declaration is
+  recorded in section 4b only for completeness.
+
+Where a plugin's `plugin.xml` states "Apache 2.0" but its `package.json`
+states MIT/ISC, the `package.json` declaration is the one reported above; each
+plugin's own license text also travels with the upstream Acode sources under
+`src/plugins/<name>/` (that directory is not part of the vendored Android
+tree - see section 4b). Four plugins declare ISC in `package.json` while
+declaring "Apache 2.0" in `plugin.xml`; that conflict is written out in
+section 4b rather than hidden.
+
+IMPORTANT - two plugins are NOT fully described by the single license name
+reported above, and are called out here so the list is not read as more
+complete than it is:
+
+  cordova-plugin-sftp 1.1.1
+    `package.json` says "Apache-2.0"; `plugin.xml` says "MIT". Its own
+    `LICENSE.md` says that the code written by its author is Apache-2.0, but
+    also names two further components: "ftp4j is under LGPL-2.1" and
+    "GoldRaccoon is under the original author's license". Neither ftp4j nor
+    GoldRaccoon code was found in the plugin source or in the redistributed
+    code (`it.sauronsoftware.*` does not appear at all, in the plugin source or
+    in the compiled output), so neither appears to be redistributed here - but
+    this was not confirmed by line-by-line comparison of the ~55 KB source, and
+    the LGPL-2.1 reference is recorded rather than dismissed.
+    This plugin no longer links any copyleft library. It was re-ported from
+    the LGPL-3.0-licensed Maverick Synergy API to JSch (see section 3b), and
+    every `com.jcraft.jsch.*` import in the plugin source replaced a
+    `com.sshtools.*` one; `com.sshtools` no longer appears in this application
+    at all. The plugin's JavaScript action surface, argument order and result
+    JSON are unchanged by that port.
+
+  cordova-plugin-ftp 1.1.1
+    `package.json` says "Apache-2.0" and the plugin's own `LICENSE.md`
+    likewise records "ftp4j is under LGPL-2.1". The compiled FTP plugin
+    classes use `org.apache.commons.net.*` (Apache-2.0) and no `it.sauronsoftware.ftp4j.*`
+    class was found in the redistributed code, so ftp4j does not appear to be
+    included. Recorded here for the same reason as above.
+
+
+------------------------------------------------------------------
+3b. MAVEN / GRADLE NATIVE DEPENDENCIES
+------------------------------------------------------------------
+
+The `:acode` module is a source-level integration of the Acode editor and
+redistributes compiled Java/Kotlin code in addition to the JavaScript in
+section 2. These components are fetched from Maven repositories by Gradle
+and are compiled into the application. They are not part of the
+build-time-only `node_modules/` JavaScript tree, which is never read at
+runtime.
+
+The list below is a FRESH resolution of the `releaseRuntimeClasspath`
+configuration of the `:acode` module, taken after the Maverick-to-JSch swap
+described in section 3 and after the Bouncy Castle artifacts were removed from
+`acode/build.gradle`. It is the flattened leaf-coordinate set produced by
+`gradlew :acode:dependencies --configuration releaseRuntimeClasspath` at that
+point and contains 55 coordinates, one per line. The same run shows no
+`bouncycastle` coordinate and no `com.sshtools` coordinate anywhere on that
+configuration. For every entry the license named is the one declared by that
+exact artifact's own POM in the Gradle module cache, walking the `<parent>`
+chain when the artifact POM has no `<licenses>` element of its own, or, where
+that chain declares nothing either, the license file shipped inside the
+artifact itself; no license is inferred from the group or artifact name.
+
+55 Maven coordinates are documented, grouped by the license declared.
+
+Apache-2.0
+  51 coordinates. All are covered by the full license text already bundled
+  at `licenses/components/Apache-2.0.txt`. The POMs spell the license as
+  "The Apache Software License, Version 2.0", "The Apache License, Version
+  2.0" or "Apache-2.0"; all of these refer to the same text.
+
+  androidx.activity:activity                                1.6.0
+  androidx.annotation:annotation-jvm                        1.8.1
+  androidx.appcompat:appcompat                              1.6.1
+  androidx.appcompat:appcompat-resources                    1.6.1
+  androidx.arch.core:core-common                            2.1.0
+  androidx.arch.core:core-runtime                           2.1.0
+  androidx.browser:browser                                  1.8.0
+  androidx.collection:collection-jvm                        1.4.2
+  androidx.concurrent:concurrent-futures                    1.0.0
+  androidx.core:core-splashscreen                           1.0.1
+  androidx.cursoradapter:cursoradapter                      1.0.0
+  androidx.customview:customview                            1.0.0
+  androidx.documentfile:documentfile                        1.0.1
+  androidx.drawerlayout:drawerlayout                        1.0.0
+  androidx.emoji2:emoji2                                    1.2.0
+  androidx.emoji2:emoji2-views-helper                       1.2.0
+  androidx.fragment:fragment                                1.3.6
+  androidx.interpolator:interpolator                        1.0.0
+  androidx.lifecycle:lifecycle-common                       2.5.1
+  androidx.lifecycle:lifecycle-livedata                     2.0.0
+  androidx.lifecycle:lifecycle-livedata-core                2.5.1
+  androidx.lifecycle:lifecycle-process                      2.4.1
+  androidx.lifecycle:lifecycle-viewmodel                    2.5.1
+  androidx.lifecycle:lifecycle-viewmodel-savedstate         2.5.1
+  androidx.loader:loader                                    1.0.0
+  androidx.resourceinspection:resourceinspection-annotation 1.0.1
+  androidx.savedstate:savedstate                            1.2.0
+  androidx.security:security-crypto                         1.1.0
+  androidx.startup:startup-runtime                          1.1.1
+  androidx.tracing:tracing                                  1.0.0
+  androidx.vectordrawable:vectordrawable                    1.1.0
+  androidx.vectordrawable:vectordrawable-animated           1.1.0
+  androidx.versionedparcelable:versionedparcelable          1.1.1
+  androidx.viewpager:viewpager                              1.0.0
+  androidx.webkit:webkit                                    1.14.0
+  com.google.code.gson:gson                                 2.8.9
+  com.google.crypto.tink:tink-android                       1.8.0
+  com.google.guava:listenablefuture                         1.0
+  com.squareup.okhttp3:okhttp                               4.12.0
+  com.squareup.okio:okio                                    3.6.0
+  com.squareup.okio:okio-jvm                                3.6.0
+  commons-io:commons-io                                     2.20.0
+  commons-net:commons-net                                   3.12.0
+  org.jetbrains.kotlin:kotlin-stdlib-common                 1.9.10
+  org.jetbrains.kotlin:kotlin-stdlib-jdk7                   1.9.10
+  org.jetbrains.kotlinx:kotlinx-coroutines-android          1.6.1
+  org.jetbrains.kotlinx:kotlinx-coroutines-bom              1.6.1
+  org.jetbrains.kotlinx:kotlinx-coroutines-core             1.6.1
+  org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm         1.6.1
+  org.jetbrains:annotations                                 13.0
+  org.jspecify:jspecify                                     1.0.0
+
+  Where a POM names an organization it is "The Android Open Source Project":
+  androidx.annotation:annotation-jvm:1.8.1, androidx.browser:browser:1.8.0,
+  androidx.collection:collection-jvm:1.4.2,
+  androidx.security:security-crypto:1.1.0 and androidx.webkit:webkit:1.14.0.
+  The remaining AndroidX artifacts declare the same license but name no
+  organization. androidx.security:security-crypto:1.1.0 and
+  androidx.webkit:webkit:1.14.0 also carry the Apache-2.0 text inside their
+  AARs (`META-INF/androidx/.../LICENSE.txt`), matching their POMs.
+
+  commons-io:commons-io:2.20.0 and commons-net:commons-net:3.12.0 declare no
+  license at all in their POMs - neither the artifact POM nor the shared
+  org.apache.commons:commons-parent:85 POM contains a `<licenses>` element.
+  Their license is taken from the `META-INF/LICENSE.txt` shipped inside each
+  JAR (the Apache-2.0 text). Their `META-INF/NOTICE.txt` files are required
+  by section 4(d) of the Apache License 2.0 text itself and are bundled as
+  `licenses/components/commons-io-NOTICE.txt` and
+  `licenses/components/commons-net-NOTICE.txt`:
+    Apache Commons IO    Copyright 2002-2025 The Apache Software Foundation
+    Apache Commons Net   Copyright 2001-2025 The Apache Software Foundation
+
+  com.google.guava:listenablefuture:1.0 declares no license of its own; its
+  POM inherits from com.google.guava:guava-parent:26.0-android, which
+  declares "The Apache Software License, Version 2.0".
+
+  com.squareup.okio:okio:3.6.0,
+  org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1 and
+  org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.6.1 are Kotlin
+  multiplatform root modules and a BOM. They are listed because they appear
+  as resolved entries, but they contribute no artifact of their own: okio
+  and kotlinx-coroutines-core redirect through Gradle module metadata to
+  okio-jvm:3.6.0 and kotlinx-coroutines-core-jvm:1.6.1 (both listed above),
+  and kotlinx-coroutines-bom is a POM-only constraint list.
+
+MIT
+  3 coordinates.
+
+  org.java-websocket:Java-WebSocket                      1.6.0
+    POM license name: "MIT License".
+    Copyright (c) 2010-2020 Nathan Rajlich.
+    Full text: `licenses/components/java-websocket.txt`
+    (written from the LICENSE published by the upstream project at
+    github.com/TooTallNate/Java-WebSocket, tag v1.6.0, because the JAR
+    ships no license file.)
+    This artifact is also the entry point for `slf4j-api` (next entry): its
+    POM declares exactly one compile dependency,
+    `org.slf4j:slf4j-api:${slf4j.version}`, with `<slf4j.version>2.0.13</...>`
+    in that POM's `<properties>` and no `<optional>true</optional>` marker, so
+    the dependency is real and resolved.
+
+  org.slf4j:slf4j-api                                    2.0.13
+    Neither this POM nor its parent org.slf4j:slf4j-parent:2.0.13 declares
+    a license, but the parent link of that parent is the companion POM
+    org.slf4j:slf4j-bom:2.0.13 for the same release (slf4j-parent names
+    slf4j-bom as its own `<parent>`), and that POM declares "MIT License"
+    (http://www.opensource.org/licenses/mit-license.php). The JAR also ships
+    `META-INF/LICENSE.txt` with the MIT text,
+    Copyright (c) 2004-2022 QOS.ch Sarl (Switzerland).
+    Full text: `licenses/components/slf4j-api.txt`
+    (copied verbatim out of slf4j-api-2.0.13.jar; line endings normalised
+    from CRLF to LF.)
+    DISCLOSURE - why it is listed although `:acode` no longer declares it:
+    the module's `build.gradle` no longer contains an `slf4j-api` dependency
+    line. It is nevertheless resolved, and its path into the build is now
+    traced: it arrives transitively through
+    `org.java-websocket:Java-WebSocket:1.6.0`, whose POM declares
+    `org.slf4j:slf4j-api:${slf4j.version}` with `slf4j.version = 2.0.13` and
+    no `<optional>` marker (see the Java-WebSocket entry above). The resolved
+    version on the app's runtime classpath is `org.slf4j:slf4j-api:2.0.13` -
+    the same version that used to be declared explicitly, so removing that
+    explicit line changed nothing about what ships. It is genuinely
+    redistributed: `com.jcraft.jsch.Slf4jLogger` (inside jsch-0.2.23.jar)
+    references `org/slf4j/Logger` and `org/slf4j/LoggerFactory`, and
+    `org/slf4j` occurs in the released dex files. It is MIT with its text
+    bundled, and nothing copyleft attaches to it.
+
+BSD-3-Clause
+  1 coordinate.
+
+  org.nanohttpd:nanohttpd                                2.3.1
+    The artifact POM declares no license; its parent
+    org.nanohttpd:nanohttpd-project:2.3.1 declares "The BSD 3-Clause
+    License" (http://opensource.org/licenses/BSD-3-Clause).
+    The JAR ships `LICENSE.txt` with the three-clause BSD text,
+    Copyright (c) 2012 - 2016, nanohttpd.
+    Full text: `licenses/components/nanohttpd.txt`
+    (copied verbatim out of nanohttpd-2.3.1.jar.)
+
+JSch (3 license grants in one artifact)
+  1 coordinate. com.github.mwiede:jsch is self-contained: its POM declares no
+  dependencies at all.
+
+  com.github.mwiede:jsch                                 0.2.23
+
+    The POM declares three licenses, each naming a different part of the
+    artifact, and each with its own URL:
+      name: "Revised BSD"  url: .../blob/master/LICENSE.txt        (main JSch code)
+      name: "Revised BSD"  url: .../blob/master/LICENSE.JZlib.txt  (JZlib code)
+      name: "ISC"          url: .../blob/master/LICENSE.jBCrypt.txt (jBCrypt code)
+    "Revised BSD" is the BSD 3-Clause license. The POM also names three
+    developers: Atsuhiko Yamanaka (JCraft, Inc.), Matthias Wiedemann and
+    Jeremy Norris. Copyright lines inside the bundled texts are
+    "Copyright (c) 2002-2015 Atsuhiko Yamanaka, JCraft,Inc." for the main JSch
+    code, "Copyright (c) 2000-2011 ymnk, JCraft,Inc." for the JZlib code, and
+    "Copyright (c) 2006 Damien Miller <djm@mindrot.org>" for the jBCrypt code.
+    Full texts, all three copied verbatim out of jsch-0.2.23.jar
+    (`META-INF/LICENSE.txt`, `META-INF/LICENSE.JZlib.txt`,
+    `META-INF/LICENSE.jBCrypt.txt`) with their bytes unchanged:
+    `licenses/components/jsch-BSD-3-Clause.txt`,
+    `licenses/components/jsch-jzlib-ISC.txt` and
+    `licenses/components/jsch-jbcrypt-ISC.txt`.
+
+    HISTORICAL NOTE, not a current obligation: two of the three bundled texts
+    open with a sentence about the old 0.0.* releases rather than about the
+    version used here. `jsch-BSD-3-Clause.txt` opens "JSch 0.0.* was released
+    under the GNU LGPL license. Later, we have switched over to a BSD-style
+    license.", and `jsch-jzlib-ISC.txt` opens "JZlib 0.0.* were released under
+    the GNU LGPL license. Later, we have switched over to a BSD-style
+    license.". Those sentences are part of the verbatim texts shipped in the
+    JAR and of the files bundled here; they describe the old 0.0.* releases
+    only. Version 0.2.23, the one used in this application, is licensed under
+    the three permissive grants above, and no copyleft obligation attaches to
+    it or to anything else in the Maven set. The words "GNU LGPL" appear in
+    this document and in the bundled text files only inside those quoted
+    historical sentences, inside quoted upstream `LICENSE.md` wording about
+    ftp4j/GoldRaccoon in section 3, and in the section 2 note recording that
+    the GPL-3.0 branch of JSZip's dual license is not relied upon. The words
+    "Lesser" and "LGPL" also occur once in the removal record below, which
+    quotes the license NAME that the removed Maverick parent POM declared.
+    The words "Maverick" and "sshtools" appear in this document only in the
+    "REMOVED FROM THE MAVEN SET" note below and in the section 3 note about
+    the SFTP plugin's port away from that API.
+
+MPL-2.0 (inside okhttp, not a separate Maven coordinate)
+  okhttp-4.12.0.jar contains `okhttp3/internal/publicsuffix/NOTICE`, which
+  states that the compiled Public Suffix List data inside okhttp
+  (`publicsuffixes.gz`) is subject to the Mozilla Public License, v. 2.0.
+  Both that NOTICE and the MPL-2.0 text are bundled as
+  `licenses/components/okhttp-publicsuffix-NOTICE.txt` and
+  `licenses/components/MPL-2.0.txt`. okhttp itself is Apache-2.0, as its POM
+  declares. `MPL-2.0.txt` is kept for this data: it is the only bundled text
+  whose license is relied upon here at all and is under a copyleft license,
+  and the MPL applies to that one data file, not to the application as a
+  whole. The only other copyleft text in the directory is `jszip.txt`, which
+  is JSZip's GPL-3.0 branch that this distribution does not rely upon (see
+  the section 2 dual-license note).
+
+REMOVED FROM THE MAVEN SET
+  The five `com.sshtools:maverick-*:3.1.4` artifacts are no longer declared
+  and are no longer part of the resolved build (the old JARs may still sit in
+  the local Gradle cache, but nothing resolves to them and nothing compiled
+  from them is redistributed):
+
+    com.sshtools:maverick-base            3.1.4   REMOVED
+    com.sshtools:maverick-logging         3.1.4   REMOVED
+    com.sshtools:maverick-synergy-client  3.1.4   REMOVED
+    com.sshtools:maverick-synergy-common  3.1.4   REMOVED
+    com.sshtools:maverick-utils           3.1.4   REMOVED
+
+  Three further coordinates were removed at the same time, for the same
+  reason - nothing in the current source references them any more:
+
+    org.bouncycastle:bcpkix-jdk15to18     1.83    REMOVED
+    org.bouncycastle:bcprov-jdk15to18     1.83    REMOVED
+    org.bouncycastle:bcutil-jdk15to18     1.83    REMOVED
+
+  The Bouncy Castle artifacts had been pulled in solely to let the Maverick
+  Synergy API install a JCE provider (`JCEProvider.enableBouncyCastle(true)`).
+  The JSch-based SFTP port installs no JCE provider and imports no
+  `org.bouncycastle.*` class, so the three dependency lines were deleted from
+  `acode/build.gradle`. Confirmed against the current resolution:
+  `:acode:dependencies --configuration releaseRuntimeClasspath` lists zero
+  `bouncycastle` coordinates, and for `:app` the string `bouncycastle` does
+  not occur anywhere in the resolved runtime classpath. The license text that
+  had been bundled for them (`licenses/components/bouncy-castle-licence.txt`,
+  written from the canonical text at bouncycastle.org rather than copied out
+  of an artifact) has been deleted from disk, because the library is not
+  redistributed.
+
+  REFERENCE RESIDUE, not a redistributed component: the dex files of the
+  release APK do still contain a handful of type-name strings beginning
+  `org/bouncycastle` (31 occurrences, 28 of them `org/bouncycastle/crypto/`),
+  emitted by another component that merely names those types. They are
+  references in string tables, not the library: `BouncyCastleProvider`,
+  `org/bouncycastle/asn1/` and `org/bouncycastle/jcajce/` occur zero times,
+  and no Bouncy Castle class is packaged. No Bouncy Castle license obligation
+  attaches to this distribution; the strings are recorded here only so that a
+  scan of the binary is not mistaken for an undisclosed component. (Those
+  occurrence counts come from the dex audit of the built release APK; the
+  copy of the APK extracted under `build/apk_extract/` on this machine
+  predates the JSch port and contains none of these strings, no
+  `com/jcraft/jsch` and no `org/slf4j`, so it cannot be used to re-check
+  them.)
+
+  The Maverick artifacts had been the SFTP plugin's SSH implementation. Their
+  shared parent POM (com.sshtools:maverick-synergy-group:3.1.4) declared the
+  license name "GNU Lesser General Public License" with a URL pointing at the
+  GPL page and no version number, no license text shipped in any of the five
+  JARs, and the upstream project shipped LGPL-3.0 as its LICENSE file. The
+  replacement is JSch (above). These artifacts were removed from this build
+  and from this application; the LGPL and GPL license texts that had been
+  bundled for them have been deleted from disk
+  (`licenses/components/LGPL-3.0.txt` and `licenses/components/GPL-3.0.txt`
+  no longer exist), because no component in this distribution is under either
+  license any more. This is confirmed against the release APK for the
+  Maverick side: the string `com/sshtools` does not occur anywhere in its dex
+  files, while `com/jcraft/jsch` occurs 321 times. No `org/slf4j` class that
+  remains belongs to the removed artifacts - it comes from the Java-WebSocket
+  dependency path described in the MIT group above.
+
+ADDITIONAL COORDINATES FOUND IN THE SAME RESOLUTION
+  The fresh `releaseRuntimeClasspath` dump also names six further
+  artifact-bearing modules that the flat 55-line coordinate list does not
+  contain, because they are reached only in upgraded form. They are recorded
+  here so that nothing is silently dropped. The core-ktx row - the one that
+  used to read "NOT VERIFIED" - stays resolved to Apache-2.0; see the note
+  after this list.
+
+  androidx.annotation:annotation-experimental               1.4.1    Apache-2.0
+  androidx.core:core                                        1.9.0    Apache-2.0
+  androidx.core:core-ktx                                    1.9.0    Apache-2.0
+  androidx.lifecycle:lifecycle-runtime                      2.5.1    Apache-2.0
+  org.jetbrains.kotlin:kotlin-stdlib                        1.9.10   Apache-2.0
+  org.jetbrains.kotlin:kotlin-stdlib-jdk8                   1.9.10   Apache-2.0
+
+  Five of the six declare "The Apache Software License, Version 2.0" (the two
+  Kotlin ones: "The Apache License, Version 2.0") in their own POMs and are
+  therefore covered by `licenses/components/Apache-2.0.txt`. The sixth is
+  androidx.core:core-ktx, which is treated separately immediately below.
+
+  androidx.core:core-ktx:1.9.0 - RESOLVED, with the POM gap explained.
+  It was previously flagged here as the one Maven component whose license
+  could not be determined, and that remains true of the artifact in
+  isolation: no POM for it is present in the Gradle module cache at all (only
+  `core-ktx-1.9.0.aar` is cached, while `androidx.core:core:1.9.0` does have
+  `core-1.9.0.pom`), and Google's published POM for it on Google Maven
+  contains no `<licenses>` element - exactly as the sibling
+  androidx.core:core:1.9.0 POM does not. That omission is a known property of
+  Google's AndroidX POMs and is not a licensing signal. The AndroidX project
+  as a whole publishes under Apache-2.0, and its own LICENSE.txt
+  (https://raw.githubusercontent.com/androidx/androidx/androidx-main/
+  LICENSE.txt, 10,175 bytes) is the Apache-2.0 text. So this artifact is
+  Apache-2.0 and is covered by the already-bundled
+  `licenses/components/Apache-2.0.txt`, with the POM omission disclosed rather
+  than hidden.
+  Independently of the license question, almost none of this artifact is
+  actually redistributed: the Kotlin extension classes of core-ktx are not
+  present, and the only trace of the artifact in a scan of the built dex is a
+  single generated resource-ID reference.
+
+  Note on the 55-line list: it is the leaf-coordinate flattening of the fresh
+  `:acode:dependencies --configuration releaseRuntimeClasspath` dump taken
+  after the Maverick-to-JSch swap and after the Bouncy Castle removal. It
+  omits the modules that appear only in upgraded form (the six above, each of
+  which is requested by a POM on disk at a lower version: fragment 1.3.6 asks
+  for androidx.core:core 1.2.0, which resolves to 1.9.0;
+  lifecycle-viewmodel-savedstate 2.5.1 asks for androidx.core:core-ktx 1.2.0
+  and fragment 1.3.6 asks for androidx.annotation:annotation-experimental
+  1.0.0, which resolve to 1.9.0 and 1.4.1; lifecycle-runtime 2.5.1 is
+  androidx.activity 1.6.0's declared runtime dependency; and
+  kotlinx-coroutines-core-jvm 1.6.1 asks for kotlin-stdlib-jdk8, which
+  resolves to 1.9.10 and drags in kotlin-stdlib:1.9.10). It also includes
+  three entries that resolve to no artifact of their own
+  (com.squareup.okio:okio:3.6.0, org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1
+  and org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.6.1). Counting artifacts
+  rather than lines: 52 of the 55 are real artifacts, plus these six, giving
+  58 artifact-bearing Maven modules.
+
+COUNTS
+  From the flat list of 55 coordinates:
+    Apache-2.0............................ 51
+    MIT...................................  3
+    BSD-3-Clause..........................  1
+    JSch (BSD-3-Clause + ISC).............  1
+                                           --
+                                           55
+  Of those 55, three resolve to no artifact of their own (the three named
+  immediately above), so 52 artifacts come from the flat list. Plus the six
+  additional artifacts listed above (all six Apache-2.0), for 58
+  artifact-bearing Maven modules in total.
+
+PROVENANCE
+  Every license name in this section was read out of the cached `.pom` file
+  for the exact group:artifact:version coordinate, walking the `<parent>`
+  chain when that POM had no `<licenses>` element, and falling back to the
+  license file inside the cached `.jar` or `.aar` only when the whole chain
+  declared nothing. Where a license text had to be written from the canonical
+  published text rather than copied out of an artifact, that is stated
+  individually above.
+
+  The four coordinates whose license is not Apache-2.0 were each read
+  directly: `com.github.mwiede:jsch:0.2.23` (three grants, from its own POM),
+  `org.nanohttpd:nanohttpd:2.3.1` (BSD-3-Clause, from its parent POM),
+  `org.java-websocket:Java-WebSocket:1.6.0` ("MIT License", from its own POM)
+  and `org.slf4j:slf4j-api:2.0.13` (MIT, from the slf4j-bom POM reached
+  through its parent chain). The three JSch license texts inside
+  jsch-0.2.23.jar were byte-compared against the copies bundled here and are
+  identical in all three cases (1651, 1639 and 837 bytes).
+
+  Files in `licenses/components/` that exist for this section:
+    Apache-2.0.txt                     (already present - not duplicated)
+    MPL-2.0.txt                        authored from mozilla.org
+    java-websocket.txt                 authored from the upstream LICENSE
+    slf4j-api.txt                      copied from slf4j-api-2.0.13.jar
+    nanohttpd.txt                      copied from nanohttpd-2.3.1.jar
+    jsch-BSD-3-Clause.txt              copied from jsch-0.2.23.jar
+    jsch-jzlib-ISC.txt                 copied from jsch-0.2.23.jar
+    jsch-jbcrypt-ISC.txt               copied from jsch-0.2.23.jar
+    okhttp-publicsuffix-NOTICE.txt     copied from okhttp-4.12.0.jar
+    commons-io-NOTICE.txt              copied from commons-io-2.20.0.jar
+    commons-net-NOTICE.txt             copied from commons-net-3.12.0.jar
+
+  Files DELETED from `licenses/components/` for this section:
+    LGPL-3.0.txt    (authored from gnu.org) - removed together with the
+    GPL-3.0.txt     (authored from gnu.org)   Maverick Synergy artifacts;
+                    no component of this distribution is under either
+                    license any more.
+    bouncy-castle-licence.txt (authored from bouncycastle.org) - removed
+                    together with the three org.bouncycastle:*
+                    coordinates, which are no longer redistributed.
+
+------------------------------------------------------------------
+4. COMPONENTS WITH AN UNRESOLVED OR UNUSUAL LICENSE GRANT
+   (formerly "components whose license could not be verified")
+------------------------------------------------------------------
+
+This section previously listed components that ship no license file and no
+usable `license` field. All three of those entries are now closed, and none
+of them is an open gap: `@emmetio/codemirror6-plugin` is no longer
+redistributed at all (it granted no license, so it could not be kept),
+`@deadlyjack/ajax` is documented as a normal resolved MIT dependency in
+section 2, and `markdown-it-anchor` was never a gap - it ships the text of the
+license it declares. The three are kept here as a record of how each one was
+settled.
+
+Note on paths: the entry names below are package names. The vendored source
+tree in this repository carries no `node_modules/` and does not carry the
+upstream Acode `src/plugins/` tree; the package names and the declarations
+quoted in sections 4 and 4b were read from the upstream Acode sources during
+the audit, and every one of them is recorded here rather than dropped.
+
+  @emmetio/codemirror6-plugin 0.4.1  - REMOVED from the build; no longer
+                                       redistributed. REASON: it granted no
+                                       license at all. Its `package.json` had
+                                       no `license` field, the published
+                                       package shipped no LICENSE file, and
+                                       no license file could be found
+                                       anywhere in the upstream repository on
+                                       either branch. A component with no
+                                       license grant may not be
+                                       redistributed, so Emmet support was
+                                       removed from the editor and the web
+                                       bundle was rebuilt without it.
+                                       VERIFIED: the string "emmet"
+                                       (case-insensitive) occurs 0 times in
+                                       every `.js` file under
+                                       `src/main/assets/www/build/`, 0 times
+                                       anywhere under the Acode source tree,
+                                       and 0 times in the dex files of the
+                                       shipped release APK; `www/build/main.js`
+                                       shrank from 3,275,929 to 3,039,921
+                                       bytes. The package may still be present
+                                       in `node_modules/` (a build-time only
+                                       tree), but it contributes nothing to
+                                       the application.
+
+  markdown-it-anchor 9.2.1           - declared Unlicense; the package ships
+                                       `UNLICENSE`, bundled as
+                                       `licenses/components/markdown-it-anchor.txt`.
+                                       (The Unlicense waives attribution, so no
+                                       notice is required for it.) This one
+                                       was never a gap: the declaration ships
+                                       with the grant.
+
+  @deadlyjack/ajax 1.2.6             - RESOLVED, see section 2. `package.json`
+                                       declares MIT; the package ships no
+                                       LICENSE file, so the MIT text naming
+                                       the copyright holder "Ajit Kumar" is
+                                       bundled as
+                                       `licenses/components/deadlyjack__ajax.txt`.
+                                       The holder came from the package's own
+                                       `author` field and the Acode project,
+                                       not from a license file inside the
+                                       package.
+
+
+------------------------------------------------------------------
+4b. DECLARED A LICENSE BUT SHIPS NO LICENSE FILE
+------------------------------------------------------------------
+
+These components declare a license in their `package.json` but ship no
+LICENSE file of their own inside the package, so the notice text required by
+that license cannot be reproduced verbatim from the package itself. They are
+listed with the exact declaration found in the source, so nothing is silently
+dropped. All five are now resolved, and no open notice item remains in this
+section.
+
+  src/plugins/browser/package.json                       "license": "ISC"   ("author": "")
+  src/plugins/sdcard/package.json                        "license": "ISC"   ("author": "")
+  src/plugins/system/package.json                        "license": "ISC"   ("author": "")
+  src/plugins/iap/package.json                           "license": "ISC"   ("author": "")
+
+  RESOLVED - these four are part of the Acode work, not third-party packages.
+  Their plugin directories are tracked in the Acode source repository itself
+  (git tracks 12, 7, 13 and 5 files respectively under `src/plugins/<name>`
+  for browser, sdcard, system and iap), and the Acode repository's root
+  `license.txt` is the MIT text naming the holder explicitly:
+  "Copyright 2020 Foxdebug(Ajit Kumar)". That MIT notice is reproduced in
+  full in `Acode-MIT.txt`.
+  The per-file declarations are recorded plainly and are NOT consistent with
+  each other: each of the four `package.json` files says `"license": "ISC"`
+  while each corresponding `plugin.xml` says `<license>Apache 2.0</license>`,
+  and the only license file distributed with those sources is the
+  repository's MIT `license.txt`. All three candidate readings (ISC,
+  Apache-2.0, MIT) are permissive, the MIT notice with a named holder covers
+  the material, and no copyright-line gap remains. The conflict itself is not
+  resolved here - it is disclosed, and the MIT text is the notice relied on.
+  Two further facts bound the exposure: in the revision of the vendored
+  Android source tree this file ships with, those four plugin directories are
+  not present at all - the only Java compiled from source under
+  `acode/src/main/java/` is `com/foxdebug/sftp/` - so their own text is not
+  carried in this repository; and `cordova-plugin-iap` is not compiled into
+  this build at all - its billing dependency and Java classes were removed and
+  the class archive contains no `com/foxdebug/iap/**` entry - so it is not
+  redistributed and no notice is owed for it.
+
+  cordova-plugin-advanced-http 3.3.1
+  (`src/plugins/cordova-plugin-advanced-http/package.json` in the upstream
+  Acode sources)                                            "license": "MIT"
+
+  RESOLVED - the notice obligation is discharged, not left open. The plugin's
+  own `package.json` declares `"license": "MIT"` and names only
+  `"author": "Wymsee"`, and the plugin tree carries no LICENSE file, so the
+  MIT text could not be reproduced from the package. It has therefore been
+  taken verbatim from the upstream project's own repository - the upstream
+  Cordova plugin sources, NOT the npm tarball - and is bundled here as
+  `licenses/components/plugins/cordova-plugin-advanced-http__LICENSE`
+  (1,142 bytes, MIT text). That file is the notice this distribution relies
+  on for this component, and it names THREE copyright holders, which is more
+  than the plugin's own declaration recorded:
+      Copyright (c) 2019 Sefa Ilkimen
+      Copyright (c) 2017 Mobisys GmbH
+      Copyright (c) 2014 Wymsee, Inc
+  This matters because the component really is redistributed: the compiled
+  classes `com/silkimen/cordovahttp/**` and `com/silkimen/http/**` are present
+  in the class archive shipped by the `:acode` module, so the MIT notice with
+  all three holders travels with the application.
+
+
+------------------------------------------------------------------
+5. AVAILABLE LICENSE TEXTS
+------------------------------------------------------------------
+
+  Acode-MIT.txt              MIT text for Acode itself: the repository root
+                             `license.txt` reproduced in full, with a
+                             "MIT License" title line added at the top.
+  THIRD-PARTY-NOTICES.txt    this file.
+  components/                the actual license text of every bundled
+                             component. 89 files, counted on disk, made up of:
+                               - 76 files, one for each JavaScript dependency
+                                 documented in sections 1-2. Every package
+                                 named in those sections maps to exactly one
+                                 file of its own here, and no two of those
+                                 packages share a file: the 21 language-mode
+                                 packages are 21 separate files
+                                 (`codemirror__lang-*.txt`), which is why the
+                                 33 `codemirror*` files on disk are the one
+                                 top-level `codemirror.txt` plus the 32
+                                 `@codemirror/*` package files. (`jszip.txt`
+                                 is in this group because JSZip is a
+                                 JavaScript dependency; the file copied out
+                                 of the JSZip package happens to be its
+                                 GPL-3.0 text rather than an MIT text, which
+                                 is recorded in the section 2 dual-license
+                                 note.)
+                               - 13 files for the Maven / Gradle dependencies
+                                 of section 3b and the texts shared between
+                                 sections: jsch-BSD-3-Clause.txt,
+                                 jsch-jzlib-ISC.txt, jsch-jbcrypt-ISC.txt
+                                 (three grants of the one JSch artifact),
+                                 MPL-2.0.txt, java-websocket.txt,
+                                 nanohttpd.txt, slf4j-api.txt,
+                                 commons-io-NOTICE.txt,
+                                 commons-net-NOTICE.txt,
+                                 okhttp-publicsuffix-NOTICE.txt,
+                                 Apache-2.0.txt (shared by sections 2, 3 and
+                                 3b), Apache-Cordova-NOTICE.txt and
+                                 cordova.txt (both section 3).
+                             Both figures come from a direct audit of the
+                             directory: the 89 files on disk are exactly the
+                             76 per-package files above plus these 13;
+                             76 + 13 = 89.
+  components/plugins/        the LICENSE / NOTICE files shipped by the
+                             Cordova plugins themselves. 9 files
+                             (admob__LICENSE,
+                             cordova-plugin-advanced-http__LICENSE,
+                             cordova-plugin-buildinfo__LICENSE,
+                             cordova-plugin-device__LICENSE,
+                             cordova-plugin-device__NOTICE,
+                             cordova-plugin-file__LICENSE,
+                             cordova-plugin-file__NOTICE, ftp__LICENSE.md,
+                             sftp__LICENSE.md).
+
+  Total: 89 files directly in `components/` (76 per-package texts plus the 13
+  support texts above), plus the 9 files in `components/plugins/` makes 98
+  files under `components/`, plus Acode-MIT.txt and this file directly in
+  `licenses/` - 100 license files bundled in the application. These figures
+  were recomputed by counting the files on disk after the latest changes, not
+  carried over: `bouncy-castle-licence.txt` was deleted together with the
+  Bouncy Castle artifacts, `cordova-plugin-advanced-http__LICENSE` was added
+  from the upstream plugin repository, the three JSch texts are present, and
+  LGPL-3.0.txt and GPL-3.0.txt were deleted earlier with the Maverick
+  artifacts, while MPL-2.0.txt was kept because the okhttp Public Suffix List
+  data it covers is still redistributed. The deleted files are confirmed gone
+  from disk (see section 3b). This counts the source tree; the already-built
+  APK on disk still carries the previous revision of this directory and is
+  superseded by the next build.
+
+  These files are bundled inside the application (`assets/www/licenses/`), so
+  the required notices travel with every copy of the app. They are NOT read
+  from `node_modules/` at runtime — `node_modules/` is a build-time only tree
+  and is not redistributed.

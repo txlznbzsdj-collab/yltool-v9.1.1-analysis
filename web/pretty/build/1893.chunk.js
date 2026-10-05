@@ -1,0 +1,801 @@
+"use strict";
+(self.rspackChunkcom_foxdebug_acode = self.rspackChunkcom_foxdebug_acode || []).push([
+  [1893], {
+    16792: function(e, t, r) {
+      function n(e) {
+        if (!e) return !1;
+        let t = e.price;
+        return null == t || "" === t || !(Number.parseFloat(t) > 0)
+      }
+
+      function l(e) {
+        return Array.isArray(e) ? e.filter(n) : []
+      }
+      r.d(t, {
+        rW: function() {
+          return l
+        }
+      })
+    },
+    40952: function(e, t, r) {
+      var n = r(57508),
+        l = r(38709);
+
+      function i(e, t, r, n, l, i, o) {
+        try {
+          var a = e[i](o),
+            s = a.value
+        } catch (e) {
+          r(e);
+          return
+        }
+        a.done ? t(s) : Promise.resolve(s).then(n, l)
+      }
+
+      function o(e) {
+        return function() {
+          var t = this,
+            r = arguments;
+          return new Promise(function(n, l) {
+            var o = e.apply(t, r);
+
+            function a(e) {
+              i(o, n, l, a, s, "next", e)
+            }
+
+            function s(e) {
+              i(o, n, l, a, s, "throw", e)
+            }
+            a(void 0)
+          })
+        }
+      }
+
+      function a(e, t, r) {
+        return t in e ? Object.defineProperty(e, t, {
+          value: r,
+          enumerable: !0,
+          configurable: !0,
+          writable: !0
+        }) : e[t] = r, e
+      }
+      let s = l.A.join(DATA_STORAGE, ".install-state");
+      class u {
+        static new(e) {
+          return o(function*() {
+            try {
+              let t = new u;
+              if (t.id = yield d(e), t.updatedStore = {}, (yield(0, n.default)(s).exists()) || (yield(0, n.default)(DATA_STORAGE).createDirectory(".install-state")), t.storeUrl = l.A.join(s, t.id), yield(0, n.default)(t.storeUrl).exists()) {
+                let e = "{}";
+                try {
+                  e = yield(0, n.default)(t.storeUrl).readFile("utf-8"), t.store = JSON.parse(e)
+                } catch (e) {
+                  console.error("InstallState: Failed to parse state file, deleting:", e), t.store = {};
+                  try {
+                    yield(0, n.default)(t.storeUrl).delete(), yield(0, n.default)(s).createFile(t.id)
+                  } catch (e) {
+                    console.error("InstallState: Failed to recreate state file:", e)
+                  }
+                }
+                let r = {};
+                for (let [e, n] of Object.entries(t.store)) r[e.toLowerCase()] = n;
+                t.store = r
+              } else t.store = {}, yield(0, n.default)(s).createFile(t.id);
+              return t
+            } catch (e) {
+              console.error(e)
+            }
+          })()
+        }
+        isUpdated(e, t) {
+          return o(function*() {
+            var r;
+            e = e.toLowerCase();
+            let n = this.store[e],
+              l = "string" == typeof t ? yield d(t): yield(r = t, o(function*() {
+                return Array.from(new Uint8Array((yield window.crypto.subtle.digest("SHA-256", r)))).map(e => e.toString(16).padStart(2, "0")).join("")
+              })());
+            return this.updatedStore[e] = l, n !== l
+          }).call(this)
+        }
+        exists(e) {
+          return void 0 !== this.store[e.toLowerCase()]
+        }
+        save() {
+          return o(function*() {
+            this.store = this.updatedStore, yield(0, n.default)(this.storeUrl).writeFile(JSON.stringify(this.updatedStore))
+          }).call(this)
+        }
+        delete(e) {
+          return o(function*() {
+            e = e.toLowerCase(), (yield(0, n.default)(e).exists()) && (yield(0, n.default)(e).delete())
+          })()
+        }
+        clear() {
+          return o(function*() {
+            try {
+              if (this.store = {}, this.updatedStore = {}, yield(0, n.default)(this.storeUrl).exists()) try {
+                yield(0, n.default)(this.storeUrl).delete()
+              } catch (e) {
+                console.error("InstallState: Failed to delete state file during clear:", e), yield(0, n.default)(this.storeUrl).writeFile("{}")
+              }
+            } catch (e) {
+              console.error("Failed to clear install state:", e)
+            }
+          }).call(this)
+        }
+        constructor() {
+          a(this, "store", void 0), a(this, "updatedStore", void 0)
+        }
+      }
+
+      function d(e) {
+        return o(function*() {
+          return new Promise((t, r) => {
+            cordova.exec(e => t(e), e => r(e), "System", "checksumText", [e])
+          })
+        })()
+      }
+      r.d(t, {
+        A: function() {
+          return u
+        }
+      })
+    },
+    55229: function(e, t, r) {
+      r.r(t), t.default = function({
+        id: e,
+        install: t
+      }, n, l) {
+        Promise.all([r.e(7536), r.e(4234), r.e(3514)]).then(r.bind(r, 38194)).then(r => {
+          (0, r.default)(e, n, l, t)
+        })
+      }
+    },
+    4228: function(e, t, r) {
+      r.r(t);
+      var n = r(14765),
+        l = r.n(n),
+        i = r(57508),
+        o = r(41943),
+        a = r(86732);
+      r(24686);
+      var s = r(55692),
+        u = r(76202),
+        d = r(69710),
+        c = r(40952),
+        f = r(54771),
+        p = r(16792),
+        g = r(39037),
+        y = r(72612),
+        h = r(55229),
+        b = r(29715),
+        m = r(38709);
+
+      function w(e, t, r, n, l, i, o) {
+        try {
+          var a = e[i](o),
+            s = a.value
+        } catch (e) {
+          r(e);
+          return
+        }
+        a.done ? t(s) : Promise.resolve(s).then(n, l)
+      }
+
+      function v(e) {
+        return function() {
+          var t = this,
+            r = arguments;
+          return new Promise(function(n, l) {
+            var i = e.apply(t, r);
+
+            function o(e) {
+              w(i, n, l, o, a, "next", e)
+            }
+
+            function a(e) {
+              w(i, n, l, o, a, "throw", e)
+            }
+            o(void 0)
+          })
+        }
+      }
+      let A = null,
+        S = null,
+        P = null,
+        x = null,
+        _ = 1,
+        $ = !0,
+        j = !1,
+        L = null,
+        O = !0,
+        k = !1;
+
+      function B(e) {
+        let t = e.includes("?") ? "&" : "?";
+        return `${e}${t}supported_editor=${d.A.SUPPORTED_EDITOR}`
+      }
+      let D = l()("div", "header", null, [l()("div", "title", null, [l()("span", [strings.plugins]), l()("div", "actions", null, [l()("button", "icon-button", null, [l()("span", "icon tune", null)], {
+          onclick: function() {
+            return v(function*() {
+              var e, t, r, n;
+              let i = strings["verified publisher"],
+                o = strings.author || strings.name,
+                a = strings.keywords,
+                d = [{
+                  value: "orderBy:top_rated",
+                  text: strings.top_rated
+                }, {
+                  value: "orderBy:newest",
+                  text: strings.newly_added
+                }, {
+                  value: "orderBy:downloads",
+                  text: strings.most_downloaded
+                }, {
+                  value: "attribute:verified",
+                  text: i
+                }, {
+                  value: "attribute:author",
+                  text: o
+                }, {
+                  value: "attribute:keywords",
+                  text: a
+                }],
+                c = {
+                  "orderBy:top_rated": {
+                    type: "orderBy",
+                    value: "top_rated",
+                    baseLabel: strings.top_rated
+                  },
+                  "orderBy:newest": {
+                    type: "orderBy",
+                    value: "newest",
+                    baseLabel: strings.newly_added
+                  },
+                  "orderBy:downloads": {
+                    type: "orderBy",
+                    value: "downloads",
+                    baseLabel: strings.most_downloaded
+                  },
+                  "attribute:verified": {
+                    type: "verified",
+                    baseLabel: i,
+                    value: !0
+                  },
+                  "attribute:author": {
+                    type: "author",
+                    baseLabel: o
+                  },
+                  "attribute:keywords": {
+                    type: "keywords",
+                    baseLabel: a
+                  }
+                },
+                f = yield(0, u.default)("Filter", d);
+              if (!f) return;
+              let p = c[f];
+              if (!p) return;
+              let g = (r = function(e) {
+                for (var t = 1; t < arguments.length; t++) {
+                  var r = null != arguments[t] ? arguments[t] : {},
+                    n = Object.keys(r);
+                  "function" == typeof Object.getOwnPropertySymbols && (n = n.concat(Object.getOwnPropertySymbols(r).filter(function(e) {
+                    return Object.getOwnPropertyDescriptor(r, e).enumerable
+                  }))), n.forEach(function(t) {
+                    var n;
+                    n = r[t], t in e ? Object.defineProperty(e, t, {
+                      value: n,
+                      enumerable: !0,
+                      configurable: !0,
+                      writable: !0
+                    }) : e[t] = n
+                  })
+                }
+                return e
+              }({}, p), n = n = {
+                nextPage: 1,
+                buffer: [],
+                hasMoreSource: !0,
+                displayLabel: p.baseLabel
+              }, Object.getOwnPropertyDescriptors ? Object.defineProperties(r, Object.getOwnPropertyDescriptors(n)) : (function(e) {
+                var t = Object.keys(e);
+                if (Object.getOwnPropertySymbols) {
+                  var r = Object.getOwnPropertySymbols(e);
+                  t.push.apply(t, r)
+                }
+                return t
+              })(Object(n)).forEach(function(e) {
+                Object.defineProperty(r, e, Object.getOwnPropertyDescriptor(n, e))
+              }), r);
+              if ("author" === p.type) {
+                let t = null == (e = yield(0, s.A)(strings["enter author name"], "", "text")) ? void 0 : e.trim();
+                if (!t) return;
+                g.value = t.toLowerCase(), g.originalValue = t, g.displayLabel = `${p.baseLabel}: ${t}`
+              } else if ("keywords" === p.type) {
+                let e = null == (t = yield(0, s.A)(strings["enter keywords"], "", "text")) ? void 0 : t.trim();
+                if (!e) return;
+                let r = e.split(",").map(e => e.trim()).filter(Boolean);
+                if (!r.length) return;
+                g.value = r.map(e => e.toLowerCase()), g.originalValue = r.join(", "), g.displayLabel = `${p.baseLabel}: ${g.originalValue}`
+              }
+              L = g, O = !0, k = !1, x.content = "";
+              try {
+                x.classList.add("loading");
+                let e = l()("div", "filter-message", null, [l()("span", [strings["filtered by"], l()("strong", [g.displayLabel])]), l()("span", "icon clearclose close-button", null, {
+                  onclick: () => void(L = null, O = !0, k = !1, x.content = "", x.onscroll = null, z(x)),
+                  attr: {
+                    "data-action": "clear-filter"
+                  }
+                })]);
+                x.content = [e], x.onscroll = T, yield R(L, !0), z(x)
+              } catch (e) {
+                window.log("error", "Error filtering plugins:"), window.log("error", e), x.content = l()("span", "error", null, [strings.error])
+              } finally {
+                x.classList.remove("loading")
+              }
+            })()
+          },
+          type: "button"
+        }), l()("button", "icon-button", null, [l()("span", "icon add", null)], {
+          onclick: () => (function e(t, n = "https://") {
+            return v(function*() {
+              let l;
+              if (!t) {
+                let e = [
+                  ["remote", strings.remote],
+                  ["local", strings.local]
+                ];
+                t = yield(0, u.default)("Select Source", e)
+              }
+              if (t && (l = "remote" === t ? yield(0, s.A)(strings["enter plugin source"], n, "url"): (yield(0, y.default)("file", "Select plugin source")).url)) try {
+                let {
+                  default: e
+                } = yield Promise.all([r.e(7536), r.e(5890)]).then(r.bind(r, 92434));
+                yield e(l), S.collapsed || S.ontoggle(), A.collapsed || A.ontoggle()
+              } catch (r) {
+                console.error(r), window.toast(b.A.errorMessage(r)), e(t, l)
+              }
+            })()
+          })(),
+          type: "button"
+        })])]), l()("input", {
+          placeholder: "Search",
+          name: "search-ext",
+          type: "search",
+          oninput: function() {
+            return v(function*() {
+              clearTimeout(F), F = setTimeout(() => v(function*() {
+                yield N(this.value)
+              }).call(this), 500)
+            }).call(this)
+          }
+        })]),
+        E = l()("style"),
+        I = new Set,
+        F = null,
+        U = [];
+
+      function C(e) {
+        for (let e of P.getAll(":scope .scroll[data-scroll-top]")) e.scrollTop = e.dataset.scrollTop
+      }
+
+      function M(e) {
+        return v(function*() {
+          if (j || !$) return;
+          let {
+            scrollTop: t,
+            scrollHeight: r,
+            clientHeight: n
+          } = e.target;
+          t + n >= r - 50 && (yield v(function*() {
+            try {
+              j = !0, V(S);
+              let e = yield fetch(B(`${d.A.API_BASE}/plugins?page=${_}&limit=50`)), t = yield e.json(), r = (0, p.rW)(t);
+              Array.isArray(t) && t.length < 50 && ($ = !1), U = yield J();
+              let n = r.map(X);
+              S.$ul.append(...n), _++, z(S)
+            } catch (e) {
+              window.log("error", e)
+            } finally {
+              j = !1, H(S)
+            }
+          })())
+        })()
+      }
+
+      function T(e) {
+        return v(function*() {
+          if (k || !O || !L) return;
+          let {
+            scrollTop: t,
+            scrollHeight: r,
+            clientHeight: n
+          } = e.target;
+          t + n >= r - 50 && (yield R(L, !1))
+        })()
+      }
+
+      function R(e, t = !1) {
+        return v(function*() {
+          if (!k && O && e) try {
+            var r;
+            k = !0;
+            let {
+              items: n,
+              hasMore: i
+            } = yield(r = e, v(function*() {
+              if (!r) return {
+                items: [],
+                hasMore: !1
+              };
+              if ("orderBy" === r.type) {
+                let e = r.nextPage || 1;
+                try {
+                  let t;
+                  t = "top_rated" === r.value ? yield fetch(B(`${d.A.API_BASE}/plugins?explore=random&page=${e}&limit=50`)): yield fetch(B(`${d.A.API_BASE}/plugin?orderBy=${r.value}&page=${e}&limit=50`));
+                  let n = yield t.json();
+                  if (!Array.isArray(n)) return {
+                    items: [],
+                    hasMore: !1
+                  };
+                  let l = (0, p.rW)(n);
+                  r.nextPage = e + 1;
+                  let i = 50 === n.length;
+                  return {
+                    items: l,
+                    hasMore: i
+                  }
+                } catch (e) {
+                  return console.error("Failed to get Filtered Plugins: ", e), {
+                    items: [],
+                    hasMore: !1
+                  }
+                }
+              }
+              Array.isArray(r.buffer) || (r.buffer = []), void 0 === r.hasMoreSource && (r.hasMoreSource = !0), r.nextPage || (r.nextPage = 1);
+              let e = [];
+              for (; e.length < 50;) {
+                if (r.buffer.length) {
+                  e.push(r.buffer.shift());
+                  continue
+                }
+                if (!1 === r.hasMoreSource) break;
+                try {
+                  let e = r.nextPage,
+                    t = yield fetch(B(`${d.A.API_BASE}/plugins?page=${e}&limit=50`)), n = yield t.json();
+                  if (r.nextPage = e + 1, !Array.isArray(n) || !n.length) {
+                    r.hasMoreSource = !1;
+                    break
+                  }
+                  n.length < 50 && (r.hasMoreSource = !1);
+                  let l = (0, p.rW)(n).filter(e => (function(e, t) {
+                    if (!e) return !1;
+                    switch (t.type) {
+                      case "verified":
+                        return !!e.author_verified;
+                      case "author": {
+                        let r = function(e) {
+                          let {
+                            author: t
+                          } = e || {};
+                          return t ? "string" == typeof t ? t : "object" == typeof t && (t.name || t.username || t.github) || "" : ""
+                        }(e);
+                        if (!r) return !1;
+                        return r.toLowerCase().includes(t.value)
+                      }
+                      case "keywords": {
+                        let r = (function(e) {
+                          let {
+                            keywords: t
+                          } = e || {};
+                          if (!t) return [];
+                          if (Array.isArray(t)) return t;
+                          if ("string" == typeof t) try {
+                            let e = JSON.parse(t);
+                            if (Array.isArray(e)) return e
+                          } catch (e) {
+                            return t.split(",").map(e => e.trim()).filter(Boolean)
+                          }
+                          return []
+                        })(e).map(e => e.toLowerCase()).filter(Boolean);
+                        if (!r.length) return !1;
+                        return t.value.some(e => r.some(t => t.includes(e)))
+                      }
+                      default:
+                        return !0
+                    }
+                  })(e, r));
+                  r.buffer.push(...l)
+                } catch (e) {
+                  window.log("error", "Failed to fetch filtered plugins:"), window.log("error", e), r.hasMoreSource = !1;
+                  break
+                }
+              }
+              for (; e.length < 50 && r.buffer.length;) e.push(r.buffer.shift());
+              return {
+                items: e,
+                hasMore: !!(!1 !== r.hasMoreSource && r.nextPage || r.buffer.length > 0)
+              }
+            })());
+            if (L !== e) return;
+            U = yield J();
+            let o = n.map(X);
+            o.length ? x.append(...o) : t && x.append(l()("span", "error empty", null, [strings["no plugins found"] || strings.empty || "No plugins found"])), (O = i) || (x.onscroll = null), z(x)
+          } catch (e) {
+            window.log("error", "Error loading filtered plugins:"), window.log("error", e)
+          } finally {
+            k = !1
+          }
+        })()
+      }
+
+      function N(e) {
+        return v(function*() {
+          if (L = null, O = !0, k = !1, x.onscroll = null, x.content = "", !(yield b.A.checkAPIStatus())) {
+            x.content = l()("span", "error", null, [strings.api_error]);
+            return
+          }
+          if (e = String(e || "").trim()) try {
+            x.classList.add("loading");
+            let t = yield(0, i.default)(B(m.A.join(d.A.API_BASE, `plugins?name=${encodeURIComponent(e)}`))).readFile("json"), r = (0, p.rW)(t);
+            U = yield J(), x.content = r.length ? r.map(X) : l()("span", "error empty", null, [strings["no plugins found"] || strings.empty || "No plugins found"]), z(x)
+          } catch (e) {
+            window.log("error", e), x.content = l()("span", "error", null, [strings.error])
+          } finally {
+            x.classList.remove("loading")
+          }
+        })()
+      }
+
+      function W(e) {
+        return v(function*() {
+          var t;
+          let r;
+          a.A.show(), null == (t = document.querySelector('[data-action="sidebar-app"][data-id="extensions"]')) || t.click();
+          let n = yield(r = Date.now(), new Promise(e => {
+            let t = () => {
+              let n = null == P ? void 0 : P.querySelector('input[name="search-ext"]');
+              n || Date.now() - r >= 1e3 ? e(n) : requestAnimationFrame(t)
+            };
+            t()
+          }));
+          n && (n.value = e, clearTimeout(F), N(e))
+        })()
+      }
+
+      function q() {
+        return v(function*() {
+          if (this.collapsed) return;
+          let e = yield J();
+          e.length || A.collapse(), A.$ul.content = e.map(X), z(A)
+        }).call(this)
+      }
+
+      function G() {
+        return v(function*() {
+          if (!this.collapsed) {
+            if (!(yield b.A.checkAPIStatus())) {
+              S.$ul.content = l()("span", "error", null, [strings.api_error]);
+              return
+            }
+            try {
+              V(S), _ = 1, $ = !0;
+              let e = yield fetch(B(`${d.A.API_BASE}/plugins?page=${_}&limit=50`)), t = yield e.json();
+              t.length < 50 && ($ = !1), U = yield J(), S.$ul.content = (0, p.rW)(t).map(X), _++, z(S)
+            } catch (e) {
+              console.error("Failed to load plugins in sidebar explore:", e), S.$ul.content = l()("span", "error", null, [strings.error])
+            } finally {
+              H(S)
+            }
+          }
+        }).call(this)
+      }
+
+      function J() {
+        return v(function*() {
+          return (yield Promise.all((yield(0, i.default)(PLUGIN_DIR).lsDir()).map(e => v(function*() {
+            let t = m.A.basename(e.url);
+            try {
+              let l = m.A.join(e.url, "plugin.json"),
+                o = yield(0, i.default)(l).readFile("json");
+              if (o.icon) {
+                var r, n;
+                let e = (r = t, n = o.icon, m.A.join(PLUGIN_DIR, r, n));
+                try {
+                  o.icon = yield b.A.toInternalUri(e)
+                } catch (e) {
+                  console.warn(`Failed to resolve plugin icon for "${t}" in sidebar.`, e)
+                }
+              }
+              return o.installed = !0, o
+            } catch (e) {
+              return console.warn(`Skipping unreadable installed plugin "${t}" in sidebar.`, e), null
+            }
+          })()))).filter(Boolean)
+        })()
+      }
+
+      function V(e) {
+        e.$title.classList.add("loading")
+      }
+
+      function H(e) {
+        e.$title.classList.remove("loading")
+      }
+
+      function z(e) {
+        K(A, e !== A), K(S, e !== S);
+        try {
+          var t;
+          let r = null == D ? void 0 : D.getBoundingClientRect().height,
+            n = null == (t = e.get(":scope>.tile")) ? void 0 : t.getBoundingClientRect().height;
+          e === x ? r += 60 : r += (null == x ? void 0 : x.getBoundingClientRect().height) + n,
+            function(e, t) {
+              I.add(e);
+              let r = t ? `calc(100% - ${t}px)` : "100%";
+              if (e.dataset.height = r, e === x) {
+                e.style.height = "fit-content";
+                return
+              }
+              Q()
+            }(e, r)
+        } catch (e) {
+          console.error(e)
+        }
+      }
+
+      function K(e, t = !1) {
+        var r;
+        t && (null == (r = e.collapse) || r.call(e)), I.delete(e), Q()
+      }
+
+      function Q() {
+        let e = "";
+        I.forEach(t => {
+          e += `
+			.list.collapsible[data-id="${t.dataset.id}"] {
+				max-height: ${t.dataset.height} !important;
+			}
+		`
+        }), E.innerHTML = e
+      }
+
+      function X({
+        icon: e,
+        name: t,
+        id: n,
+        version: o,
+        downloads: a,
+        installed: s,
+        source: p
+      }) {
+        void 0 === s && (s = !!U.find(({
+          id: e
+        }) => e === n));
+        let y = !0 !== (g.default.value.pluginsDisabled || {})[n],
+          w = l()("div", "tile", null, [l()("span", "icon", null, {
+            style: {
+              backgroundImage: `url(${e})`
+            }
+          }), l()("span", "text sub-text", null, [t], {
+            attr: {
+              "data-subtext": `v${o} • ${s?`${strings.installed}`:b.A.formatDownloadCount(a)}`
+            }
+          }), s ? [p && l()("span", "icon replay", null, {
+            attr: {
+              "data-action": "rebuild-plugin"
+            }
+          }), l()("span", "icon more_vert", null, {
+            attr: {
+              "data-action": "more-plugin-action"
+            }
+          })] : l()("button", "install-btn", null, [l()("span", "icon file_downloadget_app", null)], {
+            type: "button",
+            attr: {
+              "data-action": "install-plugin"
+            }
+          })], {
+            style: !1 === y ? {
+              opacity: .6
+            } : {},
+            attr: {
+              "data-plugin-id": n,
+              "data-plugin-enabled": !1 !== y
+            }
+          });
+        return w.onclick = e => v(function*() {
+          let l = e.target.closest('[data-action="more-plugin-action"]'),
+            o = e.target.closest('[data-action="install-plugin"]'),
+            a = e.target.closest('[data-action="rebuild-plugin"]');
+          if (l) {
+            var s, y;
+            return void(s = n, y = t, v(function*() {
+              let e = g.default.value.pluginsDisabled || {},
+                t = !0 !== e[s],
+                r = [],
+                n = g.default.uiSettings[`plugin-${s}`];
+              n && r.push(strings.settings), r.push(t ? strings.disable || "Disable" : strings.enable || "Enable"), r.push(strings.uninstall);
+              let l = yield(0, u.default)("Action", r);
+              if (l) switch (l) {
+                case strings.settings:
+                  n.setTitle(y), n.show();
+                  break;
+                case strings.uninstall:
+                  yield v(function*() {
+                    try {
+                      let e = m.A.join(PLUGIN_DIR, s),
+                        t = yield c.A.new(s);
+                      yield Promise.all([(0, i.default)(e).delete(), t.delete(t.storeUrl)]);
+                      let r = document.getElementById(`${s}-mainScript`);
+                      r && document.head.removeChild(r), acode.unmountPlugin(s);
+                      let n = P.querySelector('input[name="search-ext"]');
+                      n && (n.value = "", x.content = "", L = null, O = !0, k = !1, x.onscroll = null, z(x), A.collapsed && A.expand())
+                    } catch (e) {
+                      b.A.error(e)
+                    }
+                  })(), S.collapsed || S.ontoggle(), A.collapsed || A.ontoggle();
+                  break;
+                case strings.disable || "Disable":
+                case strings.enable || "Enable":
+                  t ? e[s] = !0 : delete e[s], g.default.update({
+                    pluginsDisabled: e
+                  }, !1);
+                  let o = yield(0, u.default)(strings.info, [{
+                    value: "restart_app",
+                    text: strings.restart_app || "Restart App"
+                  }, {
+                    value: "single",
+                    text: t ? strings.disable_plugin || "Disable this Plugin" : strings.enable_plugin || "Enable this Plugin"
+                  }], {
+                    default: "single"
+                  });
+                  "restart_app" === o ? location.reload() : "single" === o && (t ? (window.acode.unmountPlugin(s), window.toast(strings.plugin_disabled || "Plugin Disabled")) : (yield(0, f.A)(s), window.toast(strings.plugin_enabled || "Plugin enabled")), S.collapsed || S.ontoggle(), A.collapsed || A.ontoggle())
+              }
+            })())
+          }
+          if (o) {
+            try {
+              let e = m.A.join(d.A.API_BASE, `plugin/${n}`),
+                t = yield(0, i.default)(e).readFile("json").catch(() => {
+                  throw Error("Failed to fetch plugin details")
+                }), {
+                  default: l
+                } = yield Promise.all([r.e(7536), r.e(5890)]).then(r.bind(r, 92434));
+              yield l(n, t.name);
+              let o = P.querySelector('input[name="search-ext"]');
+              o && (o.value = "", x.content = "", L = null, O = !0, k = !1, x.onscroll = null, z(x), A.expand()), window.toast(strings.success, 3e3), S.collapsed || S.ontoggle(), A.collapsed || A.ontoggle()
+            } catch (e) {
+              console.error(e), window.toast(b.A.errorMessage(e), 3e3)
+            }
+            return
+          }
+          if (a) {
+            try {
+              let {
+                default: e
+              } = yield Promise.all([r.e(7536), r.e(5890)]).then(r.bind(r, 92434));
+              yield e(p), window.toast(strings.success, 3e3)
+            } catch (e) {
+              console.error(e), window.toast(b.A.errorMessage(e), 3e3)
+            }
+            return
+          }(0, h.default)({
+            id: n
+          }, () => {
+            S.collapsed || S.ontoggle(), A.collapsed || A.ontoggle()
+          }, () => {
+            S.collapsed || S.ontoggle(), A.collapsed || A.ontoggle()
+          })
+        })(), w
+      }
+      t.default = ["extension", "extensions", strings.plugins, function(e) {
+        (P = e).classList.add("extensions"), P.content = D, x || (x = l()("ul", "list search-result scroll", null), P.append(x)), S || ((S = (0, o.A)(strings.explore)).ontoggle = G, S.$ul.onscroll = M, P.append(S)), A || ((A = (0, o.A)(strings.installed)).ontoggle = q, P.append(A)), a.A.on("show", C), document.head.append(E)
+      }, !1, C], r.d(t, {
+        openWithSearch: function() {
+          return W
+        }
+      })
+    }
+  }
+]);

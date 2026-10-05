@@ -1,0 +1,27 @@
+﻿# ---------------------------------------------------------------------------
+# Removed at the request of the copyright holder (see Issue #1)
+# ---------------------------------------------------------------------------
+# Decompiled artifacts and decrypted assets derived from yltool V9.1.1
+# were removed from this repository. A local copy is retained for research.
+decompiled/
+tool-v9.1.1-web-assets/
+native/
+decrypt/
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---------------------------------------------------------------------------
+# Editors / OS
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,1597 @@
+(self.rspackChunkcom_foxdebug_acode = self.rspackChunkcom_foxdebug_acode || []).push([
+  [3514], {
+    80363: function(e) {
+      function t(e) {
+        var t = Error("Cannot find module '" + e + "'");
+        throw t.code = "MODULE_NOT_FOUND", t
+      }
+      t.keys = function() {
+        return []
+      }, t.resolve = t, t.id = 80363, e.exports = t
+    },
+    66821: function(e, t, n) {
+      "use strict";
+      var r = n(14765),
+        l = n.n(r),
+        i = n(45584),
+        o = n.n(i),
+        a = n(24458);
+
+      function s({
+        id: e,
+        disableSwipe: t = !1
+      }, n) {
+        let r = 0,
+          i = 0,
+          u = 0,
+          d = !1,
+          c = o()();
+        return requestAnimationFrame(() => {
+          var e;
+          let t = null == (e = c.get) ? void 0 : e.call(c, ".options");
+          if (!t) return;
+          let n = t.querySelector(".tab-indicator");
+          n || (n = l()("div", "tab-indicator", null), t.append(n));
+          let r = () => {
+              if (!t.isConnected) return;
+              let e = t.querySelector(".active");
+              if (e) {
+                let r = t.getBoundingClientRect(),
+                  l = e.getBoundingClientRect();
+                if (!l.width) return;
+                let i = l.left - r.left,
+                  o = l.width,
+                  s = `translateX(${i}px)`;
+                n.style.width = `${o}px`, document.body.classList.contains("no-animation") ? n.style.transform = s : (0, a.i)(n, {
+                  transform: s
+                }, {
+                  type: "spring",
+                  stiffness: 380,
+                  damping: 30
+                }).then(() => {
+                  n.style.width = `${o}px`, n.style.transform = s
+                })
+              }
+            },
+            i = new MutationObserver(e => {
+              for (let t of e)
+                if ("attributes" === t.type && "class" === t.attributeName && t.target.classList.contains("active")) {
+                  r();
+                  break
+                }
+            }),
+            o = () => {
+              i.observe(t, {
+                attributes: !0,
+                childList: !1,
+                subtree: !0,
+                attributeFilter: ["class"]
+              })
+            },
+            s = c.el.closest("wc-page");
+          o(), r(), (null == s ? void 0 : s.on) && (s.on("willconnect", o), s.on("show", r), s.on("willdisconnect", () => {
+            i.disconnect()
+          }))
+        }), l()("div", "main", e, [n], {
+          ontouchstart: t ? null : function(e) {
+            r = 0, i = e.touches[0].clientX, u = e.touches[0].clientY, d = !1, document.addEventListener("touchmove", f, {
+              passive: !1
+            }), document.addEventListener("touchend", p), document.addEventListener("touchcancel", p)
+          },
+          onclick: function(e) {
+            let {
+              target: t
+            } = e;
+            if (!t.matches(".options>span")) return;
+            let n = c.get(".options>span.active");
+            t !== n && (n && n.classList.remove("active"), t.classList.add("active"))
+          },
+          ref: c
+        });
+
+        function f(e) {
+          let {
+            clientX: t,
+            clientY: n
+          } = e.touches[0], l = i - t, o = u - n;
+          d || (d = Math.abs(o) > Math.abs(l)), d || (r += l, e.preventDefault()), i = t, u = n
+        }
+
+        function p() {
+          if (document.removeEventListener("touchmove", f), document.removeEventListener("touchend", p), document.removeEventListener("touchcancel", p), !d && Math.abs(r) > 100) {
+            let e = Array.from(c.get(".options").children).filter(e => e.matches("span")),
+              t = c.get(".options>span.active"),
+              n = r > 0 ? 1 : -1,
+              l = (e.indexOf(t) + n + e.length) % e.length,
+              i = e[l];
+            i.click(), t && t.classList.remove("active"), i.classList.add("active")
+          }
+        }
+      }
+      n.d(t, {
+        A: function() {
+          return s
+        }
+      })
+    },
+    16792: function(e, t, n) {
+      "use strict";
+
+      function r(e) {
+        if (!e) return !1;
+        let t = e.price;
+        return null == t || "" === t || !(Number.parseFloat(t) > 0)
+      }
+
+      function l(e) {
+        return Array.isArray(e) ? e.filter(r) : []
+      }
+      n.d(t, {
+        rW: function() {
+          return l
+        }
+      })
+    },
+    92434: function(e, t, n) {
+      "use strict";
+      let r, l;
+      n.r(t);
+      var i = n(57508);
+      n(24686);
+      var o = n(85384),
+        a = n(35025),
+        s = n(74403),
+        u = n.n(s);
+      n(29715);
+      var d = n(38709),
+        c = n(95904),
+        f = n(69710),
+        p = n(40952),
+        g = n(44670);
+
+      function y(e, t, n, r, l, i, o) {
+        try {
+          var a = e[i](o),
+            s = a.value
+        } catch (e) {
+          n(e);
+          return
+        }
+        a.done ? t(s) : Promise.resolve(s).then(r, l)
+      }
+
+      function h(e) {
+        return function() {
+          var t = this,
+            n = arguments;
+          return new Promise(function(r, l) {
+            var i = e.apply(t, n);
+
+            function o(e) {
+              y(i, r, l, o, a, "next", e)
+            }
+
+            function a(e) {
+              y(i, r, l, o, a, "throw", e)
+            }
+            o(void 0)
+          })
+        }
+      }
+
+      function m(e, t, n) {
+        return h(function*() {
+          let r, l = !!n;
+          "string" == typeof t ? (t.endsWith("/") && (l = !0), r = (t = t.replace(/\\/g, "/")).split("/")) : r = t;
+          let o = (r = r.filter(e => e)).shift();
+          if (!o) return;
+          let a = d.A.join(e, o),
+            s = 0 !== r.length || l;
+          if (!(yield(0, i.default)(a).exists()))
+            if (s) try {
+              yield(0, i.default)(e).createDirectory(o)
+            } catch (e) {
+              if (!(yield(0, i.default)(a).exists())) throw e
+            } else try {
+              yield(0, i.default)(e).createFile(o)
+            } catch (e) {
+              if (!(yield(0, i.default)(a).exists())) throw e
+            }
+          r.length && (yield m(a, r, l))
+        })()
+      }
+      n.d(t, {
+        default: function() {
+          return function e(t, n, s) {
+            return h(function*() {
+              let y, v, b;
+              s || (r = a.A.create(n || "Plugin", strings.installing, {
+                timeout: 6e3
+              }), l = []);
+              try {
+                (yield(0, i.default)(PLUGIN_DIR).exists()) || (yield(0, i.default)(DATA_STORAGE).createDirectory("plugins"))
+              } catch (e) {
+                window.log("error", e)
+              }
+              /^(https?|file|content):/.test(t) ? v = t : (v = d.A.join(f.A.API_BASE, "plugin/download/", `${t}?device=${device.uuid}`) + `&package=${BuildInfo.packageName}` + `&version=${device.version}`, y = d.A.join(PLUGIN_DIR, t));
+              try {
+                let n;
+                if (s || r.show(), n = v.includes(f.A.API_BASE) || v.startsWith("file:") || v.startsWith("content:") ? yield(0, i.default)(v).readFile(void 0, (e, t) => {
+                    r.setMessage(`${strings.loading} ${(e/t*100).toFixed(2)}%`)
+                  }): yield new Promise((e, t) => {
+                    cordova.plugin.http.sendRequest(v, {
+                      method: "GET",
+                      responseType: "arraybuffer"
+                    }, t => {
+                      e(t.data), r.setMessage(`${strings.loading} 100%`)
+                    }, e => {
+                      t(e)
+                    })
+                  })) {
+                  var A, w;
+                  let a = new(u());
+                  if (yield a.loadAsync(n), !a.files["plugin.json"]) throw Error(strings["invalid plugin"]);
+                  let j = JSON.parse((yield a.files["plugin.json"].async("text")));
+                  if (a.files[j.main] || (j.main = "main.js"), a.files[j.icon] || (j.icon = "icon.png"), a.files[j.readme] || (j.readme = "readme.md"), !a.files[j.main]) throw Error(strings["invalid plugin"]);
+                  if (!s && j.dependencies) {
+                    let t, n = yield function e(t) {
+                      return h(function*() {
+                        let n = [];
+                        for (let r of t) {
+                          let t = yield(0, i.default)(f.A.API_BASE, `plugin/${r}`).readFile("json").catch(() => null);
+                          if (!t) throw Error(`Unknown plugin dependency: ${r}`);
+                          let l = yield function(e) {
+                            return h(function*() {
+                              if (yield(0, i.default)(PLUGIN_DIR, e).exists()) return (yield(0, i.default)(PLUGIN_DIR, e, "plugin.json").readFile("json")).version
+                            })()
+                          }(t.id);
+                          if (!l || (0, c.pF)(null == t ? void 0 : t.version, l)) {
+                            if (t.dependencies) {
+                              let r = yield e(t.dependencies);
+                              n.push(r)
+                            }
+                            n.push(t)
+                          }
+                        }
+                        return n
+                      })()
+                    }(j.dependencies);
+                    if (t = n.length > 1 ? "游龙编程 wants to install the following dependencies:" : "游龙编程 wants to install the following dependency:", !(yield(0, o.A)("Installer Notice", t + "<br /><br />" + n.map(e => e.name).join(", "), !0))) return;
+                    for (let t of n)
+                      if (yield function(t) {
+                          return h(function*() {
+                            r.setMessage(`${strings.installing.replace("...","")} ${t.name}...`), yield e(t.id, void 0, !0)
+                          })()
+                        }(t)) throw Error(strings.failed)
+                  }
+                  y || (j.source = v, t = j.id, y = d.A.join(PLUGIN_DIR, t)), b = yield p.A.new(t), (yield(0, i.default)(y).exists()) || (yield(0, i.default)(PLUGIN_DIR).createDirectory(t));
+                  let S = new Set,
+                    O = Object.keys(a.files);
+
+                  function P(e) {
+                    return h(function*() {
+                      try {
+                        let t = a.files[e],
+                          n = e.replace(/\\/g, "/"),
+                          r = t.dir || n.endsWith("/");
+                        if (function(e) {
+                            if (!e) return !1;
+                            let t = String(e);
+                            return !!(/^[A-Za-z]:[\\\/]/.test(t) || t.startsWith("//")) || !!t.startsWith("/") && (t.startsWith("/data") || t.startsWith("/system") || t.startsWith("/vendor") || t.startsWith("/storage") || t.startsWith("/sdcard") || t.startsWith("/root") || !0)
+                          }(e)) return void S.add(e);
+                        if (!(n = function(e, t) {
+                            if (!e) return "";
+                            let n = String(e),
+                              r = (n = (n = (n = (n = n.replace(/\\/g, "/")).replace(/^[a-zA-Z]+:\/\//, "")).replace(/^\/+/, "")).replace(/^[A-Za-z]:\//, "")).split("/"),
+                              l = [];
+                            for (let e of r)
+                              if (e && "." !== e) {
+                                if (".." === e) {
+                                  l.length && l.pop();
+                                  continue
+                                }
+                                l.push(e)
+                              } let i = l.join("/");
+                            return t && i && !i.endsWith("/") && (i += "/"), i
+                          }(n, r))) return;
+                        let l = d.A.join(y, n);
+                        if (r) return void(yield m(y, n, !0));
+                        let o = n.lastIndexOf("/");
+                        if (-1 !== o) {
+                          let e = n.slice(0, o + 1);
+                          yield m(y, e, !0)
+                        }
+                        b.exists(n) || (yield m(y, n, !1));
+                        let s = yield t.async("ArrayBuffer");
+                        if ("plugin.json" === e && (s = JSON.stringify(j)), !(yield b.isUpdated(n, s))) return;
+                        yield(0, i.default)(l).writeFile(s)
+                      } catch (t) {
+                        console.error(`Error processing file ${e}:`, t)
+                      }
+                    })()
+                  }
+                  for (let e = 0; e < O.length; e += 2) {
+                    let t = O.slice(e, e + 2);
+                    yield Promise.allSettled(t.map(P)), yield new Promise(e => setTimeout(e, 0))
+                  }
+                  if (!s && S.size) {
+                    let e = Array.from(S).slice(0, 3).join(", ");
+                    r.setMessage(`Skipped ${S.size} unsafe archive entr${1===S.size?"y":"ies"} (e.g., ${e})`), console.warn("Plugin installer: skipped unsafe absolute paths in archive:", Array.from(S))
+                  }
+                  if (s) l.push(() => h(function*() {
+                    yield(0, g.Zo)(t, !0)
+                  })());
+                  else {
+                    for (let e of l) yield e();
+                    yield(0, g.Zo)(t, !0)
+                  }
+                  yield b.save(), A = y, w = b, h(function*() {
+                    let e = [];
+                    for (let t of (yield function e(t, n) {
+                        return h(function*() {
+                          for (let r of yield(0, i.default)(t).lsDir()) {
+                            let l = d.A.join(t, r.name);
+                            r.isDirectory ? yield e(l, n): n.push(l)
+                          }
+                        })()
+                      }(A, e), e)) w.exists(t.replace(`${A}/`, "")) || (0, i.default)(t).delete()
+                  })()
+                }
+              } catch (e) {
+                try {
+                  b && (yield b.clear()), y && (yield(0, i.default)(y).exists()) && (yield(0, i.default)(y).delete())
+                } catch (e) {
+                  console.error("Cleanup failed:", e)
+                }
+                throw e
+              } finally {
+                s || r.destroy()
+              }
+            })()
+          }
+        }
+      })
+    },
+    40952: function(e, t, n) {
+      "use strict";
+      var r = n(57508),
+        l = n(38709);
+
+      function i(e, t, n, r, l, i, o) {
+        try {
+          var a = e[i](o),
+            s = a.value
+        } catch (e) {
+          n(e);
+          return
+        }
+        a.done ? t(s) : Promise.resolve(s).then(r, l)
+      }
+
+      function o(e) {
+        return function() {
+          var t = this,
+            n = arguments;
+          return new Promise(function(r, l) {
+            var o = e.apply(t, n);
+
+            function a(e) {
+              i(o, r, l, a, s, "next", e)
+            }
+
+            function s(e) {
+              i(o, r, l, a, s, "throw", e)
+            }
+            a(void 0)
+          })
+        }
+      }
+
+      function a(e, t, n) {
+        return t in e ? Object.defineProperty(e, t, {
+          value: n,
+          enumerable: !0,
+          configurable: !0,
+          writable: !0
+        }) : e[t] = n, e
+      }
+      let s = l.A.join(DATA_STORAGE, ".install-state");
+      class u {
+        static new(e) {
+          return o(function*() {
+            try {
+              let t = new u;
+              if (t.id = yield d(e), t.updatedStore = {}, (yield(0, r.default)(s).exists()) || (yield(0, r.default)(DATA_STORAGE).createDirectory(".install-state")), t.storeUrl = l.A.join(s, t.id), yield(0, r.default)(t.storeUrl).exists()) {
+                let e = "{}";
+                try {
+                  e = yield(0, r.default)(t.storeUrl).readFile("utf-8"), t.store = JSON.parse(e)
+                } catch (e) {
+                  console.error("InstallState: Failed to parse state file, deleting:", e), t.store = {};
+                  try {
+                    yield(0, r.default)(t.storeUrl).delete(), yield(0, r.default)(s).createFile(t.id)
+                  } catch (e) {
+                    console.error("InstallState: Failed to recreate state file:", e)
+                  }
+                }
+                let n = {};
+                for (let [e, r] of Object.entries(t.store)) n[e.toLowerCase()] = r;
+                t.store = n
+              } else t.store = {}, yield(0, r.default)(s).createFile(t.id);
+              return t
+            } catch (e) {
+              console.error(e)
+            }
+          })()
+        }
+        isUpdated(e, t) {
+          return o(function*() {
+            var n;
+            e = e.toLowerCase();
+            let r = this.store[e],
+              l = "string" == typeof t ? yield d(t): yield(n = t, o(function*() {
+                return Array.from(new Uint8Array((yield window.crypto.subtle.digest("SHA-256", n)))).map(e => e.toString(16).padStart(2, "0")).join("")
+              })());
+            return this.updatedStore[e] = l, r !== l
+          }).call(this)
+        }
+        exists(e) {
+          return void 0 !== this.store[e.toLowerCase()]
+        }
+        save() {
+          return o(function*() {
+            this.store = this.updatedStore, yield(0, r.default)(this.storeUrl).writeFile(JSON.stringify(this.updatedStore))
+          }).call(this)
+        }
+        delete(e) {
+          return o(function*() {
+            e = e.toLowerCase(), (yield(0, r.default)(e).exists()) && (yield(0, r.default)(e).delete())
+          })()
+        }
+        clear() {
+          return o(function*() {
+            try {
+              if (this.store = {}, this.updatedStore = {}, yield(0, r.default)(this.storeUrl).exists()) try {
+                yield(0, r.default)(this.storeUrl).delete()
+              } catch (e) {
+                console.error("InstallState: Failed to delete state file during clear:", e), yield(0, r.default)(this.storeUrl).writeFile("{}")
+              }
+            } catch (e) {
+              console.error("Failed to clear install state:", e)
+            }
+          }).call(this)
+        }
+        constructor() {
+          a(this, "store", void 0), a(this, "updatedStore", void 0)
+        }
+      }
+
+      function d(e) {
+        return o(function*() {
+          return new Promise((t, n) => {
+            cordova.exec(e => t(e), e => n(e), "System", "checksumText", [e])
+          })
+        })()
+      }
+      n.d(t, {
+        A: function() {
+          return u
+        }
+      })
+    },
+    55229: function(e, t, n) {
+      "use strict";
+      n.r(t), t.default = function({
+        id: e,
+        install: t
+      }, r, l) {
+        Promise.all([n.e(7536), n.e(4234), n.e(3514)]).then(n.bind(n, 38194)).then(n => {
+          (0, n.default)(e, r, l, t)
+        })
+      }
+    },
+    38194: function(e, t, n) {
+      "use strict";
+      let r;
+      n.d(t, {
+        default: function() {
+          return T
+        }
+      });
+      var l = n(57508),
+        i = n(72192),
+        o = n(24686),
+        a = n(35025),
+        s = n(48180),
+        u = n(69710),
+        d = n(92434),
+        c = n(40952),
+        f = n(39037),
+        p = n(75064),
+        g = n(1867),
+        y = n(5052),
+        h = n(3870),
+        m = n(27721),
+        v = n.n(m),
+        b = n(95032),
+        A = n(60095),
+        w = n(29715),
+        P = n(38709),
+        j = n(95904),
+        S = n(14765),
+        O = n.n(S),
+        L = n(66821),
+        _ = n(33059),
+        x = n(29356),
+        I = n(27115),
+        E = n(50676),
+        k = n(82117);
+
+      function D(e) {
+        for (var t = 1; t < arguments.length; t++) {
+          var n = null != arguments[t] ? arguments[t] : {},
+            r = Object.keys(n);
+          "function" == typeof Object.getOwnPropertySymbols && (r = r.concat(Object.getOwnPropertySymbols(n).filter(function(e) {
+            return Object.getOwnPropertyDescriptor(n, e).enumerable
+          }))), r.forEach(function(t) {
+            var r;
+            r = n[t], t in e ? Object.defineProperty(e, t, {
+              value: r,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0
+            }) : e[t] = r
+          })
+        }
+        return e
+      }
+
+      function $(e) {
+        let t = e.target;
+        if (!t.classList.contains("tab")) return;
+        let n = document.querySelectorAll(".tab"),
+          r = document.querySelectorAll(".content-section");
+        n.forEach(e => e.classList.remove("active")), r.forEach(e => e.classList.remove("active")), t.classList.add("active");
+        let l = t.dataset.tab;
+        document.getElementById(l).classList.add("active")
+      }
+
+      function N({
+        name: e,
+        installed: t,
+        update: n,
+        install: r,
+        uninstall: l,
+        minVersionCode: i
+      }) {
+        return "number" == typeof i && i > BuildInfo.versionCode ? O()("div", "error", null, [O()("span", "icon info", null), O()("span", "text", null, [strings["plugin min version"].replace("{name}", e).replace("{v-code}", i)])]) : t && n ? [O()("button", "btn btn-uninstall", null, [O()("i", "icon delete_outline", null), strings.uninstall], {
+          onclick: l,
+          attr: {
+            "data-type": "uninstall"
+          }
+        }), O()("button", "btn btn-update", null, [O()("i", "icon update", null), strings.update], {
+          onclick: r,
+          attr: {
+            "data-type": "update"
+          }
+        })] : t ? O()("button", "btn btn-uninstall", null, [O()("i", "icon delete_outline", null), strings.uninstall], {
+          onclick: l,
+          attr: {
+            "data-type": "uninstall"
+          }
+        }) : O()("button", "btn btn-install", null, [O()("i", "icon save_alt", null), strings.install], {
+          onclick: r,
+          attr: {
+            "data-type": "install"
+          }
+        })
+      }
+
+      function U({
+        unsupportedEditor: e
+      }) {
+        return O()("div", "legacy-editor-warning", null, [O()("span", "icon info", null), O()("span", [`Built for older 游龙编程 versions powered by ${"ace"===e?"Ace":e||"the old editor"}. Install with caution; some features may behave unexpectedly in the current CodeMirror version.`])])
+      }
+
+      function C({
+        currentVersion: e,
+        version: t,
+        packageUpdatedAt: n,
+        formatUpdatedDate: r
+      }) {
+        let l = r && n ? r(n) : null;
+        return e ? O()("span", ["\n			v", e, "\xa0→\xa0v", t, l && O()("span", "version-updated", null, ["(", l, ")"])]) : O()("span", ["\n				v", t, l && O()("span", "version-updated", null, ["(", l, ")"])])
+      }
+
+      function F(e, t, n, r, l, i, o) {
+        try {
+          var a = e[i](o),
+            s = a.value
+        } catch (e) {
+          n(e);
+          return
+        }
+        a.done ? t(s) : Promise.resolve(s).then(r, l)
+      }
+
+      function B(e) {
+        return function() {
+          var t = this,
+            n = arguments;
+          return new Promise(function(r, l) {
+            var i = e.apply(t, n);
+
+            function o(e) {
+              F(i, r, l, o, a, "next", e)
+            }
+
+            function a(e) {
+              F(i, r, l, o, a, "throw", e)
+            }
+            o(void 0)
+          })
+        }
+      }
+
+      function T(e, t, n, m) {
+        return B(function*() {
+          let S;
+          r && r.hide();
+          let I = (0, i.A)(strings.plugin),
+            E = yield(0, l.default)(PLUGIN_DIR, e).exists(), F = {}, T = "", R = !1, W = !1, G = -1, z = !0;
+          s.A.push({
+            id: "plugin",
+            action: I.hide
+          }), I.onhide = function() {
+            s.A.remove("plugin"), a.A.removeTitleLoader(), R = !0, r = null
+          }, r = I, app.append(I);
+          try {
+            if (E) {
+              let t = P.A.join(PLUGIN_DIR, e, "plugin.json"),
+                n = yield(0, l.default)(t).readFile("json").catch(e => {
+                  (0, o.default)(`Failed to load plugin metadata: ${t}`), console.error(e)
+                }), {
+                  author: r
+                } = n, i = P.A.join(PLUGIN_DIR, e, n.readme || "readme.md"), a = yield(0, l.default)(i).readFile("utf8").catch(e => {
+                  (0, o.default)(`Failed to load plugin readme: ${i}`), console.error(e)
+                }), s = "";
+              if (n.changelogs) {
+                let t = P.A.join(PLUGIN_DIR, e, n.changelogs);
+                (yield(0, l.default)(t).exists()) && (s = yield(0, l.default)(t).readFile("utf8"))
+              }
+              let u = yield w.A.toInternalUri(P.A.join(PLUGIN_DIR, e, n.icon)), d = yield(0, l.default)(u).readFile(), c = b.lookup(n.icon) || "image/png", f = URL.createObjectURL(new Blob([d], {
+                type: c
+              }));
+              F = {
+                id: e,
+                icon: f,
+                name: n.name,
+                version: n.version,
+                author: r.name,
+                author_github: r.github,
+                source: n.source,
+                license: n.license,
+                keywords: n.keywords,
+                contributors: n.contributors,
+                supported_editor: n.supported_editor,
+                description: a,
+                changelogs: s
+              }, S = n.supported_editor, z = M(S), I.settitle(F.name), H()
+            }
+            if (yield B(function*() {
+                try {
+                  var t;
+                  if (a.A.showTitleLoader(), !(t = F.source) || t.startsWith(P.A.join(u.A.API_BASE, "plugin"))) {
+                    let t = yield(0, l.default)(u.A.API_BASE, `plugin/${e}`).readFile("json").catch(() => null);
+                    if (R || !t) return;
+                    E && (0, j.pF)(null == t ? void 0 : t.version, F.version) && (T = F.version, W = !0), t.min_version_code && (G = t.min_version_code), F = Object.assign({}, t), S = t.supported_editor, z = M(S)
+                  }
+                } catch (e) {
+                  console.error(e)
+                } finally {
+                  a.A.removeTitleLoader()
+                }
+              })(), I.settitle(F.name), H(), m && !E) {
+              let e = I.get('[data-type="install"]');
+              null == e || e.click()
+            }
+          } catch (e) {
+            console.error(e), w.A.error(e)
+          } finally {
+            a.A.removeTitleLoader()
+          }
+
+          function q() {
+            return B(function*() {
+              try {
+                yield(0, d.default)(F.source || e, F.name), t && t(F), E = !0, W = !1, H()
+              } catch (e) {
+                window.log("error", e), w.A.error(e)
+              }
+            })()
+          }
+
+          function J() {
+            return B(function*() {
+              try {
+                let e = P.A.join(PLUGIN_DIR, F.id),
+                  t = yield c.A.new(F.id);
+                yield Promise.all([(0, l.default)(e).delete(), t.delete(t.storeUrl)]), acode.unmountPlugin(F.id), n && n(F.id), E = !1, W = !1, H()
+              } catch (e) {
+                window.log("error", e), w.A.error(e)
+              }
+            })()
+          }
+
+          function H() {
+            return B(function*() {
+              var e, t;
+              f.default.uiSettings[`plugin-${F.id}`], I.body = (e => {
+                var t, n;
+                let r, l, {
+                    name: i,
+                    body: o,
+                    icon: a,
+                    author: s,
+                    downloads: u,
+                    license: d,
+                    changelogs: c,
+                    keywords: f,
+                    contributors: p,
+                    votes_up: g,
+                    votes_down: y,
+                    author_verified: h,
+                    package_updated_at: m,
+                    showEditorSupportWarning: v,
+                    unsupportedEditor: b
+                  } = e,
+                  A = (t = Number(g) || 0, n = Number(y) || 0, (l = (r = Number(t) || 0) + (Number(n) || 0)) ? `${Math.round(r/l*100)}%` : "unrated"),
+                  P = void 0 !== g,
+                  j = "string" == typeof f ? JSON.parse(f) : f,
+                  S = "string" == typeof p ? JSON.parse(p) : p;
+                return O()("div", `main${P?" has-rating-row":""}`, "plugin", [O()("div", "plugin-header", null, [O()("div", "plugin-icon", null, {
+                  style: {
+                    backgroundImage: `url(${a})`
+                  }
+                }), O()("div", "plugin-info", null, [O()("div", "title-wrapper", null, [O()("h1", "plugin-name", null, [i])]), O()("div", "plugin-meta", null, [O()("span", "meta-item", null, [O()("i", "icon tag", null, {
+                  style: {
+                    fontSize: "12px"
+                  }
+                }), O()(C, D({
+                  formatUpdatedDate: e => {
+                    if (!e) return null;
+                    try {
+                      let t = x.A.utc(e);
+                      if (!t.isValid()) return null;
+                      return t.fromNow()
+                    } catch (t) {
+                      return console.warn("Error parsing date with dayjs:", e, t), null
+                    }
+                  },
+                  packageUpdatedAt: m
+                }, e))]), O()("span", "meta-item author-name", null, [O()("i", "icon person", null), O()("span", "author-name-text", null, [s]), h ? O()("i", "icon verified verified-tick", null, {
+                  on: {
+                    click: [() => {
+                      (0, _.A)(strings["verified publisher"])
+                    }]
+                  }
+                }) : ""]), O()("span", "meta-item", null, [O()("span", "icon scale", null, {
+                  style: {
+                    fontSize: "12px"
+                  }
+                }), d || "Unknown"])]), P ? O()("div", "metrics-row", null, [O()("div", "metric", null, [O()("span", "icon save_alt", null), O()("span", "metric-value", null, [w.A.formatDownloadCount("string" == typeof u ? Number.parseInt(u) : u)]), O()("span", [strings.downloads])]), O()("div", "metric", null, [O()("i", "icon like-solid", null), O()("span", function(e) {
+                  if ("unrated" === e) return "rating-value";
+                  let t = Number.parseInt(e, 10);
+                  return t >= 80 ? "rating-value rating-high" : t >= 50 ? "rating-value rating-medium" : "rating-value rating-low"
+                }(A), null, ["unrated" === A ? strings["plugin-review:unrated"] : A])])]) : null, Array.isArray(j) && j.length ? O()("div", "keywords", null, [j.map(e => O()("span", "keyword", null, [e], {
+                  title: e
+                }))]) : null, v ? O()(U, {
+                  unsupportedEditor: b
+                }) : null]), O()("div", "action-buttons", null, [O()(N, D({}, e))])]), O()(L.A, {
+                  disableSwipe: !0,
+                  id: "plugin-tab"
+                }, [O()("div", "options", null, [O()("span", "tab active", null, [strings.overview], {
+                  tabindex: "0",
+                  attr: {
+                    "data-tab": "overview"
+                  }
+                }), O()("span", "tab", null, [strings.contributors], {
+                  tabindex: "0",
+                  attr: {
+                    "data-tab": "contributors"
+                  }
+                }), O()("span", "tab", null, [strings.changelog], {
+                  tabindex: "0",
+                  attr: {
+                    "data-tab": "changelog"
+                  }
+                })], {
+                  onclick: $
+                }), O()("div", "tab-content", null, [O()("div", "content-section active md", "overview", [O()("section", {
+                  innerHTML: k.A.sanitize(o, {
+                    FORBID_TAGS: ["style"]
+                  })
+                })]), O()("div", "content-section", "contributors", [((null == S ? void 0 : S.length) ? [{
+                  name: s,
+                  role: "Developer"
+                }, ...S] : [{
+                  name: s,
+                  role: "Developer"
+                }]).map(({
+                  name: e,
+                  role: t
+                }) => O()("div", "contributor", null, [O()("div", "contributor-info", null, [O()("div", "contributor-name", null, [e]), O()("div", "contributor-role", null, [t])])]))]), O()("div", "content-section md", "changelog", {
+                  innerHTML: k.A.sanitize(c, {
+                    FORBID_TAGS: ["style"]
+                  }) || `
+							<div class="no-changelog">
+								<i class="icon historyrestore"></i>
+								<p style="font-size: 1.1rem;">
+									No changelog is available for this plugin yet.
+								</p>
+								<p style="font-size: 0.9rem; font-style: italic;">
+									Check back later for updates!
+								</p>
+							</div>
+					`
+                })])])])
+              })((e = function(e) {
+                for (var t = 1; t < arguments.length; t++) {
+                  var n = null != arguments[t] ? arguments[t] : {},
+                    r = Object.keys(n);
+                  "function" == typeof Object.getOwnPropertySymbols && (r = r.concat(Object.getOwnPropertySymbols(n).filter(function(e) {
+                    return Object.getOwnPropertyDescriptor(n, e).enumerable
+                  }))), r.forEach(function(t) {
+                    var r;
+                    r = n[t], t in e ? Object.defineProperty(e, t, {
+                      value: r,
+                      enumerable: !0,
+                      configurable: !0,
+                      writable: !0
+                    }) : e[t] = r
+                  })
+                }
+                return e
+              }({}, F), t = t = {
+                body: (0, p.A)({
+                  html: !0,
+                  xhtmlOut: !0
+                }).use(h.A).use(g.A, {
+                  slugify: e => e.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-")
+                }).use(v()).use(y.A).render(F.description),
+                changelogs: F.changelogs ? (0, p.A)({
+                  html: !0,
+                  xhtmlOut: !0
+                }).use(h.A).use(g.A, {
+                  slugify: e => e.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-")
+                }).use(v()).use(y.A).render(F.changelogs) : null,
+                installed: E,
+                update: W,
+                install: q,
+                uninstall: J,
+                currentVersion: T,
+                minVersionCode: G,
+                isSupported: z,
+                unsupportedEditor: S,
+                showEditorSupportWarning: !z
+              }, Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : (function(e) {
+                var t = Object.keys(e);
+                if (Object.getOwnPropertySymbols) {
+                  var n = Object.getOwnPropertySymbols(e);
+                  t.push.apply(t, n)
+                }
+                return t
+              })(Object(t)).forEach(function(n) {
+                Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+              }), e)), I.body.querySelectorAll("a[href^='#']").forEach(e => {
+                let t = e.getAttribute("href");
+                e.setAttribute("data-href", t), e.style.cursor = "pointer", e.removeAttribute("href"), e.addEventListener("click", t => {
+                  t.preventDefault(), t.stopPropagation();
+                  let n = e.getAttribute("data-href") || e.textContent,
+                    r = n.startsWith("#") ? n.slice(1) : n,
+                    l = I.body.querySelector(`[name="${r}"]`) || I.body.querySelector(`#${r}`);
+                  if (l) {
+                    var i;
+                    let e = (null == (i = document.querySelector("header")) ? void 0 : i.offsetHeight) || 0,
+                      t = l.getBoundingClientRect().top;
+                    I.body.scrollBy({
+                      top: t - e,
+                      behavior: "smooth"
+                    })
+                  }
+                  return !1
+                }, {
+                  capture: !0
+                })
+              }), (0, A.v)(), I.body.querySelectorAll("pre").forEach(e => {
+                e.style.position = "relative";
+                let t = document.createElement("button");
+                t.className = "copy-button", t.textContent = "Copy";
+                let n = e.querySelector("code");
+                if (n) {
+                  let e = n.className.match(/language-(\w+)/);
+                  if (e) {
+                    let t = e[1],
+                      r = n.textContent || "";
+                    n.classList.add("cm-highlighted"), (0, A.tH)(r, t).then(e => {
+                      e && e !== r && (n.innerHTML = e)
+                    })
+                  }
+                }
+                t.addEventListener("click", () => B(function*() {
+                  var n;
+                  let r = (null == (n = e.querySelector("code")) ? void 0 : n.textContent) || e.textContent;
+                  try {
+                    cordova.plugins.clipboard.copy(r), t.textContent = "Copied!", setTimeout(() => {
+                      t.textContent = "Copy"
+                    }, 2e3)
+                  } catch (e) {
+                    t.textContent = "Failed to copy", setTimeout(() => {
+                      t.textContent = "Copy"
+                    }, 2e3)
+                  }
+                })()), e.appendChild(t)
+              })
+            })()
+          }
+        })()
+      }
+
+      function M(e) {
+        return !e || ["all", u.A.SUPPORTED_EDITOR].includes(e)
+      }
+      x.A.extend(I.A), x.A.extend(E.A), x.A.updateLocale("en", {
+        relativeTime: {
+          future: "in %s",
+          past: (e, t) => "now" === e || t ? e : `${e} ago`,
+          s: "now",
+          ss: "now",
+          m: "1m",
+          mm: "%dm",
+          h: "1h",
+          hh: "%dh",
+          d: "1d",
+          dd: "%dd",
+          M: "1mo",
+          MM: "%dmo",
+          y: "1y",
+          yy: "%dy"
+        }
+      })
+    },
+    11726: function(e, t, n) {
+      "use strict";
+      n.r(t), t.default = function(e) {
+        Promise.all([n.e(7536), n.e(4234), n.e(3514)]).then(n.bind(n, 9296)).then(t => {
+          (0, t.default)(e)
+        })
+      }
+    },
+    9296: function(e, t, n) {
+      "use strict";
+      n.d(t, {
+        default: function() {
+          return L
+        }
+      });
+      var r = n(14765),
+        l = n.n(r),
+        i = n(57508),
+        o = n(56692),
+        a = n(72192),
+        s = n(60385),
+        u = n(66821);
+      n(95005);
+      var d = n(55692),
+        c = n(48180),
+        f = n(69710),
+        p = n(16792),
+        g = n(92434),
+        y = n(54771),
+        h = n(39037),
+        m = n(72612),
+        v = n(55229),
+        b = n(29715),
+        A = n(38709),
+        w = n.p + "plugin-icon.png";
+
+      function P({
+        id: e,
+        name: t,
+        icon: n,
+        version: r,
+        license: i,
+        author: o,
+        price: a,
+        currencySymbol: s,
+        author_verified: u,
+        downloads: d,
+        installed: c,
+        enabled: f,
+        onToggleEnabled: p,
+        updates: g
+      }) {
+        let y, h = (y = "object" == typeof o ? o.name : o || "Unknown").includes("@") || y.length > 20 ? y.substring(0, 20) + "..." : y;
+        return l()("div", "list-item", null, [l()("div", "plugin-header", null, [l()("div", "plugin-icon", null, [l()("img", {
+          alt: t + " icon",
+          src: n || w
+        })]), l()("div", "plugin-info", null, [l()("div", "plugin-main", null, [l()("div", "plugin-title", null, [l()("span", "plugin-name", null, [t], {
+          title: t
+        }), l()("span", "plugin-version", null, ["v", r])]), l()("div", "plugin-meta", null, [l()("div", "plugin-stats plugin-author", null, [l()("span", "icon person", null), h, u ? l()("i", "icon verified", null, {
+          style: {
+            color: "#3b82f6"
+          }
+        }) : ""], {
+          title: "object" == typeof o ? o.name : o || "Unknown"
+        }), l()("span", "plugin-meta-dot", null), l()("div", "plugin-stats", null, [l()("span", "icon scale", null, {
+          style: {
+            fontSize: "12px"
+          }
+        }), i || "Unknown"]), d && [l()("span", "plugin-meta-dot", null), l()("div", "plugin-stats", null, [l()("span", "icon save_alt", null), b.A.formatDownloadCount(d)])]])]), null != a && 0 !== a ? l()("span", "plugin-price", null, [s, a]) : null, c && !g ? l()("span", "plugin-toggle-switch", null, [l()("span", "plugin-toggle-track", null, [l()("span", "plugin-toggle-thumb", null)], {
+          attr: {
+            "data-enabled": f
+          }
+        })], {
+          onclick: t => {
+            t.stopPropagation(), null == p || p(e, f)
+          },
+          attr: {
+            "data-enabled": f
+          }
+        }) : null])])], {
+          style: !1 === f ? {
+            opacity: .6
+          } : {},
+          attr: {
+            "data-id": e,
+            "data-plugin-enabled": !1 !== f,
+            "data-action": "open",
+            "data-installed": (!!c).toString()
+          }
+        })
+      }
+
+      function j(e, t, n, r, l, i, o) {
+        try {
+          var a = e[i](o),
+            s = a.value
+        } catch (e) {
+          n(e);
+          return
+        }
+        a.done ? t(s) : Promise.resolve(s).then(r, l)
+      }
+
+      function S(e) {
+        return function() {
+          var t = this,
+            n = arguments;
+          return new Promise(function(r, l) {
+            var i = e.apply(t, n);
+
+            function o(e) {
+              j(i, r, l, o, a, "next", e)
+            }
+
+            function a(e) {
+              j(i, r, l, o, a, "throw", e)
+            }
+            o(void 0)
+          })
+        }
+      }
+
+      function O(e) {
+        for (var t = 1; t < arguments.length; t++) {
+          var n = null != arguments[t] ? arguments[t] : {},
+            r = Object.keys(n);
+          "function" == typeof Object.getOwnPropertySymbols && (r = r.concat(Object.getOwnPropertySymbols(n).filter(function(e) {
+            return Object.getOwnPropertyDescriptor(n, e).enumerable
+          }))), r.forEach(function(t) {
+            var r;
+            r = n[t], t in e ? Object.defineProperty(e, t, {
+              value: r,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0
+            }) : e[t] = r
+          })
+        }
+        return e
+      }
+
+      function L(e) {
+        let t = (0, a.A)(strings.plugins),
+          n = l()("span", "icon search", null, {
+            attr: {
+              "data-action": "search"
+            }
+          }),
+          r = l()("span", "icon add", null, {
+            attr: {
+              "data-action": "add-source"
+            }
+          }),
+          w = l()("span", "icon tune", null, {
+            attr: {
+              "data-action": "filter"
+            }
+          }),
+          j = () => l()("div", "list scroll", "plugin-list", {
+            attr: {
+              "empty-msg": strings["loading..."]
+            }
+          }),
+          L = {
+            all: l()(j),
+            installed: l()(j)
+          },
+          _ = {
+            all: [],
+            installed: []
+          },
+          x = L.installed,
+          I = "installed",
+          E = () => {},
+          k = 1,
+          D = !1,
+          $ = !0,
+          N = !1,
+          U = null;
+
+        function C(e) {
+          let t = e.includes("?") ? "&" : "?";
+          return `${e}${t}supported_editor=${f.A.SUPPORTED_EDITOR}`
+        }(0, o.A)({
+          toggler: r,
+          top: "8px",
+          right: "8px",
+          items: [
+            [strings.remote, "remote"],
+            [strings.local, "local"]
+          ],
+          onselect(e) {
+            ! function e(t, n = "https://") {
+              return S(function*() {
+                let r;
+                if (r = "remote" === t ? yield(0, d.A)("Enter plugin source", n, "url"): (yield(0, m.default)("file", "Select plugin source")).url) try {
+                  yield(0, g.default)(r), yield H()
+                } catch (n) {
+                  console.error(n), window.toast(b.A.errorMessage(n)), e(t, r)
+                }
+              })()
+            }(e)
+          }
+        });
+        let F = strings["verified publisher"],
+          B = strings.author || strings.name,
+          T = strings.keywords,
+          M = {
+            "orderBy:top_rated": {
+              type: "orderBy",
+              value: "top_rated",
+              baseLabel: strings.top_rated
+            },
+            "orderBy:newest": {
+              type: "orderBy",
+              value: "newest",
+              baseLabel: strings.newly_added
+            },
+            "orderBy:downloads": {
+              type: "orderBy",
+              value: "downloads",
+              baseLabel: strings.most_downloaded
+            },
+            "attribute:verified": {
+              type: "verified",
+              value: !0,
+              baseLabel: F
+            },
+            "attribute:author": {
+              type: "author",
+              baseLabel: B
+            },
+            "attribute:keywords": {
+              type: "keywords",
+              baseLabel: T
+            }
+          };
+
+        function R(e) {
+          return S(function*() {
+            var t, n;
+            if (!e) return;
+            let r = (t = O({}, e), n = n = {
+              displayLabel: e.displayLabel || e.baseLabel,
+              nextPage: 1,
+              buffer: [],
+              hasMoreSource: !0
+            }, Object.getOwnPropertyDescriptors ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(n)) : (function(e) {
+              var t = Object.keys(e);
+              if (Object.getOwnPropertySymbols) {
+                var n = Object.getOwnPropertySymbols(e);
+                t.push.apply(t, n)
+              }
+              return t
+            })(Object(n)).forEach(function(e) {
+              Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(n, e))
+            }), t);
+            U = r, k = 1, $ = !0, D = !1, _.all = [], "all" !== I ? G("all") : L.all.replaceChildren();
+            let i = l()("div", "filter-message", null, [strings["filtered by"], " ", l()("strong", [r.displayLabel]), l()("span", "icon clearclose", null, {
+              onclick: W,
+              attr: {
+                "data-action": "clear-filter"
+              }
+            })]);
+            L.all.append(i), L.all.setAttribute("empty-msg", strings["loading..."]), yield q(U, !0)
+          })()
+        }
+
+        function W() {
+          U = null, k = 1, $ = !0, D = !1, _.all = [], L.all.replaceChildren(), L.all.setAttribute("empty-msg", strings["loading..."]), J()
+        }
+        if ((0, o.A)({
+            toggler: w,
+            top: "8px",
+            right: "16px",
+            items: [
+              [strings.top_rated, "orderBy:top_rated"],
+              [strings.newly_added, "orderBy:newest"],
+              [strings.most_downloaded, "orderBy:downloads"],
+              [F, "attribute:verified"],
+              [B, "attribute:author"],
+              [T, "attribute:keywords"]
+            ],
+            onselect: e => S(function*() {
+              var t, n;
+              let r = M[e];
+              if (!r) return;
+              let l = {
+                type: r.type,
+                value: r.value,
+                baseLabel: r.baseLabel,
+                displayLabel: r.baseLabel
+              };
+              if ("author" === r.type) {
+                let e = null == (t = yield(0, d.A)("Enter author name", "", "text")) ? void 0 : t.trim();
+                if (!e) return;
+                l.value = e.toLowerCase(), l.originalValue = e, l.displayLabel = `${r.baseLabel}: ${e}`
+              } else if ("keywords" === r.type) {
+                let e = null == (n = yield(0, d.A)("Enter keywords", "", "text")) ? void 0 : n.trim();
+                if (!e) return;
+                let t = e.split(",").map(e => e.trim()).filter(Boolean);
+                if (!t.length) return;
+                l.value = t.map(e => e.toLowerCase()), l.originalValue = t.join(", "), l.displayLabel = `${r.baseLabel}: ${l.originalValue}`
+              }
+              yield R(l)
+            })()
+          }), t.body = l()(u.A, {
+            id: "plugins"
+          }, [l()("div", "options", null, [l()("span", "active", "installed_plugins", [strings.installed], {
+            tabindex: "0",
+            onclick: function() {
+              G("installed")
+            }
+          }), l()("span", null, "all_plugins", [strings.all], {
+            tabindex: "0",
+            onclick: function() {
+              G("all"), U && R(U)
+            }
+          })]), L.installed]), t.header.append(n, w, r), c.A.push({
+            id: "plugins",
+            action: t.hide
+          }), t.onhide = function() {
+            c.A.remove("plugins")
+          }, t.onconnect = () => {
+            x.scrollTop = x._scroll || 0
+          }, t.onwilldisconnect = () => {
+            x._scroll = x.scrollTop
+          }, t.ondisconnect = () => E(), t.onclick = function(e) {
+            let t = e.target,
+              {
+                action: n
+              } = t.dataset;
+            if ("search" === n)
+              if ("all" === I) {
+                N = !0, (0, s.A)(x, e => {
+                  E = e, N = !1
+                }, void 0, z);
+                return
+              } else {
+                N = !0, (0, s.A)(x, e => {
+                  E = e, N = !1
+                });
+                return
+              } if ("open" === n) return void(0, v.default)(t.dataset, Z, V)
+          }, L.all.addEventListener("scroll", e => S(function*() {
+            if (D || !$ || N) return;
+            let {
+              scrollTop: t,
+              scrollHeight: n,
+              clientHeight: r
+            } = e.target;
+            t + r >= n - 50 && (U ? yield q(U): yield J())
+          })()), app.append(t), e) {
+          t.get(".options").style.display = "none", r.style.display = "none", w.style.display = "none", t.settitle(strings.update), H(e).then(() => {
+            G("installed")
+          });
+          return
+        }
+
+        function G(e) {
+          if (I === e) return;
+          e || (e = I), document.getElementById("search-bar") && E();
+          let n = L[e];
+          x._scroll = x.scrollTop, x.replaceWith(n), n.scrollTop = n._scroll || 0, x = n, I = e, "all" === e && (k = 1, $ = !0, D = !1, _.all = [], L.all.replaceChildren(), U || J()), t.get(".options .active").classList.remove("active"), t.get(`#${e}_plugins`).classList.add("active")
+        }
+
+        function z(e) {
+          return S(function*() {
+            if (!e) return [];
+            try {
+              let t = yield fetch(C(`${f.A.API_BASE}/plugins?name=${e}`)), n = yield t.json();
+              return (0, p.rW)(n).map(e => l()(P, O({}, e)))
+            } catch (e) {
+              return L.all.setAttribute("empty-msg", strings.error), window.log("error", "Failed to search remotely:"), window.log("error", e), []
+            }
+          })()
+        }
+
+        function q(t, n = !1) {
+          return S(function*() {
+            if (t && !D && $) try {
+              var r;
+              D = !0, L.all.setAttribute("empty-msg", strings["loading..."]);
+              let {
+                items: o,
+                hasMore: a
+              } = yield(r = t, S(function*() {
+                if (!r) return {
+                  items: [],
+                  hasMore: !1
+                };
+                if ("orderBy" === r.type) {
+                  let e = r.nextPage || 1;
+                  try {
+                    let t;
+                    t = "top_rated" === r.value ? yield fetch(C(`${f.A.API_BASE}/plugins?explore=random&page=${e}&limit=50`)): yield fetch(C(`${f.A.API_BASE}/plugin?orderBy=${r.value}&page=${e}&limit=50`));
+                    let n = yield t.json();
+                    if (!Array.isArray(n)) return {
+                      items: [],
+                      hasMore: !1
+                    };
+                    r.nextPage = e + 1;
+                    let l = 50 === n.length;
+                    return {
+                      items: (0, p.rW)(n),
+                      hasMore: l
+                    }
+                  } catch (e) {
+                    return console.error("Failed to fetch ordered plugins:", e), {
+                      items: [],
+                      hasMore: !1
+                    }
+                  }
+                }
+                Array.isArray(r.buffer) || (r.buffer = []), void 0 === r.hasMoreSource && (r.hasMoreSource = !0), r.nextPage || (r.nextPage = 1);
+                let e = [];
+                for (; e.length < 50;) {
+                  if (r.buffer.length) {
+                    e.push(r.buffer.shift());
+                    continue
+                  }
+                  if (!1 === r.hasMoreSource) break;
+                  try {
+                    let e = r.nextPage,
+                      t = yield fetch(C(`${f.A.API_BASE}/plugins?page=${e}&limit=50`)), n = yield t.json();
+                    if (r.nextPage = e + 1, !Array.isArray(n) || !n.length) {
+                      r.hasMoreSource = !1;
+                      break
+                    }
+                    n.length < 50 && (r.hasMoreSource = !1);
+                    let l = (0, p.rW)(n).filter(e => (function(e, t) {
+                      if (!e) return !1;
+                      switch (t.type) {
+                        case "verified":
+                          return !!e.author_verified;
+                        case "author": {
+                          let n = function(e) {
+                            let {
+                              author: t
+                            } = e || {};
+                            return t ? "string" == typeof t ? t : "object" == typeof t && (t.name || t.username || t.github) || "" : ""
+                          }(e);
+                          if (!n) return !1;
+                          return n.toLowerCase().includes(t.value)
+                        }
+                        case "keywords": {
+                          let n = (function(e) {
+                            let {
+                              keywords: t
+                            } = e || {};
+                            if (!t) return [];
+                            if (Array.isArray(t)) return t;
+                            if ("string" == typeof t) try {
+                              let e = JSON.parse(t);
+                              if (Array.isArray(e)) return e
+                            } catch (e) {
+                              return t.split(",").map(e => e.trim()).filter(Boolean)
+                            }
+                            return []
+                          })(e).map(e => e.toLowerCase()).filter(Boolean);
+                          if (!n.length) return !1;
+                          return t.value.some(e => n.some(t => t.includes(e)))
+                        }
+                        default:
+                          return !0
+                      }
+                    })(e, r));
+                    r.buffer.push(...l)
+                  } catch (e) {
+                    console.error("Failed to fetch filtered plugins:", e), r.hasMoreSource = !1;
+                    break
+                  }
+                }
+                for (; e.length < 50 && r.buffer.length;) e.push(r.buffer.shift());
+                return {
+                  items: e,
+                  hasMore: !!(!1 !== r.hasMoreSource && r.nextPage || r.buffer.length > 0)
+                }
+              })());
+              if (U !== t) return;
+              let s = yield(0, i.default)(PLUGIN_DIR).lsDir(), u = h.default.value.pluginsDisabled || {};
+              s.forEach(({
+                url: e
+              }) => {
+                let t = o.find(({
+                  id: t
+                }) => t === A.A.basename(e));
+                t && (t.installed = !0, t.enabled = !0 !== u[t.id], t.onToggleEnabled = Y, t.localPlugin = X(t.id, "plugin.json"))
+              }), n && L.all.querySelectorAll(".filter-empty").forEach(e => e.remove()), _.all.push(...o);
+              let d = document.createDocumentFragment();
+              o.forEach(t => {
+                d.append(l()(P, O({
+                  updates: e
+                }, t)))
+              }), d.childNodes.length ? L.all.append(d) : n && L.all.append(l()("div", "filter-empty", null, [strings["no plugins found"] || "No plugins found"])), ($ = a) || L.all.setAttribute("empty-msg", strings["no plugins found"])
+            } catch (e) {
+              L.all.setAttribute("empty-msg", strings.error), console.error("Failed to filter plugins:", e), $ = !1
+            } finally {
+              D = !1
+            }
+          })()
+        }
+
+        function J() {
+          return S(function*() {
+            if (!U && !D && $) try {
+              D = !0, L.all.setAttribute("empty-msg", strings["loading..."]);
+              let t = yield fetch(C(`${f.A.API_BASE}/plugins?page=${k}&limit=50`)), n = yield t.json();
+              Array.isArray(n) && n.length < 50 && ($ = !1);
+              let r = (0, p.rW)(n),
+                o = yield(0, i.default)(PLUGIN_DIR).lsDir(), a = h.default.value.pluginsDisabled || {};
+              o.forEach(({
+                url: e
+              }) => {
+                let t = r.find(({
+                  id: t
+                }) => t === A.A.basename(e));
+                t && (t.installed = !0, t.enabled = !0 !== a[t.id], t.onToggleEnabled = Y, t.localPlugin = X(t.id, "plugin.json"))
+              }), _.all.push(...r);
+              let s = document.createDocumentFragment();
+              r.forEach(t => {
+                s.append(l()(P, O({
+                  updates: e
+                }, t)))
+              }), L.all.append(s), k++, L.all.setAttribute("empty-msg", strings["no plugins found"])
+            } catch (e) {
+              window.log("error", e)
+            } finally {
+              D = !1
+            }
+          })()
+        }
+
+        function H(e) {
+          return S(function*() {
+            L.installed.setAttribute("empty-msg", strings["loading..."]), _.installed = [];
+            let t = h.default.value.pluginsDisabled || {},
+              n = yield(0, i.default)(PLUGIN_DIR).lsDir();
+            yield Promise.all(n.map(n => S(function*() {
+              let r = A.A.basename(n.url);
+              if (!(e && e.includes(r) || !e)) return;
+              let o = A.A.join(n.url, "plugin.json"),
+                a = yield(0, i.default)(o).readFile("json"), s = X(r, a.icon);
+              a.icon = yield b.A.toInternalUri(s), a.installed = !0, a.enabled = !0 !== t[r], a.onToggleEnabled = Y, _.installed.push(a), L.installed.get(`[data-id="${r}"]`) || L.installed.append(l()(P, O({
+                updates: e
+              }, a)))
+            })())), L.installed.setAttribute("empty-msg", strings["no plugins found"])
+          })()
+        }
+
+        function Z(t) {
+          if (e) return;
+          if (!t || !t.id) return void console.error("Invalid plugin object passed to onInstall");
+          t.installed = !0;
+          let n = _.installed.findIndex(e => e.id === t.id); - 1 === n ? _.installed.push(t) : _.installed[n] = t;
+          let r = _.all.findIndex(e => e.id === t.id); - 1 !== r && (_.all[r] = t), L.installed.get(`[data-id="${t.id}"]`) || L.installed.append(l()(P, O({
+            updates: e
+          }, t)))
+        }
+
+        function V(t) {
+          if (!e) {
+            _.installed = _.installed.filter(e => e.id !== t);
+            let e = _.all.find(e => e.id === t);
+            e && (e.installed = !1, e.localPlugin = null)
+          }
+          let n = L.installed.get(`[data-id="${t}"]`);
+          n && n.remove()
+        }
+
+        function X(e, t) {
+          return A.A.join(PLUGIN_DIR, e, t)
+        }
+
+        function Y(t, n) {
+          return S(function*() {
+            let r = h.default.value.pluginsDisabled || {};
+            n ? (r[t] = !0, h.default.update({
+              pluginsDisabled: r
+            }, !1), window.acode.unmountPlugin(t), window.toast(strings.plugin_disabled || "Plugin Disabled")) : (delete r[t], h.default.update({
+              pluginsDisabled: r
+            }, !1), yield(0, y.A)(t), window.toast(strings.plugin_enabled || "Plugin enabled"));
+            let i = _.installed.find(e => e.id === t);
+            i && (i.enabled = !n);
+            let o = _.all.find(e => e.id === t);
+            o && (o.enabled = !n);
+            let a = L.installed.get(`[data-id="${t}"]`);
+            if (a && i) {
+              let t = l()(P, O({
+                updates: e
+              }, i));
+              a.replaceWith(t)
+            }
+            let s = L.all.get(`[data-id="${t}"]`);
+            if (s && o) {
+              let t = l()(P, O({
+                updates: e
+              }, o));
+              s.replaceWith(t)
+            }
+          })()
+        }
+        navigator.onLine && J(), H().then(() => {
+          _.installed.length || G("all")
+        })
+      }
+    },
+    95904: function(e, t, n) {
+      "use strict";
+
+      function r(e) {
+        let t = String(e || "").trim().replace(/^v/i, "").split(".");
+        if (3 !== t.length) return null;
+        let n = t.map(e => /^\d+$/.test(e) ? Number(e) : 0 / 0);
+        return n.some(e => !Number.isSafeInteger(e)) ? null : n
+      }
+
+      function l(e, t) {
+        return function(e, t) {
+          let n = r(e),
+            l = r(t);
+          if (!n || !l) return 0;
+          for (let e = 0; e < n.length; e++) {
+            if (n[e] > l[e]) return 1;
+            if (n[e] < l[e]) return -1
+          }
+          return 0
+        }(e, t) > 0
+      }
+      n.d(t, {
+        pF: function() {
+          return l
+        }
+      })
+    }
+  }
+]);
